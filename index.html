@@ -1314,5 +1314,20 @@
   Performance, performance engineer, web-performance, web-optimization, predictive-navigation, UX, web-ux, ux-architecture, ux-performance, ux-engineer, ux-systems-engineer, ux-innovation, e-commerce, legacy-modernization, legacy, CMS, OpenCart, PWA, SRE, fullstack, SRE это, UX-engineer это, UX-systems-engineer это, performance-engineer это, SRE кто, UX-engineer кто, UX-systems-engineer кто, performance-engineer кто, UX-инженер, UX-инженерия, UX-инженерия в продакшене, UX-инженерия на легаси, Инженер по UX, инженер производительности, ускорение legacy, оптимизация OpenCart, Service Worker, TTFB, Lighthouse 100, снижение нагрузки на операторов, автоматизация поддержки, диалоговая система с ИИ, доверие через UX, живой интерфейс, современный UI на legacy
   </div>
 
+  <script>
+    window.addEventListener('scroll', function () {
+      const footer = document.querySelector('.footer');
+      if (!footer) return;
+
+      const rect = footer.getBoundingClientRect();
+      if (rect.top <= window.innerHeight && !window.hasReachedFooter) {
+        window.hasReachedFooter = true;
+        if (typeof ym !== 'undefined') {
+          ym(106460448, 'reachGoal', 'scroll_to_footer');
+        }
+      }
+    }, { passive: true });
+  </script>
+
 </body>
 </html>
