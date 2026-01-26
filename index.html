@@ -26,24 +26,33 @@
   <script>
     (function () {
       const referrer = document.referrer;
+      if (!referrer) return;
 
-      const isFromHh = referrer.includes('hh.ru');
-      const isFromHabrCareer = referrer.includes('career.habr.com');
+      const ymId = 106460448;
+      const goals = [
+        { check: 'hh.ru', event: 'would_be', flag: 'hasSentWouldBe' },
+        { check: 'career.habr.com', event: 'would_be', flag: 'hasSentWouldBe' },
+        { check: 'github.com', event: 'github', flag: 'hasSentGithubEvent' },
+        { check: 'linkedin.com', event: 'lnkdn', flag: 'hasSentLnkdnEvent' }
+      ];
 
-      if ((isFromHh || isFromHabrCareer) && !window.hasSentWouldBe) {
-        window.hasSentWouldBe = true;
+      goals.forEach(goal => {
+        if (
+          referrer.includes(goal.check) &&
+          !window[goal.flag]
+        ) {
+          window[goal.flag] = true;
 
-        const checkYm = setInterval(() => {
-          if (typeof ym !== 'undefined') {
-            ym(106460448, 'reachGoal', 'would_be');
-            clearInterval(checkYm);
-          }
-        }, 100);
+          const checkYm = setInterval(() => {
+            if (typeof ym !== 'undefined') {
+              ym(ymId, 'reachGoal', goal.event);
+              clearInterval(checkYm);
+            }
+          }, 100);
 
-        setTimeout(() => {
-          clearInterval(checkYm);
-        }, 3000);
-      }
+          setTimeout(() => clearInterval(checkYm), 3000);
+        }
+      });
     })();
   </script>
   <style>
