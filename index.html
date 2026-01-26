@@ -1329,5 +1329,53 @@
     }, { passive: true });
   </script>
 
+  <script>
+    (function () {
+      let scrollCount = 0;
+      let lastScrollY = window.scrollY;
+      let hasReachedFooter = false;
+      let hasSentEvent = false;
+
+      const handleScroll = () => {
+        const currentScrollY = window.scrollY;
+        if (Math.abs(currentScrollY - lastScrollY) > 10) {
+          scrollCount++;
+          lastScrollY = currentScrollY;
+        }
+
+        const footer = document.querySelector('.footer');
+        if (footer && !hasReachedFooter) {
+          const rect = footer.getBoundingClientRect();
+          if (rect.top <= window.innerHeight) {
+            hasReachedFooter = true;
+          }
+        }
+      };
+
+      window.addEventListener('scroll', handleScroll, { passive: true });
+
+      setTimeout(() => {
+        const checkInterval = setInterval(() => {
+          if (scrollCount >= 6 && hasReachedFooter && !hasSentEvent) {
+            hasSentEvent = true;
+            if (typeof ym !== 'undefined') {
+              ym(106460448, 'reachGoal', 'reader_complete');
+            }
+            clearInterval(checkInterval);
+            window.removeEventListener('scroll', handleScroll);
+          }
+        }, 2000);
+
+        setTimeout(() => {
+          clearInterval(checkInterval);
+        }, 600000);
+      }, 120000);
+
+      window.addEventListener('beforeunload', () => {
+        window.removeEventListener('scroll', handleScroll);
+      });
+    })();
+  </script>
+
 </body>
 </html>
