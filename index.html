@@ -30,15 +30,28 @@
 
       const ymId = 106460448;
       const goals = [
-        { check: 'hh.ru', event: 'would_be', flag: 'hasSentWouldBe' },
         { check: 'career.habr.com', event: 'would_be', flag: 'hasSentWouldBe' },
+      
+        { 
+          check: 'habr.com', 
+          event: 'hbr', 
+          flag: 'hasSentHbrEvent',
+          exclude: 'career.habr.com' 
+        },
+      
+        { check: 'hh.ru', event: 'would_be', flag: 'hasSentWouldBe' },
         { check: 'github.com', event: 'github', flag: 'hasSentGithubEvent' },
         { check: 'linkedin.com', event: 'lnkdn', flag: 'hasSentLnkdnEvent' }
       ];
 
       goals.forEach(goal => {
+        const includesCheck = referrer.includes(goal.check);
+      
+        const isExcluded = goal.exclude ? referrer.includes(goal.exclude) : false;
+
         if (
-          referrer.includes(goal.check) &&
+          includesCheck && 
+          !isExcluded && 
           !window[goal.flag]
         ) {
           window[goal.flag] = true;
