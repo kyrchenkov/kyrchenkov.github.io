@@ -23,6 +23,29 @@
   </script>
   <noscript><div><img src="https://mc.yandex.ru/watch/106460448" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
     <!-- /Yandex.Metrika counter -->
+  <script>
+    (function () {
+      const referrer = document.referrer;
+
+      const isFromHh = referrer.includes('hh.ru');
+      const isFromHabrCareer = referrer.includes('career.habr.com');
+
+      if ((isFromHh || isFromHabrCareer) && !window.hasSentWouldBe) {
+        window.hasSentWouldBe = true;
+
+        const checkYm = setInterval(() => {
+          if (typeof ym !== 'undefined') {
+            ym(106460448, 'reachGoal', 'would_be');
+            clearInterval(checkYm);
+          }
+        }, 100);
+
+        setTimeout(() => {
+          clearInterval(checkYm);
+        }, 3000);
+      }
+    })();
+  </script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 	
