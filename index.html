@@ -1,0 +1,1304 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta name="yandex-verification" content="0f8a754dff5d6823" />
+  <meta name="google-site-verification" content="fzfaHO9lVXDMgz6FsFgxfa0lo8SkCSC5BgW7S8RDfL4" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <meta name="description" content="UX Инженер и производительности или где пользовательский опыт берет начало в архитектуре">
+  <meta name="keywords" content="UX-инженер, UX-инженерия, UX-systems-engineer, performance engineer, web-performance, web-optimization, legacy, legacy-modernization, OpenCart, CMS, PWA, SRE, e-commerce, UX-architecture, predictive-navigation">
+  <title>Главная - Инженерия UX и производительности</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+	
+	@-webkit-keyframes breathe {
+	  50% {
+	    opacity: 0.80;
+	    -webkit-transform: scale(0.995);
+                transform: scale(0.995);
+	  }
+	}
+
+	@-moz-keyframes breathe {
+ 	 50% {
+	    opacity: 0.80;
+	    -moz-transform: scale(0.995);
+             transform: scale(0.995);
+	  }
+	}
+
+	@-ms-keyframes breathe {
+	  50% {
+	    opacity: 0.80;
+	    -ms-transform: scale(0.995);
+	        transform: scale(0.995);
+	  }
+	}
+
+	@-o-keyframes breathe {
+	  50% {
+	    opacity: 0.80;
+	    -o-transform: scale(0.995);
+           transform: scale(0.995);
+	  }
+	}
+
+	@keyframes breathe {
+	  50% {
+	    opacity: 0.80;
+	    transform: scale(0.995);
+	  }
+	}
+	
+	@-webkit-keyframes stun {
+	  50% {
+	    -webkit-filter: drop-shadow(0px 0px 5px #0069c1) contrast(1.3);
+	            filter: drop-shadow(0px 0px 5px #0069c1) contrast(1.3);
+	  }
+	  95% {
+	    -webkit-filter: drop-shadow(0px 0px 5px #0069c1) contrast(1);
+	            filter: drop-shadow(0px 0px 5px #0069c1) contrast(1);
+	  }
+	  95.5% {
+	    -webkit-filter: drop-shadow(0px 0px 5px #0069c1) contrast(1.3);
+	            filter: drop-shadow(0px 0px 5px #0069c1) contrast(1.3);
+	  }
+ 	 96% {
+	    -webkit-filter: drop-shadow(0px 0px 5px #0069c1) contrast(1);
+	            filter: drop-shadow(0px 0px 5px #0069c1) contrast(1);
+	  }
+	  96.5% {
+	    -webkit-filter: drop-shadow(0px 0px 5px #0069c1) contrast(1.3);
+	            filter: drop-shadow(0px 0px 5px #0069c1) contrast(1.3);
+	  }
+	  99% {
+ 	   -webkit-filter: drop-shadow(0px 0px 5px #0069c1) contrast(1.3);
+	            filter: drop-shadow(0px 0px 5px #0069c1) contrast(1.3);
+	  }
+	}
+
+	@-moz-keyframes stun {
+	  50% {
+	    -moz-filter: drop-shadow(0px 0px 5px #0069c1) contrast(1.3);
+	         filter: drop-shadow(0px 0px 5px #0069c1) contrast(1.3);
+	  }
+	  95% {
+	    -moz-filter: drop-shadow(0px 0px 5px #0069c1) contrast(1);
+	         filter: drop-shadow(0px 0px 5px #0069c1) contrast(1);
+	  }
+	  95.5% {
+	    -moz-filter: drop-shadow(0px 0px 5px #0069c1) contrast(1.3);
+	         filter: drop-shadow(0px 0px 5px #0069c1) contrast(1.3);
+	  }
+	  96% {
+	    -moz-filter: drop-shadow(0px 0px 5px #0069c1) contrast(1);
+	         filter: drop-shadow(0px 0px 5px #0069c1) contrast(1);
+	  }
+	  96.5% {
+	    -moz-filter: drop-shadow(0px 0px 5px #0069c1) contrast(1.3);
+	         filter: drop-shadow(0px 0px 5px #0069c1) contrast(1.3);
+	  }
+ 	 99% {
+ 	   -moz-filter: drop-shadow(0px 0px 5px #0069c1) contrast(1.3);
+	        filter: drop-shadow(0px 0px 5px #0069c1) contrast(1.3);
+ 	 }
+	}
+
+	@-ms-keyframes stun {
+	  50% {
+	    -ms-filter: drop-shadow(0px 0px 5px #0069c1) contrast(1.3);
+	        filter: drop-shadow(0px 0px 5px #0069c1) contrast(1.3);
+	  }
+	  95% {
+	    -ms-filter: drop-shadow(0px 0px 5px #0069c1) contrast(1);
+	        filter: drop-shadow(0px 0px 5px #0069c1) contrast(1);
+	  }
+	  95.5% {
+	    -ms-filter: drop-shadow(0px 0px 5px #0069c1) contrast(1.3);
+	        filter: drop-shadow(0px 0px 5px #0069c1) contrast(1.3);
+	  }
+	  96% {
+	    -ms-filter: drop-shadow(0px 0px 5px #0069c1) contrast(1);
+	        filter: drop-shadow(0px 0px 5px #0069c1) contrast(1);
+	  }
+ 	 96.5% {
+	    -ms-filter: drop-shadow(0px 0px 5px #0069c1) contrast(1.3);
+	        filter: drop-shadow(0px 0px 5px #0069c1) contrast(1.3);
+	  }
+	  99% {
+ 	   -ms-filter: drop-shadow(0px 0px 5px #0069c1) contrast(1.3);
+	        filter: drop-shadow(0px 0px 5px #0069c1) contrast(1.3);
+	  }
+	}
+
+	@-o-keyframes stun {
+	  50% {
+	    -o-filter: drop-shadow(0px 0px 5px #0069c1) contrast(1.3);
+	       filter: drop-shadow(0px 0px 5px #0069c1) contrast(1.3);
+	  }
+	  95% {
+	    -o-filter: drop-shadow(0px 0px 5px #0069c1) contrast(1);
+	       filter: drop-shadow(0px 0px 5px #0069c1) contrast(1);
+	  }
+	  95.5% {
+	    -o-filter: drop-shadow(0px 0px 5px #0069c1) contrast(1.3);
+	       filter: drop-shadow(0px 0px 5px #0069c1) contrast(1.3);
+	  }
+	  96% {
+	    -o-filter: drop-shadow(0px 0px 5px #0069c1) contrast(1);
+	       filter: drop-shadow(0px 0px 5px #0069c1) contrast(1);
+	  }
+	  96.5% {
+	    -o-filter: drop-shadow(0px 0px 5px #0069c1) contrast(1.3);
+	       filter: drop-shadow(0px 0px 5px #0069c1) contrast(1.3);
+	  }
+	  99% {
+	    -o-filter: drop-shadow(0px 0px 5px #0069c1) contrast(1.3);
+	       filter: drop-shadow(0px 0px 5px #0069c1) contrast(1.3);
+	  }
+	}
+
+	@keyframes stun {
+	  50% {
+	    filter: drop-shadow(0px 0px 5px #0069c1) contrast(1.3);
+	  }
+	  95% {
+	    filter: drop-shadow(0px 0px 5px #0069c1) contrast(1);
+	  }
+	  95.5% {
+	    filter: drop-shadow(0px 0px 5px #0069c1) contrast(1.3);
+	  }
+	  96% {
+	    filter: drop-shadow(0px 0px 5px #0069c1) contrast(1);
+	  }
+	  96.5% {
+	    filter: drop-shadow(0px 0px 5px #0069c1) contrast(1.3);
+	  }
+	  99% {
+	    filter: drop-shadow(0px 0px 5px #0069c1) contrast(1.3);
+	  }
+	}
+
+	@-webkit-keyframes sigh-stun {
+	  50% {
+	    opacity: 1;
+	    -webkit-filter: drop-shadow(0px 0px 3px #0069c1) contrast(1.05);
+	            filter: drop-shadow(0px 0px 3px #0069c1) contrast(1.05);
+	  }
+	}
+
+	@-moz-keyframes sigh-stun {
+	  50% {
+	    opacity: 1;
+	    -moz-filter: drop-shadow(0px 0px 3px #0069c1) contrast(1.05);
+	         filter: drop-shadow(0px 0px 3px #0069c1) contrast(1.05);
+	  }
+	}
+
+	@-ms-keyframes sigh-stun {
+	  50% {
+ 	   opacity: 1;
+ 	   -ms-filter: drop-shadow(0px 0px 3px #0069c1) contrast(1.05);
+	       filter: drop-shadow(0px 0px 3px #0069c1) contrast(1.05);
+	  }
+	}
+
+	@-o-keyframes sigh-stun {
+	  50% {
+	    opacity: 1;
+	    -o-filter: drop-shadow(0px 0px 3px #0069c1) contrast(1.05);
+	       filter: drop-shadow(0px 0px 3px #0069c1) contrast(1.05);
+	  }
+	}
+
+	@keyframes sigh-stun {
+ 	 50% {
+	    opacity: 1;
+	    filter: drop-shadow(0px 0px 3px #0069c1) contrast(1.05);
+	  }
+	}
+
+	@-webkit-keyframes ready {
+	  25% {
+	    color: #5695ff;
+	  }
+	  50% {
+ 	   color: transparent;
+ 	   background-image: -webkit-linear-gradient(270deg, #5695ff 25%, #785fff 90%);
+	   background-image:         linear-gradient(270deg, #5695ff 25%, #785fff 90%);
+	  }
+	  75% {
+	    color: #785fff;
+	}
+	}
+
+	@-moz-keyframes ready {
+	  25% {
+	    color: #5695ff;
+	  }
+	  50% {
+	    color: transparent;
+	    background-image: -moz-linear-gradient(270deg, #5695ff 25%, #785fff 90%);
+	    background-image:      linear-gradient(270deg, #5695ff 25%, #785fff 90%);
+	  }
+	  75% {
+	    color: #785fff;
+	  }
+	}
+
+	@-ms-keyframes ready {
+	  25% {
+	    color: #5695ff;
+	  }
+	  50% {
+ 	   color: transparent;
+ 	   background-image: -ms-linear-gradient(270deg, #5695ff 25%, #785fff 90%);
+	   background-image:     linear-gradient(270deg, #5695ff 25%, #785fff 90%);
+	  }
+	  75% {
+	    color: #785fff;
+	  }
+	}
+
+	@-o-keyframes ready {
+	  25% {
+	    color: #5695ff;
+	  }
+	  50% {
+ 	   color: transparent;
+	    background-image: -o-linear-gradient(270deg, #5695ff 25%, #785fff 90%);
+	    background-image:    linear-gradient(270deg, #5695ff 25%, #785fff 90%);
+	  }
+	  75% {
+	    color: #785fff;
+	  }
+	}
+
+	@keyframes ready {
+	  25% {
+	    color: #5695ff;
+	  }
+	  50% {
+	    color: transparent;
+	    background-image: linear-gradient(270deg, #5695ff 25%, #785fff 90%);
+	  }
+	  75% {
+    color: #785fff;
+	  }
+	}
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.6;
+      color: #2c3e50eb;
+      background: #d3e3ff66;
+      padding: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+      user-select: none;
+      text-shadow: 0px 0px 5px #cee9ff;
+    }
+
+    h1 {
+      color: #d3e3ff;
+      font-size: 28px;
+      text-align: center;
+      padding-bottom: 15px;
+      margin-bottom: 10px;
+      border-bottom: 4px solid transparent;
+      border-image-slice: 1 !important;
+      border-image: -webkit-linear-gradient(to right, transparent, #d3e3ff, transparent);
+	  border-image:    -moz-linear-gradient(to right, transparent, #d3e3ff, transparent);
+	  border-image:     -ms-linear-gradient(to right, transparent, #d3e3ff, transparent);
+	  border-image:      -o-linear-gradient(to right, transparent, #d3e3ff, transparent);
+	  border-image:         linear-gradient(to right, transparent, #d3e3ff, transparent);
+      filter: drop-shadow(0px 0px 5px #0069c1) contrast(1);
+      -webkit-animation: stun 8s linear infinite;
+         -moz-animation: stun 8s linear infinite;
+          -ms-animation: stun 8s linear infinite;
+           -o-animation: stun 8s linear infinite;
+              animation: stun 8s linear infinite;
+    }
+
+    h2 {
+      color: #d3e3ff;
+      font-size: 20px;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 8px;
+      margin-top: 30px;
+      opacity: 0.99;
+      border-bottom: 1px solid transparent;
+      border-image-slice: 1 !important;
+      border-image: -webkit-linear-gradient(to right, transparent, #ddd, #ddd, #ddd, #ddd, #ddd, #ddd, transparent);
+	  border-image:    -moz-linear-gradient(to right, transparent, #ddd, #ddd, #ddd, #ddd, #ddd, #ddd, transparent);
+	  border-image:     -ms-linear-gradient(to right, transparent, #ddd, #ddd, #ddd, #ddd, #ddd, #ddd, transparent);
+	  border-image:      -o-linear-gradient(to right, transparent, #ddd, #ddd, #ddd, #ddd, #ddd, #ddd, transparent);
+	  border-image:         linear-gradient(to right, transparent, #ddd, #ddd, #ddd, #ddd, #ddd, #ddd, transparent);
+      filter: drop-shadow(0px 0px 3px #0069c1) contrast(1.2);
+      -webkit-animation: sigh-stun 8s linear infinite;
+         -moz-animation: sigh-stun 8s linear infinite;
+          -ms-animation: sigh-stun 8s linear infinite;
+           -o-animation: sigh-stun 8s linear infinite;
+              animation: sigh-stun 8s linear infinite;
+    }
+
+    h3 {
+      font-size: 18px;
+      color: #9dd2ff;
+      margin-top: 20px;
+      text-shadow: 0px 0px 3px #a0d8ff;
+    }
+
+    p {
+      margin: 8px 0;
+      text-align: justify;
+    }
+
+    ul, ol {
+      margin: 10px 0 10px 30px;
+    }
+
+    li {
+      margin: 5px 0;
+    }
+
+    code {
+      color: #deedfffc;
+      background: #0069c112;
+      padding: 2px 6px;
+      -webkit-border-radius: 6px;
+         -moz-border-radius: 6px;
+          -ms-border-radius: 6px;
+           -o-border-radius: 6px;
+              border-radius: 6px;
+      font-family: 'Courier New', monospace;
+      font-size: 14px;
+      filter: drop-shadow(2px 4px 5px #0069c1d1);
+      text-shadow: 0px 0px 2px #0069c1;
+    }
+
+    pre {
+      background: #f8f9fa;
+      padding: 15px;
+      -webkit-border-radius: 8px;
+	     -moz-border-radius: 8px;
+	      -ms-border-radius: 8px;
+	       -o-border-radius: 8px;
+	          border-radius: 8px;
+      overflow-x: auto;
+      border: 1px solid #e0e0e0;
+      font-size: 13px;
+      line-height: 1.5;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 15px 0;
+      font-size: 14px;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    table, th, td {
+      border: 1px solid #ddd;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: left;
+    }
+
+    th {
+      background: #f8f5ef;
+      color: #3b87f3;
+    }
+
+    tr:nth-child(even) {
+      background: #f9fafa;
+    }
+	
+    blockquote {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 12px 20px;
+      font-style: italic;
+      line-height: 1.2;
+      color: transparent;
+	  text-decoration: none;
+      -webkit-background-clip: text;
+         -moz-background-clip: text;
+          -ms-background-clip: text;
+           -o-background-clip: text;
+      background-clip: text;
+      background-image: -webkit-linear-gradient(90deg, #5695ff 25%, #785fff 90%);
+      background-image:    -moz-linear-gradient(90deg, #5695ff 25%, #785fff 90%);
+      background-image:     -ms-linear-gradient(90deg, #5695ff 25%, #785fff 90%);
+      background-image:      -o-linear-gradient(90deg, #5695ff 25%, #785fff 90%);
+      background-image:         linear-gradient(90deg, #5695ff 25%, #785fff 90%);
+      -webkit-animation: ready 16s linear infinite;
+         -moz-animation: ready 16s linear infinite;
+          -ms-animation: ready 16s linear infinite;
+           -o-animation: ready 16s linear infinite;
+              animation: ready 16s linear infinite;
+    }
+	
+    img {
+      display: block;
+      width: 600px;
+      max-width: 80vw;
+      margin: 20px auto 20px auto;
+      -webkit-border-radius: 35px;
+         -moz-border-radius: 35px;
+          -ms-border-radius: 35px;
+           -o-border-radius: 35px;
+              border-radius: 35px;
+      -webkit-box-shadow: 0 5px 10px 0#586def;
+        -moz-box-shadow: 0 5px 10px 0 #586def;
+         -ms-box-shadow: 0 5px 10px 0 #586def;
+          -o-box-shadow: 0 5px 10px 0 #586def;
+             box-shadow: 0 5px 10px 0 #586def;
+    }
+
+    .footer {
+      margin-top: 30px;
+      text-align: center;
+      font-size: 12px;
+      color: #7f8c8d;
+      border-top: 1px solid #cde0ff;
+      padding-top: 20px;
+    }
+
+    .accent {
+      color: #5695ff;
+      margin: 15px 0;
+      padding: 15px;
+      max-width: 835px;
+      background: 0 0;
+      --btn-bg-1: transparent;
+      --btn-bg-2: #66b9ffa1;
+      background-size: 280% auto;
+      background-image: -webkit-linear-gradient(325deg, var(--btn-bg-2) 0,
+	                                                    var(--btn-bg-1) 55%,
+	                                                    var(--btn-bg-2) 90%);
+      background-image:    -moz-linear-gradient(325deg, var(--btn-bg-2) 0,
+	                                                    var(--btn-bg-1) 55%,
+	                                                    var(--btn-bg-2) 90%);
+      background-image:     -ms-linear-gradient(325deg, var(--btn-bg-2) 0,
+	                                                    var(--btn-bg-1) 55%,
+	                                                    var(--btn-bg-2) 90%);
+      background-image:      -o-linear-gradient(325deg, var(--btn-bg-2) 0,
+	                                                    var(--btn-bg-1) 55%,
+	                                                    var(--btn-bg-2) 90%);
+      background-image:         linear-gradient(325deg, var(--btn-bg-2) 0,
+	                                                    var(--btn-bg-1) 55%,
+	                                                    var(--btn-bg-2) 90%);
+      -webkit-box-shadow: 0 0 20px #785fff36,
+	                      0 5px 5px -1px #785fff2e,
+	                      inset 4px 4px 8px #785fff54,
+	                      inset -4px -4px 8px #785fff45;
+         -moz-box-shadow: 0 0 20px #785fff36,
+	                      0 5px 5px -1px #785fff2e,
+	                      inset 4px 4px 8px #785fff54,
+	                      inset -4px -4px 8px #785fff45;
+          -ms-box-shadow: 0 0 20px #785fff36,
+	                      0 5px 5px -1px #785fff2e,
+	                      inset 4px 4px 8px #785fff54,
+	                      inset -4px -4px 8px #785fff45;
+           -o-box-shadow: 0 0 20px #785fff36,
+	                      0 5px 5px -1px #785fff2e,
+	                      inset 4px 4px 8px #785fff54,
+	                      inset -4px -4px 8px #785fff45;
+              box-shadow: 0 0 20px #785fff36,
+	                      0 5px 5px -1px #785fff2e,
+	                      inset 4px 4px 8px #785fff54,
+	                      inset -4px -4px 8px #785fff45;
+
+      font-style: italic;
+      break-inside: avoid;
+      -webkit-border-radius: 12px;
+	     -moz-border-radius: 12px;
+	      -ms-border-radius: 12px;
+	       -o-border-radius: 12px;
+	          border-radius: 12px;
+      border-left: 4px solid #cbe8ff;
+      border-right: 4px solid #7bc3ff1a;
+	  text-shadow: 0px 0px 3px #71beff;
+      -webkit-animation: breathe 8s linear infinite;
+         -moz-animation: breathe 8s linear infinite;
+          -ms-animation: breathe 8s linear infinite;
+           -o-animation: breathe 8s linear infinite;
+              animation: breathe 8s linear infinite;
+      }
+	  
+    .ready-contact a {
+      margin: 26px;
+      font-size: 32px;
+      color: transparent;
+	  text-decoration: none;
+      -webkit-background-clip: text;
+         -moz-background-clip: text;
+          -ms-background-clip: text;
+           -o-background-clip: text;
+      background-clip: text;
+	  filter: drop-shadow(5px 5px 5px #586def7d);
+      background-image: -webkit-linear-gradient(90deg, #5695ff 25%, #785fff 90%);
+      background-image:    -moz-linear-gradient(90deg, #5695ff 25%, #785fff 90%);
+      background-image:     -ms-linear-gradient(90deg, #5695ff 25%, #785fff 90%);
+      background-image:      -o-linear-gradient(90deg, #5695ff 25%, #785fff 90%);
+      background-image:         linear-gradient(90deg, #5695ff 25%, #785fff 90%);
+      -webkit-animation: ready 16s linear infinite;
+         -moz-animation: ready 16s linear infinite;
+          -ms-animation: ready 16s linear infinite;
+           -o-animation: ready 16s linear infinite;
+              animation: ready 16s linear infinite;
+    }
+	
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+      max-width: 800px;
+      margin-top: -400px;
+      margin-left: 500px;
+      margin-bottom: -75px;
+    }
+
+    .node {
+      min-height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 12px;
+      background: #ffffff;
+      border: 1.5px solid #2c3e50;
+      border-radius: 18px;
+      font-size: 22px;
+      font-weight: 500;
+      text-align: center;
+      line-height: 1.5;
+	  margin: -8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06),
+	              0 5px 5px -1px #e938381f,
+	              0 0 20px #ff00003b;
+      word-break: break-word;
+    }
+
+    .node-legacy {
+      font-size: 25px;
+      width: 400px;
+      background: #939292;
+      color: #d6d6d6;
+      opacity: .7;
+      border: 5px solid #bababa;
+      text-shadow: 0 0 8px #000;
+    }
+	
+    .node-cache {
+      font-size: 24px;
+      width: 500px;
+      background: #785fffeb;
+      color: #dad3ffeb;
+      opacity: .7;
+	  margin-left: 1%;
+      border: 5px solid #bbafffeb;
+      text-shadow: 0 0 8px #2000ceeb;
+    }
+	
+    .node-navigation {
+      font-size: 23px;
+      width: 600px;
+      background: #ff8787;
+      color: #ffd2d2;
+      opacity: .7;
+	  margin-left: 2%;
+	  padding-left: 30px;
+      border: 5px solid #ffb7b7;
+      text-shadow: 0 0 8px #d40000;
+    }
+	
+    .node-pwa {
+      font-size: 22px;
+      width: 675px;
+      background: #1c97ffdb;
+      color: #b1dcff;
+      opacity: .7;
+	  margin-left: 3%;
+      border: 5px solid #88c9ffdb;
+      text-shadow: 0 0 8px #052c4d;
+    }
+	
+    .node-extension {
+      font-size: 21px;
+      width: 600px;
+      background: #ffb986;
+      color: #ffe7d7;
+      opacity: .7;
+	  margin-left: 2%;
+      border: 5px solid #ffd6b7;
+      text-shadow: 0 0 8px #b44c00;
+    }
+	
+    .node-dialog {
+      font-size: 20px;
+      width: 500px;
+      background: #58d171ed;
+      color: #b3f8c1ed;
+      opacity: .7;
+	  margin-left: 1%;
+      border: 5px solid #afeabbed;
+      text-shadow: 0 0 8px #00791aed;
+    }
+	
+    .node-ux {
+      font-size: 19px;
+      width: 400px;
+      background: linear-gradient(90deg, #ff56ace0 25%, #a059fee3 90%);
+      color: #f3eaffe3;
+      opacity: .7;
+      border: 5px solid #caa8f6e3;
+      text-shadow: 0 0 8px #8d38ffe3;
+    }
+	
+    .node-ui {
+      font-size: 18px;
+      width: 300px;
+      background: linear-gradient(300deg, #ff990061 25%, #ff56acc2 90%);
+      color: #ffe2f1;
+      opacity: .7;
+	  margin-left: -3%;
+      border: 5px solid #ffd5eac2;
+      text-shadow: 0 0 8px #ff00828c;
+      filter: drop-shadow(0px 0px 0px #ff56ac);
+    }
+	
+    .node-attention {
+      font-size: 26px;
+      padding: 20px 24px;
+      width: 280px;
+      background: #a8c8ffe8;
+      color: #e6f0ff;
+      opacity: .7;
+      border: 5px solid #d0e1ff;
+      text-shadow: 0 0 8px #438cff;
+	  margin-left: 30%;
+	  transform: rotateZ(0.5deg);
+    }
+	
+	@media (max-width: 767px) {
+      body {
+        padding: 20px;
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
+      h1 {
+        font-size: 24px;
+        padding-bottom: 12px;
+        margin-top: 10px;
+        margin-bottom: 20px;
+      }
+
+      h2 {
+        font-size: 18px;
+        padding-bottom: 6px;
+      }
+
+      h3 {
+        font-size: 16px;
+        margin-top: 16px;
+      }
+
+      p {
+        font-size: 14px;
+		text-align: start;
+      }
+
+      ul, ol {
+        margin-left: 20px;
+        padding-left: 10px;
+      }
+
+      li {
+        margin: 4px 0;
+      }
+
+      code {
+        font-size: 13px;
+        padding: 2px 5px;
+      }
+
+      pre {
+        font-size: 12px;
+        padding: 12px;
+      }
+
+      table {
+        font-size: 12px;
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+      }
+
+      th, td {
+        padding: 6px 8px;
+      }
+
+      .accent {
+        padding: 12px;
+        margin: 12px 0;
+        font-size: 14px;
+        -webkit-border-radius: 10px;
+		   -moz-border-radius: 10px;
+		    -ms-border-radius: 10px;
+		     -o-border-radius: 10px;
+		        border-radius: 10px;
+      }
+
+      .ready-contact {
+        font-size: 15px;
+        display: block;
+        text-align: center;
+        margin-top: 8px;
+      }
+
+      .footer {
+        font-size: 11px;
+        padding-top: 15px;
+      }
+
+      h1, h2 {
+        text-align: center;
+        border-image: -webkit-linear-gradient(to right, transparent, #d3e3ff, transparent);
+        border-image:    -moz-linear-gradient(to right, transparent, #d3e3ff, transparent);
+        border-image:     -ms-linear-gradient(to right, transparent, #d3e3ff, transparent);
+        border-image:      -o-linear-gradient(to right, transparent, #d3e3ff, transparent);
+        border-image:         linear-gradient(to right, transparent, #d3e3ff, transparent);
+      }
+
+      p[style*="text-align: center"] {
+        font-size: 14px;
+        line-height: 1.4;
+      }
+
+      .container {
+        zoom: 50%;
+        padding: 60px 30px;
+        max-width: 800px;
+        margin: 0 auto;
+	  }
+	}
+  </style>
+  
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    (function() {
+      const heading = document.querySelector('h1');
+      if (!heading) return;
+
+      const ANIMATION_DURATION = 8000;
+      const rect = heading.getBoundingClientRect();
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d', { willReadFrequently: true });
+
+      canvas.width = rect.width;
+      canvas.height = rect.height;
+      canvas.style.cssText = 
+        'position:absolute;' +
+        'top:' + (rect.top + window.scrollY) + 'px;' +
+        'left:' + (rect.left + window.scrollX) + 'px;' +
+        'pointer-events:none;' +
+        'z-index:1;';
+      document.body.appendChild(canvas);
+
+      function triggerShake() {
+        heading.style.transform = 'translateX(1px)';
+        setTimeout(() => heading.style.transform = 'translateX(-1px)', 20);
+        setTimeout(() => heading.style.transform = 'translateX(0.5px)', 40);
+        setTimeout(() => heading.style.transform = 'translateX(-0.5px)', 60);
+        setTimeout(() => heading.style.transform = 'translateX(0)', 80);
+      }
+
+      let fadeStepId = null;
+      function fadeStep() {
+        const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        const data = imageData.data;
+        let hasPixels = false;
+        for (let i = 3; i < data.length; i += 4) {
+          if (data[i] > 6) {
+            data[i] = Math.max(0, data[i] - 10);
+            hasPixels = true;
+          }
+        }
+        ctx.putImageData(imageData, 0, 0);
+        if (hasPixels) fadeStepId = requestAnimationFrame(fadeStep);
+      }
+
+      function drawSpark(x, y, length, angle, depth) {
+        if (depth > 2) return;
+
+        const steps = 2 + Math.floor(Math.random() * 3);
+        ctx.beginPath();
+        let cx = x, cy = y;
+        ctx.moveTo(cx, cy);
+
+        for (let i = 0; i < steps; i++) {
+          const dx = Math.cos(angle + (Math.random() - 0.5) * 0.6) * (length / steps);
+          const dy = Math.sin(angle + (Math.random() - 0.5) * 0.6) * (length / steps);
+          cx += dx; cy += dy;
+          cx = Math.max(2, Math.min(canvas.width - 2, cx));
+          cy = Math.max(2, Math.min(canvas.height - 2, cy));
+          ctx.lineTo(cx, cy);
+        }
+
+        ctx.lineWidth = 0.5 + Math.random() * 0.4;
+        ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+        ctx.strokeStyle = 'hsla(270,100%,95%,0.8)';
+        ctx.shadowColor = 'white'; ctx.shadowBlur = 3;
+        ctx.stroke();
+
+        ctx.lineWidth = 0.8 + Math.random() * 0.6;
+        ctx.strokeStyle = 'hsla(275,85%,80%,0.6)';
+        ctx.shadowColor = `hsl(${270 + Math.random() * 20},100%,70%)`;
+        ctx.shadowBlur = 10 + Math.random() * 8;
+        ctx.stroke();
+
+        ctx.lineWidth = 0.5 + Math.random() * 0.3;
+        ctx.shadowColor = 'hsl(280,100%,60%)';
+        ctx.shadowBlur = 14 + Math.random() * 6;
+        ctx.strokeStyle = 'hsla(280,100%,65%,0.3)';
+        ctx.stroke();
+
+        if (depth < 2 && Math.random() < 0.4) {
+          const branchAngle1 = angle + 0.8 + Math.random() * 0.5;
+          const branchAngle2 = angle - 0.8 - Math.random() * 0.5;
+          const branchLength = length * (0.5 + Math.random() * 0.3);
+          setTimeout(() => drawSpark(cx, cy, branchLength, branchAngle1, depth + 1), 10 + Math.random() * 20);
+          setTimeout(() => drawSpark(cx, cy, branchLength, branchAngle2, depth + 1), 15 + Math.random() * 25);
+        }
+      }
+
+      function triggerDischarge() {
+        const x = 20 + Math.random() * (canvas.width - 40);
+        const y = 20 + Math.random() * (canvas.height - 40);
+        const length = 15 + Math.random() * 35;
+        const angle = Math.random() * Math.PI * 2;
+
+        drawSpark(x, y, length, angle, 0);
+        triggerShake();
+
+        if (fadeStepId) cancelAnimationFrame(fadeStepId);
+        fadeStepId = requestAnimationFrame(fadeStep);
+      }
+
+     let intervalId = null;
+
+      function scheduleDischarges() {
+        intervalId = setInterval(() => {
+          setTimeout(triggerDischarge, 4000);
+          setTimeout(triggerDischarge, 7600);
+          setTimeout(triggerDischarge, 7640);
+          setTimeout(triggerDischarge, 7680);
+          setTimeout(triggerDischarge, 7720);
+        }, ANIMATION_DURATION);
+      }
+
+      let ticking = false;
+      function updatePosition() {
+        if (!ticking) {
+          requestAnimationFrame(() => {
+            const rect = heading.getBoundingClientRect();
+            canvas.width = rect.width;
+            canvas.height = rect.height;
+            canvas.style.top = (rect.top + window.scrollY) + 'px';
+            canvas.style.left = (rect.left + window.scrollX) + 'px';
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }
+
+      const domObserver = new MutationObserver(updatePosition);
+      domObserver.observe(document.body, {
+        childList: true,
+        subtree: true
+      });
+
+      window.addEventListener('resize', updatePosition);
+      window.addEventListener('scroll', updatePosition, { passive: true });
+
+      window.__dischargeEffect = {
+        stop: () => {
+          if (intervalId) clearInterval(intervalId);
+          window.removeEventListener('resize', updatePosition);
+          window.removeEventListener('scroll', updatePosition);
+          domObserver.disconnect();
+          if (fadeStepId) cancelAnimationFrame(fadeStepId);
+          if (canvas.parentNode) canvas.parentNode.removeChild(canvas);
+        }
+      };
+
+      scheduleDischarges();
+    })();
+  });
+
+  document.addEventListener('DOMContentLoaded', function() {
+    (function() {
+      const MIN_DELAY = 30000;
+      const MAX_DELAY = 60000;
+      let dischargeTimeoutId = null;
+
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d', { willReadFrequently: true });
+
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      canvas.style.cssText = 
+        'position:fixed;' +
+        'top:0;' +
+        'left:0;' +
+        'width:100%;' +
+        'height:100%;' +
+        'pointer-events:none;' +
+        'z-index:9999;' +
+        'opacity:0.7;';
+      document.body.appendChild(canvas);
+
+      function triggerContrastPulse() {
+        document.body.style.transition = 'filter 0.06s ease-out';
+        document.body.style.filter = 'contrast(1.15) brightness(1.02)';
+
+        setTimeout(() => {
+          document.body.style.filter = 'contrast(1.06)';
+        }, 40);
+
+        setTimeout(() => {
+          document.body.style.filter = 'contrast(1.02)';
+        }, 70);
+
+        setTimeout(() => {
+          document.body.style.filter = 'none';
+        }, 100);
+      }
+
+      let fadeStepId = null;
+      function fadeStep() {
+        const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        const data = imageData.data;
+        let hasPixels = false;
+        for (let i = 3; i < data.length; i += 4) {
+          if (data[i] > 6) {
+            data[i] = Math.max(0, data[i] - 10);
+            hasPixels = true;
+          }
+        }
+        ctx.putImageData(imageData, 0, 0);
+        if (hasPixels) fadeStepId = requestAnimationFrame(fadeStep);
+      }
+
+      function drawSpark(x, y, length, angle, depth) {
+        if (depth > 2) return;
+
+        const steps = 2 + Math.floor(Math.random() * 3);
+        ctx.beginPath();
+        let cx = x, cy = y;
+        ctx.moveTo(cx, cy);
+
+        for (let i = 0; i < steps; i++) {
+          const dx = Math.cos(angle + (Math.random() - 0.5) * 0.6) * (length / steps);
+          const dy = Math.sin(angle + (Math.random() - 0.5) * 0.6) * (length / steps);
+          cx += dx; cy += dy;
+          cx = Math.max(2, Math.min(canvas.width - 2, cx));
+          cy = Math.max(2, Math.min(canvas.height - 2, cy));
+          ctx.lineTo(cx, cy);
+        }
+
+        ctx.lineWidth = 0.6 + Math.random() * 0.5;
+        ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+        ctx.strokeStyle = 'hsla(270,100%,95%,0.7)';
+        ctx.shadowColor = 'white'; ctx.shadowBlur = 4;
+        ctx.stroke();
+
+        ctx.lineWidth = 1.0 + Math.random() * 0.6;
+        ctx.strokeStyle = 'hsla(275,90%,80%,0.6)';
+        ctx.shadowColor = `hsl(${270 + Math.random() * 20},100%,75%)`;
+        ctx.shadowBlur = 12;
+        ctx.stroke();
+
+        ctx.lineWidth = 0.5 + Math.random() * 0.4;
+        ctx.shadowColor = 'hsl(280,100%,65%)';
+        ctx.shadowBlur = 16;
+        ctx.strokeStyle = 'hsla(280,100%,70%,0.3)';
+        ctx.stroke();
+
+        if (depth < 2 && Math.random() < 0.3) {
+          const branchAngle1 = angle + 0.8 + Math.random() * 0.5;
+          const branchAngle2 = angle - 0.8 - Math.random() * 0.5;
+          const branchLength = length * (0.5 + Math.random() * 0.3);
+          setTimeout(() => drawSpark(cx, cy, branchLength, branchAngle1, depth + 1), 15 + Math.random() * 25);
+          setTimeout(() => drawSpark(cx, cy, branchLength, branchAngle2, depth + 1), 20 + Math.random() * 30);
+        }
+      }
+
+      function triggerDischarge() {
+        const x = 20 + Math.random() * (canvas.width - 40);
+        const y = 20 + Math.random() * (canvas.height - 40);
+        const length = 20 + Math.random() * 50;
+        const angle = Math.random() * Math.PI * 2;
+
+        drawSpark(x, y, length, angle, 0);
+        triggerContrastPulse();
+
+        if (fadeStepId) cancelAnimationFrame(fadeStepId);
+        fadeStepId = requestAnimationFrame(fadeStep);
+
+        scheduleNextDischarge();
+      }
+
+      function scheduleNextDischarge() {
+        const delay = MIN_DELAY + Math.random() * (MAX_DELAY - MIN_DELAY);
+        dischargeTimeoutId = setTimeout(triggerDischarge, delay);
+      }
+
+      function handleResize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+      window.addEventListener('resize', handleResize);
+
+      window.__globalDischargeEffect = {
+        stop: () => {
+          window.removeEventListener('resize', handleResize);
+          if (dischargeTimeoutId) clearTimeout(dischargeTimeoutId);
+          if (fadeStepId) cancelAnimationFrame(fadeStepId);
+          if (canvas.parentNode) canvas.parentNode.removeChild(canvas);
+        }
+      };
+
+      scheduleNextDischarge();
+    })();
+  });
+  </script>
+</head>
+<body>
+
+  <h1>Инженерия UX и производительности</h1>
+  <p style="text-align: center; font-weight: 500; font-size: 18px; color: #2c3e50;">
+    Внимание пользователя как архитектура надёжности, автоматизации и доверия
+  </p>
+  <p style="text-align: center;">
+    <strong>Автор:</strong> Максим Кырченков | 
+    <strong>Связь:</strong> kyrchenkov@gmail.com | t.me/kyrchenkov | 
+    <strong>Год:</strong> 2025
+  </p>
+
+  <h2>1. Цель</h2>
+  <p>Построить систему вокруг одной платформы, чтобы решить реальные операционные и пользовательские проблемы.</p>
+  <ul>
+    <li>Инженерия UX <strong>начинается с архитектуры</strong>, а не с интерфейса</li>
+    <li>Вместо миграции - надежность через автоматизацию и оптимизацию</li>
+    <li>Скорость, доверие и эффективность - <strong>результат устойчивой системы</strong></li>
+  </ul>
+  <p>Каждый проект - ответ на реальную проблему.</p>
+
+  <div class="accent">
+    <strong>Философия:</strong> решать системно.<br>
+    Приоритет - архитектура, а не интерфейс.<br>
+	Надёжность - через автоматизацию, а не ручной труд.<br>
+    Живое присутствие - не имитация, а результат UX-инженерии.
+  </div>
+  
+  <h2>2. Вид рабочей среды</h2>
+  <p>CMS OpenCart 3:</p>
+  <ul>
+    <li>VPS SpaceWeb (CentOS 7, 6 CPU, 12 ГБ RAM, NVMe)</li>
+    <li>Apache: OpenCart 3.0.2, PHP 7.1.33 + OPcache</li>
+    <li>Nginx: phpMyAdmin, BrainyCP</li>
+    <li>СУБД MySQL 5.6.40 (InnoDB), Dr.Web</li>
+  </ul>
+  <p>Распространённая архитектура унаследованной платформы - от малых до крупных e-commerce.</p>
+
+  <h2>3. Общий контекст</h2>
+  <p>Все проекты разрабатывались в условиях:</p>
+  <ul>
+    <li>Ограниченные ресурсы - реализация одним инженером</li>
+    <li>Старая платформа - OpenCart 3</li>
+    <li>Высокая нагрузка - 80% трафика - с мобильных, 70% - новые пользователи</li>
+    <li>Ручные процессы - поддержка, навигация, обработка в доставку - всё, человеческий фактор</li>
+  </ul>
+  <p>Задача: реализовать SPA-подобный интерфейс на текущей платформе. Чтобы система работала быстро, стабильно и "ощущалась" живой.</p>
+
+  <h2>4. Структура: от ядра к периферии</h2>
+  <p>Проекты выстроены в последовательность, отражающую масштаб и глубину внедрения:</p>
+  <ol>
+    <li><strong>ML-Cache</strong> - фундамент производительности</li>
+    <li><strong>ISPN</strong> - навигация на основе поведения</li>
+    <li><strong>PWA-Layer</strong> - нативный UX на веб-платформе</li>
+    <li><strong>OPS-UX</strong> - автоматизация операторов поддержки</li>
+    <li><strong>DialogCore</strong> - диалоговая система с ИИ и 500+ узлами</li>
+    <li><strong>AI-Оператор</strong> - живое UX-присутствие и доверие</li>
+    <li><strong>UX-Vibe</strong> - визуал как притяжение и завершённость</li>
+  </ol>
+
+  <h3>4.1. Логика последовательности</h3>
+  <p>Как лестница становления:</p>
+  <ul>
+    <li>Сначала задаём - <strong>скорость</strong> (ML-Cache, ISPN)</li>
+    <li>Затем оттачиваем - <strong>удобство</strong> (PWA-Layer)</li>
+    <li>Потом полируем - <strong>эффективность</strong> (OPS-UX, DialogCore)</li>
+    <li>И наконец зарождается - <strong>доверие</strong> (AI-Оператор + UX-Vibe)</li>
+  </ul>
+  <div class="container">
+    <div class="node node-legacy">Унаследованная модель</div>
+
+    <div class="node node-cache">Четырёхуровневое кэширование</div>
+
+    <div class="node node-navigation">Поведенческая навигация с предзагрузкой</div>
+
+    <div class="node node-pwa">Мобильное веб-приложение + SW для браузеров</div>
+
+    <div class="node node-extension">Браузерное расширение для операторов</div>
+
+    <div class="node node-dialog">Диалоговое ядро с памятью и LLM</div>
+
+    <div class="node node-ux">«Живой диалог» UX с платформой</div>
+
+    <div class="node node-ui">Современный UI как отклик</div>
+
+    <div class="node node-attention">Внимание пользователя</div>
+  </div>
+  <p>Каждый уровень опирается на предыдущий. Бессмысленно делать живой UX, если сайт медленный и "разобранный". Неэффективно автоматизировать поддержку, если операторы выгорают на рутине.</p>
+  <p>С 2024 года каждый проект прошёл глубокое тестирование, калибровку и многократные итерации. Общие трудозатраты на реализацию и доработку всех семи проектов - более 4500 часов.</p>
+
+  <h2>5. Краткое описание каждого проекта</h2>
+
+  <h3>5.1. ML-Cache - Многоуровневая система кэширования</h3>
+  <p><strong>Проблема</strong>: TTFB достигал 1200 мс, сервер перегружался под нагрузкой, кэширование было фрагментарным.</p>
+  <p><strong>Решение</strong>: Построена 4-уровневая система - OPcache, Opencart Lightning, Brotli, Service Worker.</p>
+  <p><strong>Измеримый результат</strong>: TTFB снизился на 98%, нагрузка на CPU - на 99.3%. Система стабильна с 2024 года.</p>
+
+  <h3>5.2. ISPN - Интеллектуальная система предиктивной навигации</h3>
+  <p><strong>Проблема</strong>: Медленные переходы, «холодные» страницы, отсутствие анализа поведения пользователей.</p>
+  <p><strong>Решение</strong>: Внедрён сбор цепочек переходов, анализ логов, автоматический прогрев и предзагрузка контента.</p>
+  <p><strong>Измеримый результат</strong>: TTFB снижен до 26 мс, время перехода - на 90%, Lighthouse Performance = 100.</p>
+
+  <h3>5.3. PWA-Layer - Архитектура изолированного прикладного слоя</h3>
+  <p><strong>Проблема</strong>: Отсутствие мобильного приложения, восприятие обычного сайта.</p>
+  <p><strong>Решение</strong>: Реализовано разделение Service Worker на режимы PWA и браузер, внедрёна динамическая предзагрузка страниц, splash-экран, учёт установок.</p>
+  <p><strong>Измеримый результат</strong>: FCP снизился на 71%, трафик - на 42%, Lighthouse = 100.</p>
+
+  <h3>5.4. OPS-UX - Операционная система поддержки</h3>
+  <p><strong>Проблема</strong>: Высокая нагрузка на операторов, рутина, частые ошибки, несогласованность ответов.</p>
+  <p><strong>Решение</strong>: Написано браузерное расширение, с сохранением состояния и семантической вставкой шаблонов.</p>
+  <p><strong>Измеримый результат</strong>: Время ответа сократилось с 45 сек до 8–12, ошибки устранены полностью, обучение сокращено с 5 дней до 1.</p>
+
+  <h3>5.5. DialogCore - Диалоговая система с ИИ</h3>
+  <p><strong>Проблема</strong>: Все запросы проходили через операторов, отсутствовала база знаний, ответы были медленными.</p>
+  <p><strong>Решение</strong>: Построено диалоговое ядро с 500+ узлами, семантической памятью, визуальным редактором и интеграцией ИИ.</p>
+  <p><strong>Измеримый результат</strong>: 96% запросов обрабатываются без оператора, переводы сокращены до 1 в день, создано 200+ FAQ, база - 173 499 слов.</p>
+
+  <h3>5.6. AI-Оператор - живое UX-присутствие</h3>
+  <p><strong>Проблема</strong>: Сомнения пользователей, пользователи не чувствовали «живого» взаимодействия с сайтом.</p>
+  <p><strong>Решение</strong>: Реализована иллюзия присутствия - пульсирующая сфера, уведомления, игровые механики, «ритуалы» ожидания.</p>
+  <p><strong>Измеримый результат</strong>: Конверсия выросла на 89%, время на сайте - на 104%, отказы снизились на 47%, открытие чата - на 10 900%.</p>
+
+  <h3>5.7. UX-Vibe - визуал как притяжение</h3>
+  <p><strong>Проблема</strong>: Даже после всех улучшений интерфейс ощущался «безжизненным». Не было визуального выражения AI-Оператора.</p>
+  <p><strong>Решение</strong>: Полностью переработана визуальная основа интерфейса через CSS и JS - глубина, свечение, анимации, форма, реакция на касание. Сформирован единый визуальный язык.</p>
+  <p><strong>Измеримый результат</strong>: Появилось визуальное выражение AI-Оператора. Элементы интерфейса перестали быть функциями - стали точками диалога. AI-Оператор стал не только слышимым - он стал видимым.</p>
+
+  <h2>6. Общие принципы всех проектов</h2>
+  <p>Во всех семи проектах соблюдены одни и те же инженерные и этические принципы:</p>
+  <ul>
+    <li><strong>Автономность</strong> - реализовано одним инженером, доступно всей команде</li>
+    <li><strong>Надежность</strong> - минимизация или исключение человеческого фактора</li>
+    <li><strong>Измеримость</strong> - каждый шаг проверяется через <code>ab</code>, <code>htop</code>, <code>curl</code>, логи</li>
+    <li>Итеративность - адресные, продолжительные периоды калибровки перед вводом в продакшн</li>
+    <li>Обратная совместимость - не требует переноса на другую платформу и глубоких изменений ядра</li>
+    <li>Self-contained - нет внешних зависимостей, всё встроено в текущую платформу</li>
+    <li>Этика UX - ускоряет, но при риске вреда включается защита: PerfGuard, исключения, адаптация под устройство</li>
+    <li>GDPR-дружелюбие - нет сбора персональных данных</li>
+  </ul>
+
+  <div class="accent">
+    <strong>Я не искал идеального решения.</strong><br>
+    Я смотрел на систему целиком - убирал рутину и прорабатывал каждый этап, как часть единого механизма.<br>
+    Это - то, что объединило все семь проектов.
+  </div>
+  
+  <p style="text-align: center; font-style: italic; color: #555; margin: 20px 0; filter: drop-shadow(0px 0px 1px #2c3e5075);">
+    Они не про отдельные или тоточечные улучшения. Они о <strong>построении доверия, заложенного в целостности всей системы</strong>.
+  </p>
+  
+  <h2>7. Метрики</h2>
+  <p>Основные показатели из рабочей среды проектов:</p>
+  <ul>
+    <li>TTFB с 1200 мс до 26 мс, CPU на 99,3 %</li>
+    <li>FCP до 0,5 с, время на 70-90 %</li>
+    <li>Скоростное мобильное веб-приложение, Lighthouse Performance 100</li>
+    <li>96% запросов от пользователей обрабатывается без участия операторов</li>
+	<li>Время ответа операторов сократилось в 5 раз, обучение - до 1 дня</li>
+	<li>Быстрая, визуально современная, “живая” веб-платформа для пользователей</li>
+  </ul>
+  
+  <img src="https://github.com/kyrchenkov/performance-engineering-and-ux/blob/main/lighthouse.webp?raw=true" alt="legacy Performance 100" loading="lazy">
+
+  <p><strong>Результат:</strong></p>
+  <ul>
+    <li>Высокопроизводительная и надежная веб-система, которая всегда в диалоге с пользователем</li>
+    <li>Скоростное мобильное веб-приложение - красивая, комфортная для пользователей платформа на которой хочется проводить время</li>
+    <li>Операторы как управляющие диалога, а не "печатальшики по шаблону"</li>
+    <li>Чат-бот с семантической памятью и LLM - помощник 24/7 для пользователей и операторов, который всегда рядом и готов помочь</li>
+    <li>Бизнес-ориентированный продукт с измеримым результатом: конверсия +89%, время на сайте +104%, отказы -47%</li>
+  </ul>
+
+    <h2>8. Заключение</h2>
+  <p>Этим документом я хотел поделиться своим взглядом на подход к любому сервису: видеть в препятствиях точки роста, а в узких местах возможность создать комплексный, автоматизированный механизм.</p>
+  <ul>
+    <li>Один инженер <strong>может построить SPA-подобный опыт</strong> в условиях legacy, при этом сделав его доступным для всей команды</li>
+    <li>Инженерия производительности <strong>начинается с целостной архитектуры</strong></li>
+    <li>Скорость, эффективность и доверие - результат устойчивой системы</li>
+  </ul>
+  <p>Хочется выделить, что действительно считаю важным:</p>
+  <ul>
+    <li>Понимать платформу от <strong>OPcache до Service Worker</strong></li>
+    <li>Строить <strong>системы с измеримой производительностью</strong></li>
+    <li>Думать на <strong>перспективу устойчивой и современной платформы</strong></li>
+    <li>Работать <strong>комплексно, внутри системы</strong></li>
+  </ul>
+  <p><strong style="padding-left: 42px;">— это и есть Инженерия UX со SRE подходом, где</strong></p>
+  <blockquote>
+    <p style="margin-right: 32px;">Пользователь не доверяет скорости.</p>
+    <p>Он доверяет вниманию.</p>
+    <p style="margin-left: 90px;">А внимание — в архитектуре.</p>
+  </blockquote>
+
+  <p style="text-align: center; margin-top: 30px; font-size: 18px;">
+    <a href="https://github.com/kyrchenkov/performance-engineering-and-ux" target="_blank" style="color: #586def; filter: drop-shadow(5px 5px 5px #586def7d); text-decoration: none;">Обзорный код и архитектура на GitHub</a>
+  </p>
+
+  <p style="text-align: center; margin-top: 12px; font-size: 18px;">
+    <span class="ready-contact"><a href="mailto:kyrchenkov@gmail.com"><i class="fa fa-envelope"></i></a> <a href="https://t.me/kyrchenkov"><i class="fa fa-telegram"></i></a></span>
+  </p>
+
+  <div class="footer">
+    © 2025 - Инженерия UX и производительности | SRE подход | Максим Кырченков
+  </div>
+
+  <div style="display: block; height: 1px; width: 1px; overflow: hidden; position: absolute; white-space: nowrap; font-size: 1px; color: transparent; user-select: none;">
+  Performance, performance engineer, web-performance, web-optimization, predictive-navigation, UX, web-ux, ux-architecture, ux-performance, ux-engineer, ux-systems-engineer, ux-innovation, e-commerce, legacy-modernization, legacy, CMS, OpenCart, PWA, SRE, fullstack, SRE это, UX-engineer это, UX-systems-engineer это, performance-engineer это, SRE кто, UX-engineer кто, UX-systems-engineer кто, performance-engineer кто, UX-инженер, UX-инженерия, UX-инженерия в продакшене, UX-инженерия на легаси, Инженер по UX, инженер производительности, ускорение legacy, оптимизация OpenCart, Service Worker, TTFB, Lighthouse 100, снижение нагрузки на операторов, автоматизация поддержки, диалоговая система с ИИ, доверие через UX, живой интерфейс, современный UI на legacy
+  </div>
+
+</body>
+</html>
