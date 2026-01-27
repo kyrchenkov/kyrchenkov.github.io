@@ -444,19 +444,41 @@
     }
 
     pre {
-      background: #f8f9fa;
-      padding: 15px;
-      -webkit-border-radius: 8px;
-	     -moz-border-radius: 8px;
-	      -ms-border-radius: 8px;
-	       -o-border-radius: 8px;
-	          border-radius: 8px;
-      overflow-x: auto;
-      border: 1px solid #e0e0e0;
+      color: #815db1;
+      max-height: 492px;
+      width: 600px;
+      max-width: 80vw;
+      padding: 35px;
+	  user-select: all;
+	  margin: 0 -35px 0 0;
+      -webkit-border-radius: 35px 0 0 35px;
+	     -moz-border-radius: 35px 0 0 35px;
+	      -ms-border-radius: 35px 0 0 35px;
+	       -o-border-radius: 35px 0 0 35px;
+	          border-radius: 35px 0 0 35px;
+      overflow: auto;
       font-size: 13px;
       line-height: 1.5;
       break-inside: avoid;
       page-break-inside: avoid;
+      -webkit-box-shadow: inset 0px 8px 16px #586def40;
+	     -moz-box-shadow: inset 0px 8px 16px #586def40;
+	      -ms-box-shadow: inset 0px 8px 16px #586def40;
+	       -o-box-shadow: inset 0px 8px 16px #586def40;
+	          box-shadow: inset 0px 8px 16px #586def40;
+    }
+	
+    pre::-webkit-scrollbar {
+      display: none;
+    }
+	
+    pre {
+      scrollbar-width: none;
+      scrollbar-color: transparent transparent;
+    }
+	
+    pre {
+      -ms-overflow-style: none;
     }
 
     table {
@@ -513,6 +535,7 @@
     }
 	
     img {
+      z-index: 1;
       display: block;
       width: 600px;
       max-width: 80vw;
@@ -632,6 +655,14 @@
       margin-top: -400px;
       margin-left: 500px;
       margin-bottom: -75px;
+    }
+	
+    .container-js {
+      display: flex;
+      flex-direction: row-reverse;
+      align-items: center;
+      max-height: 492px;
+	  margin-bottom: 25px;
     }
 
     .node {
@@ -801,6 +832,12 @@
       pre {
         font-size: 12px;
         padding: 12px;
+		margin: -50px 0 0 0;
+        -webkit-border-radius: 0 0 35px 35px;
+		   -moz-border-radius: 0 0 35px 35px;
+		    -ms-border-radius: 0 0 35px 35px;
+		     -o-border-radius: 0 0 35px 35px;
+                border-radius: 0 0 35px 35px;
       }
 
       table {
@@ -856,6 +893,9 @@
         padding: 60px 30px;
         max-width: 800px;
         margin: 0 auto;
+	  }
+      .container-js {
+        flex-direction: column;
 	  }
 	}
   </style>
@@ -1312,6 +1352,78 @@
   </ul>
   
   <img src="https://github.com/kyrchenkov/performance-engineering-and-ux/blob/main/lighthouse.webp?raw=true" alt="legacy Performance 100" loading="lazy">
+  
+  <p style="margin-top: 50px;">Скриншот консоли Chrome DevTools: TTFB = 4.7 мс в PWA. Ответ из кэша Service Worker.<br>Устройство: ASUS Zenfone 9, соединение: Wi-Fi 2.4GHz.</p>
+  <div class="container-js">
+    <img src="https://github.com/kyrchenkov/performance-engineering-and-ux/blob/main/pwa_ttfb.png?raw=true" alt="legacy Performance 100" loading="lazy">
+	  <pre>
+(() => {
+  const nav = performance.getEntriesByType('navigation')[0];
+  if (!nav) {
+    console.warn('Нет данных о навигации. Обновите страницу.');
+    return;
+  }
+
+  const ttfb = Math.max(0, nav.responseStart - nav.requestStart);
+  const fromCache = nav.transferSize === 0;
+
+  const scaleMax = 200;
+  const barLength = 20;
+  const filledLength = Math.min(barLength, Math.round((ttfb / scaleMax) * barLength));
+  const emptyLength = barLength - filledLength;
+
+  const ttfbColor = fromCache 
+    ? '#43A047' 
+    : ttfb < 50 ? '#43A047' 
+    : ttfb < 200 ? '#FB8C00' 
+    : '#E53935';
+
+  const sourceLabel = fromCache ? 'Cached (SW)' : 'Network';
+  const sourceColor = fromCache ? '#43A047' : '#1976D2';
+
+  const bar = '█'.repeat(filledLength) + '░'.repeat(emptyLength);
+
+  const labelLine = Array(barLength).fill(' ');
+  labelLine[0] = '0';
+
+  if (barLength > 11) {
+    labelLine[9] = '1';
+    labelLine[10] = '0';
+    labelLine[11] = '0';
+  }
+
+  if (barLength > 18) {
+    labelLine[17] = '2';
+    labelLine[18] = '0';
+    labelLine[19] = '0';
+  }
+
+  const labels = labelLine.join('');
+
+  console.log('%cTTFB ANALYSIS', 'font-weight: bold; font-size: 14px; color: #ababab;');
+  console.log(
+    '%cTime to First Byte: %c' + ttfb.toFixed(1) + ' ms',
+    'color: #ababab',
+    `color: ${ttfbColor}; font-weight: bold`
+  );
+  console.log(
+    '%cResponse source:    %c' + sourceLabel,
+    'color: #ababab',
+    `color: ${sourceColor}; font-weight: bold`
+  );
+
+  console.log('');
+  console.log('%c' + bar, `color: ${ttfbColor}`);
+  console.log('%c' + labels, 'color: #ababab; font-family: monospace');
+  console.log('');
+
+  console.log(
+    '%cTTFB < 50ms: optimal | 50–200ms: acceptable | >200ms: needs improvement',
+    'font-size: 11px; color: #ababab'
+  );
+})();
+	  </pre>
+  </div>
 
   <p><strong>Результат:</strong></p>
   <ul>
