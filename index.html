@@ -396,7 +396,6 @@
       padding: 40px;
       max-width: 1200px;
       margin: 0 auto;
-      user-select: none;
       text-shadow: 0px 0px 5px #cee9ff;
     }
 
@@ -445,18 +444,11 @@
 
     h3 {
       font-size: 18px;
-      max-width: 350px;
       margin-top: 20px;
-      padding: 5px 12px;
-      background: #a8c8ffe8;
+      padding: 8px 12px 3px 15px;
+      user-select: none;
       color: #004fcd63;
       opacity: .7;
-      -webkit-border-radius: 8px 19px 19px 8px;
-         -moz-border-radius: 8px 19px 19px 8px;
-          -ms-border-radius: 8px 19px 19px 8px;
-           -o-border-radius: 8px 19px 19px 8px;
-              border-radius: 8px 19px 19px 8px;
-      text-shadow: 0 0 8px #eef4ff;
     }
 
     p {
@@ -470,6 +462,11 @@
 
     li {
       margin: 5px 0;
+    }
+	
+	h1, h2, h3, p, a, div,
+    a:-webkit-any-link {
+      cursor: default;
     }
 
     code {
@@ -494,12 +491,12 @@
       max-width: 80vw;
       padding: 35px;
 	  user-select: all;
-	  margin: 0 -35px 0 0;
-      -webkit-border-radius: 35px 0 0 35px;
-	     -moz-border-radius: 35px 0 0 35px;
-	      -ms-border-radius: 35px 0 0 35px;
-	       -o-border-radius: 35px 0 0 35px;
-	          border-radius: 35px 0 0 35px;
+	  margin: 0 -330px 0 125px;
+      -webkit-border-radius: 35px;
+	     -moz-border-radius: 35px;
+	      -ms-border-radius: 35px;
+	       -o-border-radius: 35px;
+	          border-radius: 35px;
       overflow: auto;
       font-size: 13px;
       line-height: 1.5;
@@ -578,6 +575,12 @@
               animation: ready 16s linear infinite;
     }
 	
+    button,
+    button:focus-visible {
+      border: none;
+      outline: none;
+    }
+	
     img {
       z-index: 1;
       display: block;
@@ -595,6 +598,101 @@
           -o-box-shadow: 0 5px 10px 0 #586def;
              box-shadow: 0 5px 10px 0 #586def;
     }
+	
+    .h3 {
+      display: flex;
+      height: 75px;
+      width: 485px;
+      color: #004fcd59;
+	  font-size: 20px;
+      line-height: 1.2;
+	  white-space: pre-wrap;
+	  align-items: center;
+      justify-content: flex-start;
+      padding: 10px 12px 3px 22px;
+      background: -webkit-radial-gradient(ellipse at top, #a8c8ffe8, #a8c8ff75),
+	              -webkit-radial-gradient(ellipse at bottom, #a8c8ffe8, #a8c8ff00);
+      background:    -moz-radial-gradient(ellipse at top, #a8c8ffe8, #a8c8ff75),
+	                 -moz-radial-gradient(ellipse at bottom, #a8c8ffe8, #a8c8ff00);
+      background:     -ms-radial-gradient(ellipse at top, #a8c8ffe8, #a8c8ff75),
+	                  -ms-radial-gradient(ellipse at bottom, #a8c8ffe8, #a8c8ff00);
+      background:      -o-radial-gradient(ellipse at top, #a8c8ffe8, #a8c8ff75),
+	                   -o-radial-gradient(ellipse at bottom, #a8c8ffe8, #a8c8ff00);
+      background:         radial-gradient(ellipse at top, #a8c8ffe8, #a8c8ff75),
+	                      radial-gradient(ellipse at bottom, #a8c8ffe8, #a8c8ff00);
+      -webkit-border-radius: 20px;
+         -moz-border-radius: 20px;
+          -ms-border-radius: 20px;
+           -o-border-radius: 20px;
+              border-radius: 20px;
+      -webkit-box-shadow: 2px 1px #95bcfff0,
+	                inset 2px 1px #ffffffc4,
+				    inset 0px 0px 5px 0px #7396d291,
+				    inset 5px 5px 5px 0px #ffffffa1;
+         -moz-box-shadow: 2px 1px #95bcfff0,
+	                inset 2px 1px #ffffffc4,
+				    inset 0px 0px 5px 0px #7396d291,
+				    inset 5px 5px 5px 0px #ffffffa1;
+          -ms-box-shadow: 2px 1px #95bcfff0,
+	                inset 2px 1px #ffffffc4,
+				    inset 0px 0px 5px 0px #7396d291,
+				    inset 5px 5px 5px 0px #ffffffa1;
+           -o-box-shadow: 2px 1px #95bcfff0,
+	                inset 2px 1px #ffffffc4,
+				    inset 0px 0px 5px 0px #7396d291,
+				    inset 5px 5px 5px 0px #ffffffa1;
+              box-shadow: 2px 1px #95bcfff0,
+	                inset 2px 1px #ffffffc4,
+				    inset 0px 0px 5px 0px #7396d291,
+				    inset 5px 5px 5px 0px #ffffffa1;
+      text-shadow: 0 0 5px #f4f8ffa1,
+	               0 0 8px #e5eeff7d,
+				   0 0 12px #ffffff42;
+      -webkit-transition: 0.5s all ease;
+         -moz-transition: 0.5s all ease;
+          -ms-transition: 0.5s all ease;
+           -o-transition: 0.5s all ease;
+              transition: 0.5s all ease;
+    }
+	
+    .h3:active {
+      font-size: 16px;
+      color: #004fcd47;
+	  letter-spacing: 2px;
+      -webkit-border-radius: 26px;
+         -moz-border-radius: 26px;
+          -ms-border-radius: 26px;
+           -o-border-radius: 26px;
+              border-radius: 26px;
+      -webkit-box-shadow: 2px 1px #d0e2ff69,
+			        inset 2px 1px #f8faff66,
+					inset 0px 0px 15px 10px #d2e2ff14,
+					inset 5px 5px 8px 5px #dbe9ffc2;
+         -moz-box-shadow: 2px 1px #d0e2ff69,
+			        inset 2px 1px #f8faff66,
+					inset 0px 0px 15px 10px #d2e2ff14,
+					inset 5px 5px 8px 5px #dbe9ffc2;
+          -ms-box-shadow: 2px 1px #d0e2ff69,
+			        inset 2px 1px #f8faff66,
+					inset 0px 0px 15px 10px #d2e2ff14,
+					inset 5px 5px 8px 5px #dbe9ffc2;
+           -o-box-shadow: 2px 1px #d0e2ff69,
+			        inset 2px 1px #f8faff66,
+					inset 0px 0px 15px 10px #d2e2ff14,
+					inset 5px 5px 8px 5px #dbe9ffc2;
+              box-shadow: 2px 1px #d0e2ff69,
+			        inset 2px 1px #f8faff66,
+					inset 0px 0px 15px 10px #d2e2ff14,
+					inset 5px 5px 8px 5px #dbe9ffc2;
+      text-shadow: 0 0 5px #f3f7ff91,
+	               0 0 8px #ecf2ffde,
+				   0 0 12px #d2e2ffde;
+      -webkit-transform: scaleX(1.2) scaleY(0.9);
+         -moz-transform: scaleX(1.2) scaleY(0.9);
+          -ms-transform: scaleX(1.2) scaleY(0.9);
+           -o-transform: scaleX(1.2) scaleY(0.9);
+              transform: scaleX(1.1) scaleY(0.8);
+    }
 
     .footer {
       margin-top: 30px;
@@ -607,7 +705,7 @@
     }
 
     .accent {
-      color: #5695ff;
+      color: #70a5ff;
       margin: 15px 0;
       padding: 15px;
       max-width: 835px;
@@ -650,7 +748,7 @@
 	                      0 5px 5px -1px #785fff2e,
 	                      inset 4px 4px 8px #785fff54,
 	                      inset -4px -4px 8px #785fff45;
-
+      user-select: none;
       font-style: italic;
       break-inside: avoid;
       -webkit-border-radius: 12px;
@@ -661,14 +759,48 @@
       border-left: 4px solid #cbe8ff;
       border-right: 4px solid #7bc3ff1a;
 	  text-shadow: 0px 0px 3px #71beff;
+	  filter: contrast(0.95) blur(0.5px);
       -webkit-animation: breathe 8s linear infinite;
          -moz-animation: breathe 8s linear infinite;
           -ms-animation: breathe 8s linear infinite;
            -o-animation: breathe 8s linear infinite;
               animation: breathe 8s linear infinite;
-      }
+      -webkit-transition: 1s all ease;
+         -moz-transition: 1s all ease;
+          -ms-transition: 1s all ease;
+           -o-transition: 1s all ease;
+              transition: 1s all ease;
+    }
 	  
-    .ready-contact a {
+    .accent:hover,
+    .accent:active {
+	  color: #5695ff;
+	  background-size: 100% auto;
+	  text-shadow: 0px 0px 3px #71beff00;
+	  filter: contrast(1.05) blur(0);
+      -webkit-box-shadow: 0 0 20px #785fff36,
+			              0 5px 5px -1px #785fff57,
+						  inset 4px 4px 8px #785fff33,
+						  inset -4px -4px 8px #785fff26;
+         -moz-box-shadow: 0 0 20px #785fff36,
+			              0 5px 5px -1px #785fff57,
+						  inset 4px 4px 8px #785fff33,
+						  inset -4px -4px 8px #785fff26;
+          -ms-box-shadow: 0 0 20px #785fff36,
+			              0 5px 5px -1px #785fff57,
+						  inset 4px 4px 8px #785fff33,
+						  inset -4px -4px 8px #785fff26;
+           -o-box-shadow: 0 0 20px #785fff36,
+			              0 5px 5px -1px #785fff57,
+						  inset 4px 4px 8px #785fff33,
+						  inset -4px -4px 8px #785fff26;
+	          box-shadow: 0 0 20px #785fff36,
+			              0 5px 5px -1px #785fff57,
+						  inset 4px 4px 8px #785fff33,
+						  inset -4px -4px 8px #785fff26;
+    }
+	  
+    .ready-contact i {
       margin: 26px;
       font-size: 32px;
       color: transparent;
@@ -695,12 +827,37 @@
       display: flex;
       flex-direction: column;
       align-items: flex-start;
+      position: absolute;
       width: 100%;
+	  gap: 0;
       max-width: 800px;
       margin-top: -400px;
       margin-left: 500px;
       margin-bottom: -75px;
+      -webkit-transition: 0.2s all ease;
+         -moz-transition: 0.2s all ease;
+          -ms-transition: 0.2s all ease;
+           -o-transition: 0.2s all ease;
+              transition: 0.2s all ease;
     }
+	
+    .container:hover,
+    .container:active {
+      z-index: 1;
+      gap: 35px;
+	  margin-top: -497px;
+      -webkit-transform: matrix3d(1.05, 0, 0, 0.0001, 0, 1.1, 0,
+	                              0.00001, 0, 0, 1, 0, 0, 0, 0, 1);
+         -moz-transform: matrix3d(1.05, 0, 0, 0.0001, 0, 1.1, 0,
+	                              0.00001, 0, 0, 1, 0, 0, 0, 0, 1);
+          -ms-transform: matrix3d(1.05, 0, 0, 0.0001, 0, 1.1, 0,
+	                              0.00001,0, 0, 1, 0, 0, 0, 0, 1);
+           -o-transform: matrix3d(1.05, 0, 0, 0.0001, 0, 1.1, 0,
+	                              0.00001, 0, 0, 1, 0, 0, 0, 0, 1);
+	          transform: matrix3d(1.05, 0, 0, 0.0001, 0, 1.1, 0,
+	                              0.00001, 0, 0, 1, 0, 0, 0, 0, 1);
+	  filter: drop-shadow(2px 4px 6px #ff000024) contrast(1.2);
+	}
 	
     .container-js {
       display: flex;
@@ -708,6 +865,27 @@
       align-items: center;
       max-height: 492px;
 	  margin-bottom: 25px;
+    }
+	
+    .container-js img {
+	  position: relative;
+	  top: 0px;
+	  left: -60px;
+      -webkit-transition: .5s all cubic-bezier(0.6, -0.28, 0.74, 0.05);
+         -moz-transition: .5s all cubic-bezier(0.6, -0.28, 0.74, 0.05);
+          -ms-transition: .5s all cubic-bezier(0.6, -0.28, 0.74, 0.05);
+           -o-transition: .5s all cubic-bezier(0.6, -0.28, 0.74, 0.05);
+              transition: .5s all cubic-bezier(0.6, -0.28, 0.74, 0.05);
+    }
+	
+    .container-js img:hover,
+    .container-js img:active {
+	  left: 150px;
+      -webkit-box-shadow: -20px 3px 25px 0 #586def8f;
+		 -moz-box-shadow: -20px 3px 25px 0 #586def8f;
+		  -ms-box-shadow: -20px 3px 25px 0 #586def8f;
+		   -o-box-shadow: -20px 3px 25px 0 #586def8f;
+		      box-shadow: -20px 3px 25px 0 #586def8f;
     }
 	
     .container-btn {
@@ -724,8 +902,6 @@
       height: 46px;
       width: 76px;
       opacity: 0.8;
-      border: none;
-	  cursor: pointer;
       -webkit-border-radius: 14px;
          -moz-border-radius: 14px;
           -ms-border-radius: 14px;
@@ -915,8 +1091,6 @@
       height: 46px;
       width: 46px;
       opacity: 0.9;
-      border: none;
-	  cursor: pointer;
       -webkit-border-radius: 14px;
          -moz-border-radius: 14px;
           -ms-border-radius: 14px;
@@ -1055,8 +1229,6 @@
       width: 46px;
       color: #ffc1e1;
       opacity: 0.6;
-      border: none;
-	  cursor: pointer;
       -webkit-border-radius: 50%;
          -moz-border-radius: 50%;
           -ms-border-radius: 50%;
@@ -1162,6 +1334,85 @@
               transform: scaleX(1.2) scaleY(1.2);
 	}
 	
+    .stuck {
+      z-index: 3;
+      position: fixed;
+      top: 0;
+      right: 0px;
+      width: 60px;
+      height: 42px;
+      background-color: transparent;
+      -webkit-border-radius: 0 0 0 60%;
+         -moz-border-radius: 0 0 0 60%;
+          -ms-border-radius: 0 0 0 60%;
+           -o-border-radius: 0 0 0 60%;
+              border-radius: 0 0 0 60%;
+      --btn-bg-1: #f1e6ffcf;
+      --btn-bg-2: #785fffeb;
+      background-size: 280% auto;
+      background-image: -webkit-linear-gradient(325deg, var(--btn-bg-2) 0%,
+	                                                    var(--btn-bg-1) 55%,
+														var(--btn-bg-2) 90%);
+      background-image:    -moz-linear-gradient(325deg, var(--btn-bg-2) 0%,
+	                                                    var(--btn-bg-1) 55%,
+														var(--btn-bg-2) 90%);
+      background-image:     -ms-linear-gradient(325deg, var(--btn-bg-2) 0%,
+	                                                    var(--btn-bg-1) 55%,
+														var(--btn-bg-2) 90%);
+      background-image:      -o-linear-gradient(325deg, var(--btn-bg-2) 0%,
+	                                                    var(--btn-bg-1) 55%,
+														var(--btn-bg-2) 90%);
+      background-image:         linear-gradient(325deg, var(--btn-bg-2) 0%,
+	                                                    var(--btn-bg-1) 55%,
+														var(--btn-bg-2) 90%);
+      -webkit-box-shadow: 0px 0px 20px #785fff75,
+                          0px 5px 5px -1px #5137dd4a,
+                          inset 4px 4px 8px #b8abff,
+                          inset -4px -4px 8px #785fff66;
+         -moz-box-shadow: 0px 0px 20px #785fff75,
+                          0px 5px 5px -1px #5137dd4a,
+                          inset 4px 4px 8px #b8abff,
+                          inset -4px -4px 8px #785fff66;
+          -ms-box-shadow: 0px 0px 20px #785fff75,
+                          0px 5px 5px -1px #5137dd4a,
+                          inset 4px 4px 8px #b8abff,
+                          inset -4px -4px 8px #785fff66;
+           -o-box-shadow: 0px 0px 20px #785fff75,
+                          0px 5px 5px -1px #5137dd4a,
+                          inset 4px 4px 8px #b8abff,
+                          inset -4px -4px 8px #785fff66;
+              box-shadow: 0px 0px 20px #785fff75,
+                          0px 5px 5px -1px #5137dd4a,
+                          inset 4px 4px 8px #b8abff,
+                          inset -4px -4px 8px #785fff66;
+      -webkit-transition: 0.1s all ease-in-out;
+		 -moz-transition: 0.1s all ease-in-out;
+		  -ms-transition: 0.1s all ease-in-out;
+		   -o-transition: 0.1s all ease-in-out;
+		      transition: 0.1s all ease-in-out;
+    }
+	
+    .stuck:active {
+      top: 82px;
+      right: -6px;
+      -webkit-border-radius: 25px;
+         -moz-border-radius: 25px;
+          -ms-border-radius: 25px;
+           -o-border-radius: 25px;
+		      border-radius: 25px;
+      -webkit-transform: scaleX(0.8) scaleY(3);
+         -moz-transform: scaleX(0.8) scaleY(3);
+          -ms-transform: scaleX(0.8) scaleY(3);
+           -o-transform: scaleX(0.8) scaleY(3);
+		      transform: scaleX(0.8) scaleY(3);
+    }
+	
+    .stuck i {
+      font-size: 28px;
+      color: #c1b6ffde;
+      filter: drop-shadow(0px 0px 3px #583aff);
+    }
+	
     .image {
 	  width: 300px;
 	  margin: 20px 0 0 0;
@@ -1213,6 +1464,8 @@
     }
 	
     .image-ux {
+	  height: 230px;
+	  width: 230px;
 	  z-index: -1;
 	  position: relative;
 	  margin: -35px 0 -65px 0;
@@ -1230,6 +1483,68 @@
           -ms-box-shadow: none;
            -o-box-shadow: none;
 	          box-shadow: none;
+    }
+	
+    .image-cache,
+    .image-navigation,
+    .image-pwa,
+    .image-extension,
+    .image-dialog {
+	  filter: contrast(0.95);
+	  -webkit-transition: 0.1s all ease-in-out;
+         -moz-transition: 0.1s all ease-in-out;
+          -ms-transition: 0.1s all ease-in-out;
+           -o-transition: 0.1s all ease-in-out;
+              transition: 0.2s all ease-in-out;
+	}
+	
+	.image-cache:hover,
+    .image-navigation:hover,
+    .image-pwa:hover,
+    .image-extension:hover,
+    .image-dialog:hover {
+	  scale: 1.01;
+	  filter: contrast(1);
+	}
+	
+    .image-cache:hover {
+	  -webkit-box-shadow: 0 6px 15px 0 #785fffeb;
+         -moz-box-shadow: 0 6px 15px 0 #785fffeb;
+          -ms-box-shadow: 0 6px 15px 0 #785fffeb;
+           -o-box-shadow: 0 6px 15px 0 #785fffeb;
+	          box-shadow: 0 6px 15px 0 #785fffeb;
+    }
+	
+    .image-navigation:hover {
+	  -webkit-box-shadow: 0 6px 15px 0 #ff7070;
+         -moz-box-shadow: 0 6px 15px 0 #ff7070;
+          -ms-box-shadow: 0 6px 15px 0 #ff7070;
+           -o-box-shadow: 0 6px 15px 0 #ff7070;
+	          box-shadow: 0 6px 15px 0 #ff7070;
+    }
+	
+    .image-pwa:hover {
+	  -webkit-box-shadow: 0 6px 15px 0 #1c97ffdb;
+         -moz-box-shadow: 0 6px 15px 0 #1c97ffdb;
+          -ms-box-shadow: 0 6px 15px 0 #1c97ffdb;
+           -o-box-shadow: 0 6px 15px 0 #1c97ffdb;
+	          box-shadow: 0 6px 15px 0 #1c97ffdb;
+    }
+	
+    .image-extension:hover {
+	  -webkit-box-shadow: 0 6px 15px 0 #deccae;
+         -moz-box-shadow: 0 6px 15px 0 #deccae;
+          -ms-box-shadow: 0 6px 15px 0 #deccae;
+           -o-box-shadow: 0 6px 15px 0 #deccae;
+	          box-shadow: 0 6px 15px 0 #deccae;
+    }
+	
+    .image-dialog:hover {
+	  -webkit-box-shadow: 0 6px 15px 0 #5edd78;
+         -moz-box-shadow: 0 6px 15px 0 #5edd78;
+          -ms-box-shadow: 0 6px 15px 0 #5edd78;
+           -o-box-shadow: 0 6px 15px 0 #5edd78;
+	          box-shadow: 0 6px 15px 0 #5edd78;
     }
 	
     .p-down {
@@ -1361,10 +1676,32 @@
       text-align: center;
       line-height: 1.5;
 	  margin: -8px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06),
-	              0 5px 5px -1px #e938381f,
-	              0 0 20px #ff00003b;
-      word-break: break-word;
+	  word-break: break-word;
+	  -webkit-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06),
+	                      0 5px 5px -1px #e938381f,
+	                      0 0 20px #ff00003b;
+	     -moz-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06),
+	                      0 5px 5px -1px #e938381f,
+	                      0 0 20px #ff00003b;
+	      -ms-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06),
+	                      0 5px 5px -1px #e938381f,
+	                      0 0 20px #ff00003b;
+	       -o-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06),
+	                      0 5px 5px -1px #e938381f,
+	                      0 0 20px #ff00003b;
+	          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06),
+	                      0 5px 5px -1px #e938381f,
+	                      0 0 20px #ff00003b;
+      -webkit-transition: 0.2s all ease;
+         -moz-transition: 0.2s all ease;
+          -ms-transition: 0.2s all ease;
+           -o-transition: 0.2s all ease;
+              transition: 0.2s all ease;
+    }
+	
+    .node:hover,
+    .node:active {
+      scale: 1.1;
     }
 
     .node-legacy {
@@ -1465,16 +1802,96 @@
       border: 5px solid #d0e1ff;
       text-shadow: 0 0 8px #438cff;
 	  margin-left: 30%;
-	  transform: rotateZ(0.5deg);
+      -webkit-transform: rotateZ(0.5deg);
+         -moz-transform: rotateZ(0.5deg);
+          -ms-transform: rotateZ(0.5deg);
+           -o-transform: rotateZ(0.5deg);
+              transform: rotateZ(0.5deg);
     }
+	
+	.github, .hubr {
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      max-width: 350px;
+      margin: auto;
+	  padding-bottom: 10px;
+      border-bottom: 2px solid transparent;
+      border-image-slice: 1 !important;
+      -webkit-transition: 0.2s all ease-in-out;
+         -moz-transition: 0.2s all ease-in-out;
+          -ms-transition: 0.2s all ease-in-out;
+           -o-transition: 0.2s all ease-in-out;
+              transition: 0.2s all ease-in-out;
+	}
+	
+	.github:hover {
+      scale: 1.2;
+      border-image: -webkit-linear-gradient(to right, transparent, #586def78, #586def96, #586def78, transparent);
+      border-image:    -moz-linear-gradient(to right, transparent, #586def78, #586def96, #586def78, transparent);
+      border-image:     -ms-linear-gradient(to right, transparent, #586def78, #586def96, #586def78, transparent);
+      border-image:      -o-linear-gradient(to right, transparent, #586def78, #586def96, #586def78, transparent);
+      border-image:         linear-gradient(to right, transparent, #586def78, #586def96, #586def78, transparent);
+      filter: drop-shadow(0px 0px 12px #586def7d);
+      -webkit-transform: rotateX(15deg);
+         -moz-transform: rotateX(15deg);
+          -ms-transform: rotateX(15deg);
+           -o-transform: rotateX(15deg);
+              transform: rotateX(15deg);
+	}
+	
+	.hubr:hover {
+      scale: 1.25;
+	  background-image: -webkit-linear-gradient(190deg, #ff56acab 25%, #a059fe8f 90%);
+      background-image:    -moz-linear-gradient(190deg, #ff56acab 25%, #a059fe8f 90%);
+      background-image:     -ms-linear-gradient(190deg, #ff56acab 25%, #a059fe8f 90%);
+      background-image:      -o-linear-gradient(190deg, #ff56acab 25%, #a059fe8f 90%);
+      background-image:         linear-gradient(190deg, #ff56acab 25%, #a059fe8f 90%);
+      border-image: -webkit-linear-gradient(to right, transparent, #ff56ac3d, #ff56ac4a, #ff56ac3d, transparent);
+      border-image:    -moz-linear-gradient(to right, transparent, #ff56ac3d, #ff56ac4a, #ff56ac3d, transparent);
+      border-image:     -ms-linear-gradient(to right, transparent, #ff56ac3d, #ff56ac4a, #ff56ac3d, transparent);
+      border-image:      -o-linear-gradient(to right, transparent, #ff56ac3d, #ff56ac4a, #ff56ac3d, transparent);
+      border-image:         linear-gradient(to right, transparent, #ff56ac3d, #ff56ac4a, #ff56ac3d, transparent);
+      filter: drop-shadow(0px 0px 8px #ff7070);
+      -webkit-transform: rotateX(345deg);
+         -moz-transform: rotateX(345deg);
+          -ms-transform: rotateX(345deg);
+           -o-transform: rotateX(345deg);
+              transform: rotateX(345deg);
+	}
+	
+	.github:active {
+      scale: 0.9;
+      border-image: -webkit-linear-gradient(to right, transparent, transparent, #586def96, transparent, transparent);
+      border-image:    -moz-linear-gradient(to right, transparent, transparent, #586def96, transparent, transparent);
+      border-image:     -ms-linear-gradient(to right, transparent, transparent, #586def96, transparent, transparent);
+      border-image:      -o-linear-gradient(to right, transparent, transparent, #586def96, transparent, transparent);
+      border-image:         linear-gradient(to right, transparent, transparent, #586def96, transparent, transparent);
+      filter: contrast(1.2) drop-shadow(0px 0px 1px #586def7d);
+	}
+	
+	.hubr:active {
+      scale: 0.9;
+	  background-image: -webkit-linear-gradient(0deg, #ff56acab 25%, #a059fe8f 90%);
+      background-image:    -moz-linear-gradient(0deg, #ff56acab 25%, #a059fe8f 90%);
+      background-image:     -ms-linear-gradient(0deg, #ff56acab 25%, #a059fe8f 90%);
+      background-image:      -o-linear-gradient(0deg, #ff56acab 25%, #a059fe8f 90%);
+      background-image:         linear-gradient(0deg, #ff56acab 25%, #a059fe8f 90%);
+      border-image: -webkit-linear-gradient(to right, transparent, transparent, #ff56ac4a, transparent, transparent);
+      border-image:    -moz-linear-gradient(to right, transparent, transparent, #ff56ac4a, transparent, transparent);
+      border-image:     -ms-linear-gradient(to right, transparent, transparent, #ff56ac4a, transparent, transparent);
+      border-image:      -o-linear-gradient(to right, transparent, transparent, #ff56ac4a, transparent, transparent);
+      border-image:         linear-gradient(to right, transparent, transparent, #ff56ac4a, transparent, transparent);
+      filter: contrast(1.2) drop-shadow(0px 0px 1px #ff7070);
+	}
+	
+	.github i, .hubr i {
+      font-size: 32px;
+	}
 	
     .github {
       font-weight: 500;
       color: #586defb5;
-      padding-bottom: 10px;
-      text-decoration: none;
-      border-bottom: 2px solid transparent;
-      border-image-slice: 1 !important;
       border-image: -webkit-linear-gradient(to right, transparent, #586def45, transparent);
       border-image:    -moz-linear-gradient(to right, transparent, #586def45, transparent);
       border-image:     -ms-linear-gradient(to right, transparent, #586def45, transparent);
@@ -1486,8 +1903,6 @@
     .hubr {
       font-weight: 600;
       color: transparent;
-      padding-bottom: 10px;
-      text-decoration: none;
       -webkit-background-clip: text;
          -moz-background-clip: text;
           -ms-background-clip: text;
@@ -1498,8 +1913,6 @@
       background-image:     -ms-linear-gradient(90deg, #ff56acab 25%, #a059fe8f 90%);
       background-image:      -o-linear-gradient(90deg, #ff56acab 25%, #a059fe8f 90%);
       background-image:         linear-gradient(90deg, #ff56acab 25%, #a059fe8f 90%);
-      border-bottom: 2px solid transparent;
-      border-image-slice: 1 !important;
       border-image: -webkit-linear-gradient(to right, transparent, #ff56ac4a, transparent);
       border-image:    -moz-linear-gradient(to right, transparent, #ff56ac4a, transparent);
       border-image:     -ms-linear-gradient(to right, transparent, #ff56ac4a, transparent);
@@ -1507,7 +1920,40 @@
       border-image:         linear-gradient(to right, transparent, #ff56ac4a, transparent);
 	  text-shadow: 0px 0px 5px transparent;
       filter: drop-shadow(2px 4px 5px #ff7070);
+      -webkit-transform: rotateX(359deg);
+         -moz-transform: rotateX(359deg);
+          -ms-transform: rotateX(359deg);
+           -o-transform: rotateX(359deg);
+              transform: rotateX(359deg);
     }
+
+	.ready-contact i {
+      -webkit-transition: 0.2s scale, filter ease-in-out;
+         -moz-transition: 0.2s scale, filter ease-in-out;
+          -ms-transition: 0.2s scale, filter ease-in-out;
+           -o-transition: 0.2s scale, filter ease-in-out;
+              transition: 0.2s scale, filter ease-in-out;
+	}
+	
+	.ready-contact i:hover {
+      scale: 1.5;
+	  filter: drop-shadow(0px 0px 5px #586def7d);
+      -webkit-transform: matrix3d(1, 0.03, 0, 0, 0.02, 1.01, 0,
+			                 -0.001, 0, 0, 1, 1, 0.5, 0, 2, 1);
+         -moz-transform: matrix3d(1, 0.03, 0, 0, 0.02, 1.01, 0,
+			                 -0.001, 0, 0, 1, 1, 0.5, 0, 2, 1);
+          -ms-transform: matrix3d(1, 0.03, 0, 0, 0.02, 1.01, 0,
+			                 -0.001, 0, 0, 1, 1, 0.5, 0, 2, 1);
+           -o-transform: matrix3d(1, 0.03, 0, 0, 0.02, 1.01, 0,
+			                 -0.001, 0, 0, 1, 1, 0.5, 0, 2, 1);
+              transform: matrix3d(1, 0.03, 0, 0, 0.02, 1.01, 0,
+			                 -0.001, 0, 0, 1, 1, 0.5, 0, 2, 1);
+	}
+	
+	.ready-contact i:active {
+      scale: 0.9;
+	  filter: drop-shadow(0px 0px 1px #586defe3);
+	}
 	
 	@media (max-width: 767px) {
       body {
@@ -1555,12 +2001,8 @@
       pre {
         font-size: 12px;
         padding: 12px;
-		margin: -50px 0 0 0;
-        -webkit-border-radius: 0 0 35px 35px;
-		   -moz-border-radius: 0 0 35px 35px;
-		    -ms-border-radius: 0 0 35px 35px;
-		     -o-border-radius: 0 0 35px 35px;
-                border-radius: 0 0 35px 35px;
+        max-height: 265px;
+		margin: -245px 0 0 0;
       }
 
       table {
@@ -1613,13 +2055,67 @@
 
       .container {
         zoom: 50%;
+		position: static;
         padding: 60px 30px;
         max-width: 800px;
         margin: 0 auto;
 	  }
 	  
+      .h3 {
+        height: 85px;
+        width: 240px;
+        font-size: 14px;
+      }
+	
+      .h3:active {
+        font-size: 12px;
+        letter-spacing: 1px;
+		-webkit-box-shadow: 2px 1px #99c0ff69,
+		              inset 2px 1px #d2dfff,
+			          inset 0px 0px 15px 0px #c8dbff,
+			          inset 5px 5px 10px 5px #d3e5ffc2;
+		   -moz-box-shadow: 2px 1px #99c0ff69,
+		              inset 2px 1px #d2dfff,
+			          inset 0px 0px 15px 0px #c8dbff,
+			          inset 5px 5px 10px 5px #d3e5ffc2;
+		    -ms-box-shadow: 2px 1px #99c0ff69,
+		              inset 2px 1px #d2dfff,
+			          inset 0px 0px 15px 0px #c8dbff,
+			          inset 5px 5px 10px 5px #d3e5ffc2;
+		     -o-box-shadow: 2px 1px #99c0ff69,
+		              inset 2px 1px #d2dfff,
+			          inset 0px 0px 15px 0px #c8dbff,
+			          inset 5px 5px 10px 5px #d3e5ffc2;
+                box-shadow: 2px 1px #99c0ff69,
+		              inset 2px 1px #d2dfff,
+			          inset 0px 0px 15px 0px #c8dbff,
+			          inset 5px 5px 10px 5px #d3e5ffc2;
+      }
+	  
+      .container:hover,
+      .container:active {
+        margin-top: -95px;
+        margin-bottom: -185px;
+      }
+	  
       .container-js {
         flex-direction: column;
+	  }
+	  
+	  .container-js img {
+        top: 0px;
+        left: 0px;
+	  }
+	  
+      .container-js img:hover,
+	  .container-js img:active {
+        top: -160px;
+        left: 0px;
+        -webkit-box-shadow: 0px 25px 35px 0 #586def8f;
+		   -moz-box-shadow: 0px 25px 35px 0 #586def8f;
+		    -ms-box-shadow: 0px 25px 35px 0 #586def8f;
+		     -o-box-shadow: 0px 25px 35px 0 #586def8f;
+		        box-shadow: 0px 25px 35px 0 #586def8f;
 	  }
 	  
       .image {
@@ -1629,15 +2125,6 @@
       .image-ux {
         margin: -35px auto -65px auto;
       }
-	  
-	  .hubr {
-        margin: 30px 0;
-	  }
-	  
-	  .hubr,
-	  .github {
-        font-size: 10px;
-	  }
 	  
 	  .delete {
         top: -65px;
@@ -1944,7 +2431,7 @@
   </p>
   <p style="text-align: center;">
     <strong>Автор:</strong> Максим Кырченков | 
-    <strong>Связь:</strong> kyrchenkov@gmail.com | t.me/kyrchenkov | 
+    <strong>Связь:</strong> <span style="user-select: all;">kyrchenkov@gmail.com</span> | <span style="user-select: all;">t.me/kyrchenkov</span> | 
     <strong>Год:</strong> 2025
   </p>
 
@@ -1997,7 +2484,7 @@
     <li><strong>UX-Vibe</strong> - визуал как притяжение и завершённость</li>
   </ol>
 
-  <h3 style="background: transparent;">4.1. Логика последовательности</h3>
+  <h3>4.1. Логика последовательности</h3>
   <p>Как лестница становления:</p>
   <ul>
     <li>Сначала задаём - <strong>скорость</strong> (ML-Cache, ISPN)</li>
@@ -2029,55 +2516,57 @@
 
   <h2>5. Краткое описание каждого проекта</h2>
 
-  <h3>5.1. ML-Cache - Многоуровневая система кэширования</h3>
+  <h3 class="h3">5.1. ML-Cache - Многоуровневая система кэширования</h3>
   <img class="image image-cache" src="https://github.com/kyrchenkov/kyrchenkov.github.io/blob/main/img/opcache.gif?raw=true" alt="Многоуровневая система кэширования" loading="lazy">
   <p class="p-cache"><strong>Проблема</strong>: TTFB достигал 1200 мс, сервер перегружался под нагрузкой, кэширование было фрагментарным.</p>
   <p><strong>Решение</strong>: Построена 4-уровневая система - OPcache, Opencart Lightning, Brotli, Service Worker.</p>
-  <p><strong>Измеримый результат</strong>: TTFB снизился на 98%, нагрузка на CPU - на 99.3%. Система стабильна с 2024 года.</p>
+  <p style="margin-bottom: 50px;"><strong>Измеримый результат</strong>: TTFB снизился на 98%, нагрузка на CPU - на 99.3%. Система стабильна с 2024 года.</p>
 
-  <h3 style="margin-top: 50px;">5.2. ISPN - Интеллектуальная система предиктивной навигации</h3>
+  <h3 class="h3">5.2. ISPN - Интеллектуальная система предиктивной навигации</h3>
   <img class="image image-navigation" src="https://github.com/kyrchenkov/kyrchenkov.github.io/blob/main/img/predictivepre.webp?raw=true" alt="Интеллектуальная система предиктивной навигации" loading="lazy">
   <p class="p-navigation"><strong>Проблема</strong>: Медленные переходы, «холодные» страницы, отсутствие анализа поведения пользователей.</p>
   <p><strong>Решение</strong>: Внедрён сбор цепочек переходов, анализ логов, автоматический прогрев и предзагрузка контента.</p>
-  <p><strong>Измеримый результат</strong>: TTFB снижен до 26 мс, время перехода - на 90%, Lighthouse Performance = 100.</p>
+  <p style="margin-bottom: 50px;"><strong>Измеримый результат</strong>: TTFB снижен до 26 мс, время перехода - на 90%, Lighthouse Performance = 100.</p>
 
-  <h3 style="margin-top: 50px;">5.3. PWA-Layer - Архитектура изолированного прикладного слоя</h3>
+  <h3 class="h3">5.3. PWA-Layer - Архитектура изолированного прикладного слоя</h3>
   <img class="image image-pwa" src="https://github.com/kyrchenkov/kyrchenkov.github.io/blob/main/img/pwa_sw.webp?raw=true" alt="Архитектура изолированного прикладного слоя" loading="lazy">
   <p class="p-pwa"><strong>Проблема</strong>: Отсутствие мобильного приложения, восприятие обычного сайта.</p>
   <p><strong>Решение</strong>: Реализовано разделение Service Worker на режимы PWA и браузер, внедрёна динамическая предзагрузка страниц, splash-экран, учёт установок.</p>
-  <p><strong>Измеримый результат</strong>: FCP снизился на 71%, трафик - на 42%, Lighthouse = 100.</p>
+  <p style="margin-bottom: 50px;"><strong>Измеримый результат</strong>: FCP снизился на 71%, трафик - на 42%, Lighthouse = 100.</p>
 
-  <h3 style="margin-top: 50px;">5.4. OPS-UX - Операционная система поддержки</h3>
+  <h3 class="h3">5.4. OPS-UX - Операционная система поддержки</h3>
   <img class="image image-extension" src="https://github.com/kyrchenkov/kyrchenkov.github.io/blob/main/img/operators.gif?raw=true" alt="Операционная система поддержки" loading="lazy">
   <p class="p-extension"><strong>Проблема</strong>: Высокая нагрузка на операторов, рутина, частые ошибки, несогласованность ответов.</p>
   <p><strong>Решение</strong>: Написано браузерное расширение, с сохранением состояния и семантической вставкой шаблонов.</p>
-  <p><strong>Измеримый результат</strong>: Время ответа сократилось с 45 сек до 8–12, ошибки устранены полностью, обучение сокращено с 5 дней до 1.</p>
+  <p style="margin-bottom: 50px;"><strong>Измеримый результат</strong>: Время ответа сократилось с 45 сек до 8–12, ошибки устранены полностью, обучение сокращено с 5 дней до 1.</p>
 
-  <h3 style="margin-top: 50px;">5.5. DialogCore - Диалоговая система с ИИ</h3>
+  <h3 class="h3">5.5. DialogCore - Диалоговая система с ИИ</h3>
   <img class="image image-dialog" src="https://github.com/kyrchenkov/kyrchenkov.github.io/blob/main/img/chatbot.webp?raw=true" alt="Диалоговая система с ИИ" loading="lazy">
   <p class="p-dialog"><strong>Проблема</strong>: Все запросы проходили через операторов, отсутствовала база знаний, ответы были медленными.</p>
   <p><strong>Решение</strong>: Построено диалоговое ядро с 500+ узлами, семантической памятью, визуальным редактором и интеграцией ИИ.</p>
-  <p><strong>Измеримый результат</strong>: 96% запросов обрабатываются без оператора, переводы сокращены до 1 в день, создано 200+ FAQ, база - 173 499 слов.</p>
+  <p style="margin-bottom: 50px;"><strong>Измеримый результат</strong>: 96% запросов обрабатываются без оператора, переводы сокращены до 1 в день, создано 200+ FAQ, база - 173 499 слов.</p>
 
-  <h3 style="margin-top: 50px;">5.6. AI-Оператор - живое UX-присутствие</h3>
+  <h3 class="h3">5.6. AI-Оператор - живое UX-присутствие</h3>
   <img class="image image-ux" src="https://github.com/kyrchenkov/kyrchenkov.github.io/blob/main/img/aisphere.webp?raw=true" alt="Живое UX-присутствие" loading="lazy">
   <p class="p-ux"><strong>Проблема</strong>: Сомнения пользователей, пользователи не чувствовали «живого» взаимодействия с сайтом.</p>
   <p><strong>Решение</strong>: Реализована иллюзия присутствия - пульсирующая сфера, уведомления, игровые механики, «ритуалы» ожидания.</p>
-  <p><strong>Измеримый результат</strong>: Конверсия выросла на 89%, время на сайте - на 104%, отказы снизились на 47%, открытие чата - на 10 900%.</p>
+  <p style="margin-bottom: 50px;"><strong>Измеримый результат</strong>: Конверсия выросла на 89%, время на сайте - на 104%, отказы снизились на 47%, открытие чата - на 10 900%.</p>
 
-  <h3 style="margin-top: 50px;">5.7. UX-Vibe - визуал как притяжение</h3>
+  <h3 class="h3">5.7. UX-Vibe - визуал как притяжение</h3>
   <img class="image image-ui" src="https://github.com/kyrchenkov/kyrchenkov.github.io/blob/main/img/uxvibe.webp?raw=true" alt="Визуал как притяжение" loading="lazy">
   <p><strong>Проблема</strong>: Даже после всех улучшений интерфейс ощущался «безжизненным». Не было визуального выражения AI-Оператора.</p>
   <p><strong>Решение</strong>: Полностью переработана визуальная основа интерфейса через CSS и JS - глубина, свечение, анимации, форма, реакция на касание. Сформирован единый визуальный язык.</p>
   <p><strong>Измеримый результат</strong>: Появилось визуальное выражение AI-Оператора. Элементы интерфейса перестали быть функциями - стали точками диалога. AI-Оператор стал не только слышимым - он стал видимым.</p>
  
-  <h3 style="background: transparent;">5.7.1. «Просто Button-Vibe»</h3>
+  <h3>5.7.1. «Просто Button-Vibe»</h3>
   <div class="container-btn">
  	<button type="button" class="ui-to-top"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
   
     <button type="button" class="button-search"><i class="fa fa-search" aria-hidden="true"></i></button>
 	
 	<button type="button" class="delete"><i class="fa fa-times" aria-hidden="true"></i></button>
+	
+	<button type="button" class="stuck"><i class="fa fa-superpowers" aria-hidden="true"></i></button>
   </div>
   
   <h2>6. Общие принципы всех проектов</h2>
@@ -2219,11 +2708,11 @@
   </blockquote>
   
   <p style="text-align: center; margin-top: 30px; font-size: 18px;">
-    <a class="github" href="https://github.com/kyrchenkov/performance-engineering-and-ux" onclick="ym(106460448, 'reachGoal', 'click_github');" target="_blank"><i class="fa fa-github" aria-hidden="true" style="font-weight: 600;"></i> Обзорный код и архитектура на GitHub</a>
+    <a class="github" href="https://github.com/kyrchenkov/performance-engineering-and-ux" onclick="ym(106460448, 'reachGoal', 'click_github');" target="_blank"><i class="fa fa-github" aria-hidden="true" style="font-weight: 600;"></i><span>Обзорный код и архитектура на GitHub</span></a>
   </p>
 
   <p style="text-align: center; margin-top: 30px; font-size: 18px;">
-    <a class="hubr" href="https://habr.com/ru/articles/980970" onclick="ym(106460448, 'reachGoal', 'click_hubr');" target="_blank"><i class="fa fa-ravelry" aria-hidden="true" style="font-weight: 600;"></i> «Инженерия UX и производительности: от ядра к периферии»</a>
+    <a class="hubr" href="https://habr.com/ru/articles/980970" onclick="ym(106460448, 'reachGoal', 'click_hubr');" target="_blank"><i class="fa fa-ravelry" aria-hidden="true" style="font-weight: 600;"></i><span>«Инженерия UX и производительности: от ядра к периферии»</span></a>
   </p>
 
   <p style="text-align: center; margin-top: 12px; font-size: 18px;">
