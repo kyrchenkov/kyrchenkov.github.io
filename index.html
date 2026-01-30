@@ -347,35 +347,35 @@
 	  }
 	}
 	
-	@-webkit-keyframes btn-search {
+	@-webkit-keyframes ux-btn {
 	  50% {
 	    opacity: 0.85;
 	    -webkit-transform: scale(.97);
 	  }
 	}
 	
-	@-moz-keyframes btn-search {
+	@-moz-keyframes ux-btn {
 	  50% {
 	    opacity: 0.85;
 	    -moz-transform: scale(.97);
 	  }
 	}
 
-	@-ms-keyframes btn-search {
+	@-ms-keyframes ux-btn {
 	  50% {
 	    opacity: 0.85;
 	    -ms-transform: scale(.97);
 	  }
 	}
 
-	@-o-keyframes btn-search {
+	@-o-keyframes ux-btn {
 	  50% {
 	    opacity: 0.85;
 	    -o-transform: scale(.97);
 	  }
 	}
 
-	@keyframes btn-search {
+	@keyframes ux-btn {
 	  50% {
 	    opacity: 0.85;
 	    transform: scale(.97);
@@ -895,18 +895,18 @@
 	  padding: 15px;
     }
 	
-    .button-search {
+    .ux-btn {
       position: absolute;
-      top: 0;
-      left: 128px;
-      height: 46px;
+      top: -15px;
+      left: 130px;
+      height: 76px;
       width: 76px;
       opacity: 0.8;
-      -webkit-border-radius: 14px;
-         -moz-border-radius: 14px;
-          -ms-border-radius: 14px;
-           -o-border-radius: 14px;
-              border-radius: 14px;
+      -webkit-border-radius: 22px 50px 15px 42px;
+         -moz-border-radius: 22px 50px 15px 42px;
+          -ms-border-radius: 22px 50px 15px 42px;
+           -o-border-radius: 22px 50px 15px 42px;
+              border-radius: 22px 50px 15px 42px;
       --btn-bg-1: #ffddabba;
       --btn-bg-2: #ff2f99;
       background-size: 280% auto;
@@ -955,20 +955,20 @@
 	                      inset -4px -4px 8px #d3117359,
 	                      inset 0px 0px 20px 0px #fff,
 	                      inset 0px 0px 20px 0px transparent;
-      -webkit-transition: 0.2s all ease;
-         -moz-transition: 0.2s all ease;
-          -ms-transition: 0.2s all ease;
-           -o-transition: 0.2s all ease;
-              transition: 0.2s all ease;
-      -webkit-animation: btn-search 1s linear infinite;
-         -moz-animation: btn-search 1s linear infinite;
-          -ms-animation: btn-search 1s linear infinite;
-           -o-animation: btn-search 1s linear infinite;
-              animation: btn-search 1s linear infinite;
+      -webkit-transition: 0.18s all ease;
+         -moz-transition: 0.18s all ease;
+          -ms-transition: 0.18s all ease;
+           -o-transition: 0.18s all ease;
+              transition: 0.18s all ease;
+      -webkit-animation: ux-btn 1s cubic-bezier(0.55, 0.06, 0.68, 0.19) infinite;
+         -moz-animation: ux-btn 1s cubic-bezier(0.55, 0.06, 0.68, 0.19) infinite;
+          -ms-animation: ux-btn 1s cubic-bezier(0.55, 0.06, 0.68, 0.19) infinite;
+           -o-animation: ux-btn 1s cubic-bezier(0.55, 0.06, 0.68, 0.19) infinite;
+              animation: ux-btn 1s cubic-bezier(0.55, 0.06, 0.68, 0.19) infinite;
       filter: contrast(0.95);
     }
 	
-    .button-search:hover {
+    .ux-btn:hover {
       -webkit-box-shadow: 0px 0px 10px #ff3a9e87,
 	                      0px 5px 5px -1px #e9338f38,
 	                      inset 4px 4px 8px #ffbbdd80,
@@ -1001,16 +1001,16 @@
 	                      inset 0px 0px 20px 0px #ffffff75;
     }
 	
-    .button-search:active {
-      top: -10px;
-      left: 132px;
-      height: 66px;
+    .ux-btn:active {
+      top: -22px;
+      left: 134px;
+      height: 86px;
       width: 66px;
-      -webkit-border-radius: 20px;
-         -moz-border-radius: 20px;
-          -ms-border-radius: 20px;
-           -o-border-radius: 20px;
-              border-radius: 20px;
+      -webkit-border-radius: 46px 22px 36px 38px;
+         -moz-border-radius: 46px 22px 36px 38px;
+          -ms-border-radius: 46px 22px 36px 38px;
+           -o-border-radius: 46px 22px 36px 38px;
+              border-radius: 46px 22px 36px 38px;
       --btn-bg-1: #ffddab;
       --btn-bg-2: #e50075;
       background-image: -webkit-linear-gradient(325deg, var(--btn-bg-2) 0%,
@@ -1059,13 +1059,18 @@
 	                      inset 0px 0px 20px 0px #ffffffab,
 	                      inset 0px 0px 20px 0px #ffffff75;
       filter: none;
+      -webkit-transform: scaleX(.7) scaleY(1.3) !important;
+         -moz-transform: scaleX(.7) scaleY(1.3) !important;
+          -ms-transform: scaleX(.7) scaleY(1.3) !important;
+           -o-transform: scaleX(.7) scaleY(1.3) !important;
+              transform: scaleX(.7) scaleY(1.3) !important;
     }
 	
-    .button-search i {
-      font-size: 20px;
+    .ux-btn i {
+      font-size: 46px;
       font-weight: 700;
-      height: 46px;
-      width: 66px;
+      height: 76px;
+      width: 76px;
       color: #ffc4e2;
       align-content: center;
       -webkit-transition: 0.2s all ease;
@@ -1076,7 +1081,7 @@
       filter: drop-shadow(0px 0px 3px #ff2f99);
     }
 
-    .button-search i:active {
+    .ux-btn i:active {
       -webkit-transform: scaleX(.7) scaleY(1.3);
          -moz-transform: scaleX(.7) scaleY(1.3);
           -ms-transform: scaleX(.7) scaleY(1.3);
@@ -1096,7 +1101,7 @@
           -ms-border-radius: 14px;
            -o-border-radius: 14px;
               border-radius: 14px;
-      --btn-bg-1: #ffb2d9;
+      --btn-bg-1: #ffc2e1;
       --btn-bg-2: #ff2a96;
       background-size: 280% auto;
       background-image: -webkit-linear-gradient(325deg, var(--btn-bg-2) 0%,
@@ -1115,25 +1120,25 @@
 	                                                    var(--btn-bg-1) 55%,
 														var(--btn-bg-2) 90%);
       -webkit-box-shadow: 0px 0px 20px #ff47a57d,
-                          0px 5px 5px -1px #e938922b,
-                          inset 4px 4px 8px #ffb2d975,
-                          inset -4px -4px 8px #d7107561;
+			              0px 5px 5px -1px #e938922b,
+			              inset 4px 4px 8px #ffdfefc9,
+			              inset -4px -4px 8px #ec65a9cf;
          -moz-box-shadow: 0px 0px 20px #ff47a57d,
-                          0px 5px 5px -1px #e938922b,
-                          inset 4px 4px 8px #ffb2d975,
-                          inset -4px -4px 8px #d7107561;
+			              0px 5px 5px -1px #e938922b,
+			              inset 4px 4px 8px #ffdfefc9,
+			              inset -4px -4px 8px #ec65a9cf;
           -ms-box-shadow: 0px 0px 20px #ff47a57d,
-                          0px 5px 5px -1px #e938922b,
-                          inset 4px 4px 8px #ffb2d975,
-                          inset -4px -4px 8px #d7107561;
+			              0px 5px 5px -1px #e938922b,
+			              inset 4px 4px 8px #ffdfefc9,
+			              inset -4px -4px 8px #ec65a9cf;
            -o-box-shadow: 0px 0px 20px #ff47a57d,
-                          0px 5px 5px -1px #e938922b,
-                          inset 4px 4px 8px #ffb2d975,
-                          inset -4px -4px 8px #d7107561;
+			              0px 5px 5px -1px #e938922b,
+			              inset 4px 4px 8px #ffdfefc9,
+			              inset -4px -4px 8px #ec65a9cf;
               box-shadow: 0px 0px 20px #ff47a57d,
-                          0px 5px 5px -1px #e938922b,
-                          inset 4px 4px 8px #ffb2d975,
-                          inset -4px -4px 8px #d7107561;
+			              0px 5px 5px -1px #e938922b,
+			              inset 4px 4px 8px #ffdfefc9,
+			              inset -4px -4px 8px #ec65a9cf;
       -webkit-transition: 0.2s all cubic-bezier(0.25, 0.1, 0, 0.66);
          -moz-transition: 0.2s all cubic-bezier(0.25, 0.1, 0, 0.66);
           -ms-transition: 0.2s all cubic-bezier(0.25, 0.1, 0, 0.66);
@@ -1199,7 +1204,7 @@
     }
 	
     .ui-to-top i {
-      font-size: 20px;
+      font-size: 26px;
       font-weight: 700;
       height: 46px;
       width: 46px;
@@ -1221,7 +1226,7 @@
               transform: scaleX(.7) scaleY(3);
     }
 	
-    .delete {
+    .turn-off-btn {
       position: absolute;
       top: 0;
       left: 280px;
@@ -1279,7 +1284,7 @@
               transition: 0.2s all ease;
     }
 	
-    .delete:active {
+    .turn-off-btn:active {
       --btn-bg-1: #ffffff;
       --btn-bg-2: #ff0000;
       -webkit-transform: scale3d(1.2, 1.2, 1) rotate3d(1, 1, 2, 10deg);
@@ -1309,7 +1314,7 @@
 				          inset -4px -4px 8px #ff3636;
     }
 	
-    .delete i {
+    .turn-off-btn i {
       font-size: 26px;
       font-weight: 700;
       height: 46px;
@@ -1324,7 +1329,7 @@
       filter: drop-shadow(0px 0px 3px #ff2f99);
     }
 	
-    .delete i:active {
+    .turn-off-btn i:active {
       font-weight: 100;
       color: #ffd0e8;
       -webkit-transform: scaleX(1.2) scaleY(1.2);
@@ -1334,7 +1339,7 @@
               transform: scaleX(1.2) scaleY(1.2);
 	}
 	
-    .stuck {
+    .shock-btn {
       z-index: 3;
       position: fixed;
       top: 0;
@@ -1392,8 +1397,8 @@
 		      transition: 0.1s all ease-in-out;
     }
 	
-    .stuck:active {
-      top: 82px;
+    .shock-btn:active {
+      top: 50px;
       right: -6px;
       -webkit-border-radius: 25px;
          -moz-border-radius: 25px;
@@ -1407,7 +1412,7 @@
 		      transform: scaleX(0.8) scaleY(3);
     }
 	
-    .stuck i {
+    .shock-btn i {
       font-size: 28px;
       color: #c1b6ffde;
       filter: drop-shadow(0px 0px 3px #583aff);
@@ -1825,41 +1830,6 @@
               transition: 0.2s all ease-in-out;
 	}
 	
-	.github:hover {
-      scale: 1.2;
-      border-image: -webkit-linear-gradient(to right, transparent, #586def78, #586def96, #586def78, transparent);
-      border-image:    -moz-linear-gradient(to right, transparent, #586def78, #586def96, #586def78, transparent);
-      border-image:     -ms-linear-gradient(to right, transparent, #586def78, #586def96, #586def78, transparent);
-      border-image:      -o-linear-gradient(to right, transparent, #586def78, #586def96, #586def78, transparent);
-      border-image:         linear-gradient(to right, transparent, #586def78, #586def96, #586def78, transparent);
-      filter: drop-shadow(0px 0px 12px #586def7d);
-      -webkit-transform: rotateX(15deg);
-         -moz-transform: rotateX(15deg);
-          -ms-transform: rotateX(15deg);
-           -o-transform: rotateX(15deg);
-              transform: rotateX(15deg);
-	}
-	
-	.hubr:hover {
-      scale: 1.25;
-	  background-image: -webkit-linear-gradient(190deg, #ff56acab 25%, #a059fe8f 90%);
-      background-image:    -moz-linear-gradient(190deg, #ff56acab 25%, #a059fe8f 90%);
-      background-image:     -ms-linear-gradient(190deg, #ff56acab 25%, #a059fe8f 90%);
-      background-image:      -o-linear-gradient(190deg, #ff56acab 25%, #a059fe8f 90%);
-      background-image:         linear-gradient(190deg, #ff56acab 25%, #a059fe8f 90%);
-      border-image: -webkit-linear-gradient(to right, transparent, #ff56ac3d, #ff56ac4a, #ff56ac3d, transparent);
-      border-image:    -moz-linear-gradient(to right, transparent, #ff56ac3d, #ff56ac4a, #ff56ac3d, transparent);
-      border-image:     -ms-linear-gradient(to right, transparent, #ff56ac3d, #ff56ac4a, #ff56ac3d, transparent);
-      border-image:      -o-linear-gradient(to right, transparent, #ff56ac3d, #ff56ac4a, #ff56ac3d, transparent);
-      border-image:         linear-gradient(to right, transparent, #ff56ac3d, #ff56ac4a, #ff56ac3d, transparent);
-      filter: drop-shadow(0px 0px 8px #ff7070);
-      -webkit-transform: rotateX(345deg);
-         -moz-transform: rotateX(345deg);
-          -ms-transform: rotateX(345deg);
-           -o-transform: rotateX(345deg);
-              transform: rotateX(345deg);
-	}
-	
 	.github:active {
       scale: 0.9;
       border-image: -webkit-linear-gradient(to right, transparent, transparent, #586def96, transparent, transparent);
@@ -1935,24 +1905,61 @@
               transition: 0.2s scale, filter ease-in-out;
 	}
 	
-	.ready-contact i:hover {
-      scale: 1.5;
-	  filter: drop-shadow(0px 0px 5px #586def7d);
-      -webkit-transform: matrix3d(1, 0.03, 0, 0, 0.02, 1.01, 0,
-			                 -0.001, 0, 0, 1, 1, 0.5, 0, 2, 1);
-         -moz-transform: matrix3d(1, 0.03, 0, 0, 0.02, 1.01, 0,
-			                 -0.001, 0, 0, 1, 1, 0.5, 0, 2, 1);
-          -ms-transform: matrix3d(1, 0.03, 0, 0, 0.02, 1.01, 0,
-			                 -0.001, 0, 0, 1, 1, 0.5, 0, 2, 1);
-           -o-transform: matrix3d(1, 0.03, 0, 0, 0.02, 1.01, 0,
-			                 -0.001, 0, 0, 1, 1, 0.5, 0, 2, 1);
-              transform: matrix3d(1, 0.03, 0, 0, 0.02, 1.01, 0,
-			                 -0.001, 0, 0, 1, 1, 0.5, 0, 2, 1);
-	}
-	
 	.ready-contact i:active {
       scale: 0.9;
 	  filter: drop-shadow(0px 0px 1px #586defe3);
+	}
+
+	@media (min-width: 768px) {
+      .github:hover {
+        scale: 1.2;
+        border-image: -webkit-linear-gradient(to right, transparent, #586def78, #586def96, #586def78, transparent);
+        border-image:    -moz-linear-gradient(to right, transparent, #586def78, #586def96, #586def78, transparent);
+        border-image:     -ms-linear-gradient(to right, transparent, #586def78, #586def96, #586def78, transparent);
+        border-image:      -o-linear-gradient(to right, transparent, #586def78, #586def96, #586def78, transparent);
+        border-image:         linear-gradient(to right, transparent, #586def78, #586def96, #586def78, transparent);
+        filter: drop-shadow(0px 0px 12px #586def7d);
+        -webkit-transform: rotateX(15deg);
+           -moz-transform: rotateX(15deg);
+            -ms-transform: rotateX(15deg);
+             -o-transform: rotateX(15deg);
+                transform: rotateX(15deg);
+      }
+	
+      .hubr:hover {
+        scale: 1.25;
+        background-image: -webkit-linear-gradient(190deg, #ff56acab 25%, #a059fe8f 90%);
+        background-image:    -moz-linear-gradient(190deg, #ff56acab 25%, #a059fe8f 90%);
+        background-image:     -ms-linear-gradient(190deg, #ff56acab 25%, #a059fe8f 90%);
+        background-image:      -o-linear-gradient(190deg, #ff56acab 25%, #a059fe8f 90%);
+        background-image:         linear-gradient(190deg, #ff56acab 25%, #a059fe8f 90%);
+        border-image: -webkit-linear-gradient(to right, transparent, #ff56ac3d, #ff56ac4a, #ff56ac3d, transparent);
+        border-image:    -moz-linear-gradient(to right, transparent, #ff56ac3d, #ff56ac4a, #ff56ac3d, transparent);
+        border-image:     -ms-linear-gradient(to right, transparent, #ff56ac3d, #ff56ac4a, #ff56ac3d, transparent);
+        border-image:      -o-linear-gradient(to right, transparent, #ff56ac3d, #ff56ac4a, #ff56ac3d, transparent);
+        border-image:         linear-gradient(to right, transparent, #ff56ac3d, #ff56ac4a, #ff56ac3d, transparent);
+        filter: drop-shadow(0px 0px 8px #ff7070);
+        -webkit-transform: rotateX(345deg);
+           -moz-transform: rotateX(345deg);
+            -ms-transform: rotateX(345deg);
+             -o-transform: rotateX(345deg);
+                transform: rotateX(345deg);
+      }
+	  
+      .ready-contact i:hover {
+        scale: 1.5;
+        filter: drop-shadow(0px 0px 5px #586def7d);
+        -webkit-transform: matrix3d(1, 0.03, 0, 0, 0.02, 1.01, 0,
+			                   -0.001, 0, 0, 1, 1, 0.5, 0, 2, 1);
+           -moz-transform: matrix3d(1, 0.03, 0, 0, 0.02, 1.01, 0,
+			                   -0.001, 0, 0, 1, 1, 0.5, 0, 2, 1);
+            -ms-transform: matrix3d(1, 0.03, 0, 0, 0.02, 1.01, 0,
+			                   -0.001, 0, 0, 1, 1, 0.5, 0, 2, 1);
+             -o-transform: matrix3d(1, 0.03, 0, 0, 0.02, 1.01, 0,
+			                   -0.001, 0, 0, 1, 1, 0.5, 0, 2, 1);
+                transform: matrix3d(1, 0.03, 0, 0, 0.02, 1.01, 0,
+			                   -0.001, 0, 0, 1, 1, 0.5, 0, 2, 1);
+      }  
 	}
 	
 	@media (max-width: 767px) {
@@ -2126,7 +2133,7 @@
         margin: -35px auto -65px auto;
       }
 	  
-	  .delete {
+	  .turn-off-btn {
         top: -65px;
         left: 230px;
 	  }
@@ -2421,6 +2428,1162 @@
       scheduleNextDischarge();
     })();
   });
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    (function() {
+      function showComputationAnimation(callback) {
+        
+        function getPerformanceLevel() {
+          try {
+            const start = performance.now();
+            for (let i = 0; i < 50000; i++) {
+              Math.random();
+            }
+            const end = performance.now();
+            
+            if (end - start > 15) {
+              return 'low';
+            } else if (end - start > 8) {
+              return 'medium';
+            } else {
+              return 'high';
+            }
+          } catch (e) {
+            return 'medium';
+          }
+        }
+
+        const performanceLevel = getPerformanceLevel();
+        
+        const particleCount = performanceLevel === 'low' ? 50 : 
+                             performanceLevel === 'medium' ? 75 : 100;
+        const symbolCount = performanceLevel === 'low' ? 20 : 
+                           performanceLevel === 'medium' ? 25 : 30;
+
+        const originalOverflow = document.body.style.overflow;
+        const originalPosition = document.body.style.position;
+        const originalTop = document.body.style.top;
+        const originalLeft = document.body.style.left;
+        
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+        
+        document.body.style.overflow = 'hidden';
+        document.body.style.position = 'fixed';
+        document.body.style.top = `-${scrollTop}px`;
+        document.body.style.left = `-${scrollLeft}px`;
+        document.body.style.width = '100%';
+
+        const style = document.createElement('style');
+        style.textContent = `
+          @keyframes contentPulse {
+            0%, 100% { 
+              box-shadow: inset 0 0 0 rgba(0,0,0,0);
+            }
+            50% { 
+              box-shadow: inset 0 0 20px rgba(0,0,0,0.1);
+            }
+          }
+          
+          body.animation-active {
+            animation: contentPulse 0.8s ease-in-out infinite;
+          }
+          
+          @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+          }
+        `;
+        document.head.appendChild(style);
+
+        document.body.classList.add('animation-active');
+
+        const animationContainer = document.createElement('div');
+        animationContainer.id = 'computation-animation';
+        animationContainer.style.cssText = `
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          background: linear-gradient(135deg, #0f0c29d9, #302b63d9, #24243ed9);
+          z-index: 300001;
+          overflow: hidden;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          opacity: 1;
+          transition: opacity 0.5s ease-out;
+          transform: translateZ(0);
+          will-change: transform;
+        `;
+
+        const backgroundContainer = document.createElement('div');
+        backgroundContainer.style.cssText = `
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(135deg, #0f0c29d9, #302b63d9, #24243ed9);
+          z-index: 300002;
+          transform: translateZ(0);
+        `;
+        animationContainer.appendChild(backgroundContainer);
+
+        const overlay = document.createElement('div');
+        overlay.style.cssText = `
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(to top, #0f0c29ba 0%, #0f0c299c 30%, transparent 75%);
+          z-index: 300003;
+          pointer-events: none;
+          transform: translateZ(0);
+        `;
+        animationContainer.appendChild(overlay);
+
+        const canvas = document.createElement('canvas');
+        canvas.style.cssText = `
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          pointer-events: none;
+          z-index: 300004;
+          transform: translateZ(0);
+          will-change: transform;
+        `;
+        animationContainer.appendChild(canvas);
+
+        const textContainer = document.createElement('div');
+        textContainer.style.cssText = `
+          position: relative;
+          z-index: 300005;
+          color: #00ffff;
+          font-family: 'Courier New', monospace;
+          font-size: 24px;
+          font-weight: bold;
+          text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+          letter-spacing: 4px;
+          transform: translateZ(0);
+          will-change: transform;
+        `;
+        animationContainer.appendChild(textContainer);
+
+        const textStyle = document.createElement('style');
+        textStyle.textContent = `
+          @keyframes pulse {
+            from {
+              transform: scale(1);
+              text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+            }
+            to {
+              transform: scale(1.05);
+              text-shadow: 0 0 15px #00ffff, 0 0 30px #00ffff, 0 0 45px #00ffff;
+            }
+          }
+        `;
+        document.head.appendChild(textStyle);
+
+        document.body.appendChild(animationContainer);
+
+        const fullText = 'АКТИВАЦИЯ ВНИМАНИЯ...';
+        let currentIndex = 0;
+
+        function typeText() {
+          if (currentIndex < fullText.length) {
+            const textElement = document.createElement('span');
+            textElement.textContent = fullText[currentIndex];
+            textElement.style.animation = 'pulse 1.5s infinite alternate';
+            textContainer.appendChild(textElement);
+            
+            currentIndex++;
+            
+            const baseDelay = performanceLevel === 'low' ? 100 : 
+                             performanceLevel === 'medium' ? 75 : 50;
+            const delay = baseDelay + Math.random() * 100;
+            setTimeout(typeText, delay);
+          }
+        }
+
+        typeText();
+
+        function updateCanvasSize() {
+          canvas.width = window.innerWidth;
+          canvas.height = window.innerHeight;
+        }
+
+        updateCanvasSize();
+
+        window.addEventListener('resize', updateCanvasSize);
+
+        const ctx = canvas.getContext('2d');
+
+        const particles = [];
+        const connections = [];
+        const symbols = [];
+
+        for (let i = 0; i < particleCount; i++) {
+          particles.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            vx: (Math.random() - 0.5) * 2,
+            vy: (Math.random() - 0.5) * 2,
+            radius: Math.random() * 3 + 1,
+            color: `hsl(${Math.random() * 60 + 180}, 100%, 70%)`
+          });
+        }
+
+        const chars = 'aeoristupnlmfbcdghvwxyAIOPRSTUEмВкДНсЗжлгяИбЭпутХ';
+        for (let i = 0; i < symbolCount; i++) {
+          symbols.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            char: chars[Math.floor(Math.random() * chars.length)],
+            size: Math.random() * 20 + 10,
+            speed: Math.random() * 2 + 1,
+            opacity: Math.random() * 0.5 + 0.5,
+            isFlashing: false,
+            flashEndTime: 0,
+            originalSize: Math.random() * 20 + 10
+          });
+        }
+
+        const words = [
+          'ML-Cache',
+          'ISPN',
+          'PWA-Layer',
+          'OPS-UX',
+          'DialogCore',
+          'AI-Оператор',
+          'UX-Vibe',
+          'Скорость',
+          'Удобство',
+          'Эффективность',
+          'Доверие',
+          'Надежность',
+          'Доступность',
+          'Инженерия UX',
+          'Инженерия пользовательского опыта',
+          'Инженерия производительности',
+          'Инженерия надежности',
+          'Инженерия доступности',
+          'Внимание пользователя',
+          'TTFB',
+          'FCP',
+          'Lighthouse Performance 100',
+          'Performance',
+          'Performance Engineer',
+          'Web-performance',
+          'Web-optimization',
+          'UX',
+          'Web UX',
+          'UX Architecture',
+          'UX Performance',
+          'UX Engineer',
+          'Site Reliability Engineering',
+          'Site Reliability Engineer',
+          'SRE'
+        ];
+
+        let currentWord = null;
+        let wordFlashEndTime = 0;
+        let wordX = 0;
+        let wordY = 0;
+        
+        let isFadingOut = false;
+
+        function showRandomWord() {
+          if (isFadingOut) return;
+          
+          if (!currentWord || Date.now() >= wordFlashEndTime) {
+            currentWord = words[Math.floor(Math.random() * words.length)];
+            wordFlashEndTime = Date.now() + 800;
+            wordX = Math.random() * (canvas.width - 200) + 100;
+            wordY = Math.random() * (canvas.height - 100) + 50;
+          }
+          
+          const baseDelay = performanceLevel === 'low' ? 800 : 
+                           performanceLevel === 'medium' ? 500 : 300;
+          setTimeout(showRandomWord, baseDelay + Math.random() * 500);
+        }
+
+        showRandomWord();
+
+        let animationTime = 0;
+        const animationDuration = 5000;
+        let animationFrame = 0;
+
+        function flashRandomSymbol() {
+          if (isFadingOut) return;
+          
+          const nonFlashingSymbols = symbols.filter(s => !s.isFlashing);
+          if (nonFlashingSymbols.length > 0) {
+            const randomSymbol = nonFlashingSymbols[Math.floor(Math.random() * nonFlashingSymbols.length)];
+            randomSymbol.isFlashing = true;
+            randomSymbol.flashEndTime = Date.now() + 400;
+            
+            setTimeout(() => {
+              randomSymbol.isFlashing = false;
+            }, 400);
+          }
+          
+          const baseDelay = performanceLevel === 'low' ? 400 : 
+                           performanceLevel === 'medium' ? 250 : 150;
+          setTimeout(flashRandomSymbol, baseDelay + Math.random() * 300);
+        }
+
+        flashRandomSymbol();
+
+        function animate() {
+          if (performanceLevel === 'low' && animationFrame % 2 !== 0) {
+            animationFrame++;
+            requestAnimationFrame(animate);
+            return;
+          }
+          animationFrame++;
+
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          
+          const timeStep = performanceLevel === 'low' ? 32 : 16;
+          animationTime += timeStep;
+          const progress = Math.min(animationTime / animationDuration, 1);
+          
+          if (progress >= 1 && !isFadingOut) {
+            isFadingOut = true;
+            animationContainer.style.opacity = '0';
+            
+            setTimeout(() => {
+              document.body.classList.remove('animation-active');
+              if (style.parentNode) style.parentNode.removeChild(style);
+              if (textStyle.parentNode) textStyle.parentNode.removeChild(textStyle);
+              window.removeEventListener('resize', updateCanvasSize);
+              
+              document.body.style.overflow = originalOverflow;
+              document.body.style.position = originalPosition;
+              document.body.style.top = originalTop;
+              document.body.style.left = originalLeft;
+              document.body.style.width = '';
+              
+              window.scrollTo(scrollLeft, scrollTop);
+            }, 500);
+            
+            particles.forEach(p => {
+              p.vx *= 3;
+              p.vy *= 3;
+            });
+            symbols.forEach(s => {
+              s.speed *= 3;
+            });
+          }
+          
+          for (let i = 0; i < particles.length; i++) {
+            const p = particles[i];
+            
+            p.x += p.vx;
+            p.y += p.vy;
+            
+            if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+            if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+            
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+            ctx.fillStyle = p.color;
+            ctx.fill();
+            
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.radius * 2, 0, Math.PI * 2);
+            ctx.fillStyle = p.color.replace(')', ', 0.2)').replace('hsl', 'hsla');
+            ctx.fill();
+          }
+          
+          ctx.strokeStyle = 'rgba(0, 255, 255, 0.2)';
+          ctx.lineWidth = 1;
+          const maxConnections = performanceLevel === 'low' ? 5 : 
+                                performanceLevel === 'medium' ? 8 : 15;
+          const maxDistance = performanceLevel === 'low' ? 60 : 
+                             performanceLevel === 'medium' ? 80 : 100;
+          
+          for (let i = 0; i < particles.length; i++) {
+            let connectionsCount = 0;
+            for (let j = i + 1; j < particles.length && connectionsCount < maxConnections; j++) {
+              const dx = particles[i].x - particles[j].x;
+              const dy = particles[i].y - particles[j].y;
+              const distance = Math.sqrt(dx * dx + dy * dy);
+              
+              if (distance < maxDistance) {
+                ctx.beginPath();
+                ctx.moveTo(particles[i].x, particles[i].y);
+                ctx.lineTo(particles[j].x, particles[j].y);
+                ctx.stroke();
+                connectionsCount++;
+              }
+            }
+          }
+          
+          if (currentWord && Date.now() < wordFlashEndTime) {
+            const wordFlashProgress = (wordFlashEndTime - Date.now()) / 800;
+            
+            const shadowCount = performanceLevel === 'low' ? 2 : 
+                               performanceLevel === 'medium' ? 3 : 5;
+            for (let j = shadowCount; j >= 1; j--) {
+              const offset = j * 3 * (1 - wordFlashProgress);
+              const alpha = 0.3 * (j / shadowCount) * wordFlashProgress;
+              
+              ctx.fillStyle = `rgba(255, 0, 255, ${alpha})`;
+              ctx.shadowColor = 'transparent';
+              ctx.shadowBlur = 0;
+              
+              const shadowFont = `bold 36px Courier New`;
+              const originalFont = ctx.font;
+              ctx.font = shadowFont;
+              ctx.fillText(currentWord, wordX + offset, wordY + offset);
+              ctx.font = originalFont;
+            }
+            
+            ctx.fillStyle = '#ff00ff';
+            ctx.font = 'bold 36px Courier New';
+            ctx.shadowColor = '#ff00ff';
+            const maxBlur = performanceLevel === 'low' ? 15 : 
+                           performanceLevel === 'medium' ? 25 : 30;
+            ctx.shadowBlur = maxBlur * wordFlashProgress;
+            ctx.fillText(currentWord, wordX, wordY);
+            ctx.shadowColor = 'transparent';
+            ctx.shadowBlur = 0;
+          }
+          
+          ctx.font = 'bold 20px Courier New';
+          for (let i = 0; i < symbols.length; i++) {
+            const s = symbols[i];
+            
+            s.y += s.speed;
+            
+            if (s.y > canvas.height) {
+              s.y = -20;
+              s.x = Math.random() * canvas.width;
+              s.char = chars[Math.floor(Math.random() * chars.length)];
+            }
+            
+            let currentSize = s.originalSize;
+            if (s.isFlashing && Date.now() < s.flashEndTime) {
+              const flashProgress = (s.flashEndTime - Date.now()) / 400;
+              const maxScale = performanceLevel === 'low' ? 0.3 : 
+                              performanceLevel === 'medium' ? 0.5 : 0.8;
+              currentSize = s.originalSize * (1 + maxScale * flashProgress);
+              
+              const shadowCount = performanceLevel === 'low' ? 1 : 
+                                 performanceLevel === 'medium' ? 2 : 5;
+              for (let j = shadowCount; j >= 1; j--) {
+                const offset = j * 2 * (1 - flashProgress);
+                const alpha = 0.2 * (j / shadowCount) * flashProgress;
+                
+                ctx.fillStyle = `rgba(255, 0, 255, ${alpha})`;
+                ctx.shadowColor = 'transparent';
+                ctx.shadowBlur = 0;
+                
+                const shadowFont = `bold ${currentSize}px Courier New`;
+                const originalFont = ctx.font;
+                ctx.font = shadowFont;
+                ctx.fillText(s.char, s.x + offset, s.y + offset);
+                ctx.font = originalFont;
+              }
+              
+              ctx.fillStyle = '#ff00ff';
+              ctx.shadowColor = '#ff00ff';
+              const maxBlur = performanceLevel === 'low' ? 10 : 
+                             performanceLevel === 'medium' ? 15 : 20;
+              ctx.shadowBlur = maxBlur * flashProgress;
+            } else {
+              ctx.fillStyle = `rgba(0, 255, 255, ${s.opacity})`;
+              ctx.shadowColor = 'transparent';
+              ctx.shadowBlur = 0;
+            }
+            
+            const originalFont = ctx.font;
+            ctx.font = `bold ${currentSize}px Courier New`;
+            ctx.fillText(s.char, s.x, s.y);
+            ctx.font = originalFont;
+          }
+          
+          if (isFadingOut) {
+            setTimeout(() => {
+              if (animationContainer.parentNode) {
+                animationContainer.parentNode.removeChild(animationContainer);
+              }
+              if (callback && typeof callback === 'function') callback();
+              
+              const uxButton = document.querySelector('.ux-btn');
+              if (uxButton) {
+                const audio = new Audio('https://kyrchenkov.github.io/assets/sound.mp3');
+                audio.volume = 0.7;
+                
+                audio.play().catch(e => console.log('Audio playback failed:', e));
+                
+                setTimeout(() => {
+                  uxButton.style.cssText += `
+                    top: -22px;
+                    left: 134px;
+                    height: 86px;
+                    width: 66px;
+                    border-radius: 46px 22px 36px 38px;
+                    --btn-bg-1: #ffddab;
+                    --btn-bg-2: #e50075;
+                    background-image: linear-gradient(325deg, var(--btn-bg-2) 0%,
+					                                          var(--btn-bg-1) 55%,
+															  var(--btn-bg-2) 90%);
+                    box-shadow: 0px 0px 10px #ff3a9e87,
+					            0px 5px 5px -1px #e9338f38,
+								inset 4px 4px 8px #ffbbdd80,
+								inset -4px -4px 8px #d3117359,
+								inset 0px 0px 20px 0px #ffffffab,
+								inset 0px 0px 20px 0px #ffffff75;
+					animation: ux-btn 1s cubic-bezier(0.55, 0.06, 0.68, 0.19) infinite;
+                    filter: none;
+                    transform: scaleX(.7) scaleY(1.3);
+                  `;
+                  
+                  setTimeout(() => {
+                    uxButton.style.cssText += `
+                      position: absolute;
+                      top: -15px;
+                      left: 130px;
+                      height: 76px;
+                      width: 76px;
+                      opacity: 0.8;
+                      border-radius: 22px 50px 15px 42px;
+                      --btn-bg-1: #ffddabba;
+                      --btn-bg-2: #ff2f99;
+                      background-size: 280% auto;
+                      background-image: linear-gradient(325deg, var(--btn-bg-2) 0%,
+                                                                var(--btn-bg-1) 55%,
+                                                                var(--btn-bg-2) 90%);
+                      box-shadow: 0px 0px 10px #ff3a9e87,
+                                  0px 5px 5px -1px #e9338f38,
+                                  inset 4px 4px 8px #ffbbdd80,
+                                  inset -4px -4px 8px #d3117359,
+                                  inset 0px 0px 20px 0px #fff,
+                                  inset 0px 0px 20px 0px transparent;
+                      transition: 0.18s all ease;
+                      animation: none;
+                      filter: contrast(0.95);
+                      transform: scaleX(1) scaleY(1);
+                    `;
+                  }, 15000);
+                }, 4700);
+              }
+            }, 500);
+          } else {
+            requestAnimationFrame(animate);
+          }
+        }
+        
+        animate();
+      }
+
+      const UXButton = document.querySelector('.ux-btn');
+      if (UXButton) {
+        UXButton.addEventListener('click', function() {
+          setTimeout(function() {
+            showComputationAnimation();
+          }, 300);
+        });
+      }
+    })();
+  });
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    (function() {
+      if (window.lightningAnimationInitialized) return;
+      window.lightningAnimationInitialized = true;
+  
+      function createLightningAnimation() {
+        const container = document.createElement('div');
+        container.style.position = 'fixed';
+        container.style.top = '0';
+        container.style.left = '0';
+        container.style.width = '100vw';
+        container.style.height = '100vh';
+        container.style.pointerEvents = 'none';
+        container.style.zIndex = '999999';
+        container.style.overflow = 'hidden';
+
+        const canvas = document.createElement('canvas');
+        canvas.style.position = 'absolute';
+        canvas.style.top = '0';
+        canvas.style.left = '0';
+        canvas.style.width = '100%';
+        canvas.style.height = '100%';
+
+        const flash = document.createElement('div');
+        flash.style.position = 'absolute';
+        flash.style.top = '0';
+        flash.style.left = '0';
+        flash.style.width = '100%';
+        flash.style.height = '100%';
+        flash.style.background = 'white';
+        flash.style.opacity = '0';
+        
+        container.appendChild(canvas);
+        container.appendChild(flash);
+        document.body.appendChild(container);
+        
+        const ctx = canvas.getContext('2d');
+        let animationFrameId = null;
+        let timeoutIds = [];
+
+        function cleanup() {
+          if (animationFrameId) {
+            cancelAnimationFrame(animationFrameId);
+            animationFrameId = null;
+          }
+          
+          timeoutIds.forEach(id => clearTimeout(id));
+          timeoutIds = [];
+          
+          if (container.parentNode) {
+            container.parentNode.removeChild(container);
+          }
+        }
+        
+        class LightningPoint {
+          constructor(x, y) {
+            this.x = x;
+            this.y = y;
+            this.children = [];
+            this.parent = null;
+          }
+        }
+
+        function createLightningTree() {
+          const startX = Math.random() * canvas.width;
+          const startY = 0;
+          const endX = startX + (Math.random() - 0.5) * canvas.width * 0.5;
+          const endY = canvas.height;
+
+          const root = new LightningPoint(startX, startY);
+
+          const mainSegments = 15 + Math.floor(Math.random() * 10);
+          const branchProbability = 0.3;
+          const maxBranches = 3;
+          
+          let currentPoint = root;
+
+          for (let i = 0; i < mainSegments; i++) {
+            const progress = (i + 1) / mainSegments;
+            const targetX = startX + (endX - startX) * progress;
+            const targetY = startY + (endY - startY) * progress;
+
+            const newX = targetX + (Math.random() - 0.5) * 150 * (1 - progress * 0.8);
+            const newY = targetY;
+            
+            const newPoint = new LightningPoint(newX, newY);
+            newPoint.parent = currentPoint;
+            currentPoint.children.push(newPoint);
+
+            if (Math.random() < branchProbability && currentPoint.children.length < maxBranches) {
+
+              const branchLength = 5 + Math.floor(Math.random() * 8);
+              let branchPoint = newPoint;
+              
+              for (let j = 0; j < branchLength; j++) {
+                const branchProgress = (j + 1) / branchLength;
+
+                const angle = (Math.random() - 0.5) * Math.PI / 2;
+                const length = 20 + Math.random() * 30;
+                const dx = Math.cos(angle) * length;
+                const dy = Math.sin(angle) * length;
+                
+                const branchX = branchPoint.x + dx * (1 - branchProgress * 0.5);
+                const branchY = branchPoint.y + dy * (1 - branchProgress * 0.5);
+                
+                const branchChild = new LightningPoint(branchX, branchY);
+                branchChild.parent = branchPoint;
+                branchPoint.children.push(branchChild);
+                branchPoint = branchChild;
+
+                if (Math.random() < 0.2 && branchPoint.children.length === 0) {
+                  const subBranchLength = 3 + Math.floor(Math.random() * 5);
+                  let subBranchPoint = branchPoint;
+                  
+                  for (let k = 0; k < subBranchLength; k++) {
+                    const subAngle = (Math.random() - 0.5) * Math.PI;
+                    const subLength = 10 + Math.random() * 20;
+                    const sdx = Math.cos(subAngle) * subLength;
+                    const sdy = Math.sin(subAngle) * subLength;
+                    
+                    const subX = subBranchPoint.x + sdx * (1 - k / subBranchLength);
+                    const subY = subBranchPoint.y + sdy * (1 - k / subBranchLength);
+                    
+                    const subChild = new LightningPoint(subX, subY);
+                    subChild.parent = subBranchPoint;
+                    subBranchPoint.children.push(subChild);
+                    subBranchPoint = subChild;
+                  }
+                }
+              }
+            }
+            
+            currentPoint = newPoint;
+          }
+          
+          return root;
+        }
+        
+        function animateLightningDrawing(root) {
+          const drawnPoints = new Set();
+          const animationSpeed = 20;
+          
+          function drawBranch(point, callback) {
+            if (!point || drawnPoints.has(point)) return;
+            
+            drawnPoints.add(point);
+            
+            if (point.parent) {
+              ctx.beginPath();
+              ctx.moveTo(point.parent.x, point.parent.y);
+              ctx.lineTo(point.x, point.y);
+              
+              ctx.lineWidth = 2 + Math.random() * 2;
+              ctx.strokeStyle = 'rgba(255, 255, 255, 0.9)';
+              ctx.shadowColor = '#00ffff';
+              ctx.shadowBlur = 15;
+              ctx.lineCap = 'round';
+              ctx.lineJoin = 'round';
+              ctx.stroke();
+              
+              ctx.lineWidth = 1;
+              ctx.strokeStyle = '#00ffff';
+              ctx.shadowBlur = 25;
+              ctx.stroke();
+              
+              ctx.lineWidth = 0.5;
+              ctx.strokeStyle = '#ffffff';
+              ctx.shadowBlur = 10;
+              ctx.stroke();
+            }
+            
+            if (point.children.length > 0) {
+              const delay = 10 + Math.random() * 40;
+              setTimeout(() => {
+                const shuffledChildren = [...point.children].sort(() => Math.random() - 0.5);
+                let completed = 0;
+                
+                if (shuffledChildren.length === 0 && callback) {
+                  callback();
+                  return;
+                }
+                
+                shuffledChildren.forEach(child => {
+                  drawBranch(child, () => {
+                    completed++;
+                    if (completed === shuffledChildren.length && callback) {
+                      callback();
+                    }
+                  });
+                });
+              }, delay);
+            } else if (callback) {
+              callback();
+            }
+          }
+          
+          drawBranch(root, () => {
+            setTimeout(() => {
+              flash.style.transition = 'none';
+              flash.style.opacity = '1';
+              
+              document.body.style.transition = 'transform 0.1s';
+              document.body.style.transform = 'scale(1.1)';
+              document.body.style.animation = 'none';
+              
+              if (navigator.vibrate) {
+                navigator.vibrate([500]);
+              }
+              
+              ctx.shadowBlur = 50;
+              ctx.lineWidth = 5;
+              ctx.strokeStyle = 'rgba(255, 255, 255, 1)';
+              
+              ctx.beginPath();
+              const centerX = window.innerWidth / 2;
+              const startY = 0;
+              const endY = window.innerHeight;
+              
+              flash.style.position = 'fixed';
+              flash.style.transform = 'translateZ(0)';
+              
+              ctx.moveTo(centerX, startY);
+              
+              for (let i = 0; i < 10; i++) {
+                const x = centerX + (Math.random() - 0.5) * 200;
+                const y = startY + (i / 9) * (endY - startY);
+                ctx.lineTo(x, y);
+              }
+              
+              ctx.lineWidth = 8;
+              ctx.strokeStyle = 'rgba(255, 255, 255, 1)';
+              ctx.shadowBlur = 50;
+              ctx.shadowColor = '#ffffff';
+              ctx.stroke();
+              
+              ctx.lineWidth = 4;
+              ctx.beginPath();
+              for (let j = 0; j < 3; j++) {
+                const branchX = centerX + (Math.random() - 0.5) * 100;
+                const branchY = endY * (0.3 + Math.random() * 0.4);
+                ctx.moveTo(centerX + (Math.random() - 0.5) * 50, branchY);
+                ctx.lineTo(branchX, branchY + 50 + Math.random() * 100);
+              }
+              ctx.stroke();
+              
+              setTimeout(() => {
+                document.body.style.transform = '';
+                document.body.style.transition = '';
+                
+                flash.style.transition = 'opacity 0.5s';
+                flash.style.opacity = '0';
+                
+                setTimeout(() => {
+                  ctx.clearRect(0, 0, canvas.width, canvas.height);
+                }, 500);
+              }, 200);
+            }, 500);
+          });
+        }
+        
+        function drawLightning() {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          
+          const lightningTree = createLightningTree();
+          
+          animateLightningDrawing(lightningTree);
+        }
+        
+        function createFlash() {
+          flash.style.transition = 'opacity 0.1s ease-out';
+          flash.style.opacity = '0.8';
+          
+          const timeoutId = setTimeout(() => {
+            flash.style.transition = 'opacity 0.3s ease-out';
+            flash.style.opacity = '0';
+          }, 50);
+          
+          timeoutIds.push(timeoutId);
+        }
+        
+        function createShake() {
+          const originalStyle = document.body.style.cssText;
+          
+          document.body.style.animation = 'none';
+          document.body.offsetHeight;
+          
+          const style = document.createElement('style');
+          style.textContent = `@keyframes lightningShake { 0%, 100% { transform: translate(0, 0); }
+		                                                        10% { transform: translate(-5px, -5px); }
+																20% { transform: translate(5px, 5px); }
+																30% { transform: translate(-5px, 5px); }
+																40% { transform: translate(5px, -5px); }
+																50% { transform: translate(-3px, 3px); }
+																60% { transform: translate(3px, -3px); }
+																70% { transform: translate(-2px, 2px); }
+																80% { transform: translate(2px, -2px); }
+																90% { transform: translate(-1px, 1px); } }`;
+          document.head.appendChild(style);
+          
+          document.body.style.animation = 'lightningShake 0.3s ease-in-out';
+          
+          if (navigator.vibrate) {
+            navigator.vibrate([100, 50, 100, 50, 100]);
+          }
+          
+          const timeoutId = setTimeout(() => {
+            document.body.style.animation = 'none';
+            if (style.parentNode) {
+              style.parentNode.removeChild(style);
+            }
+          }, 300);
+          
+          timeoutIds.push(timeoutId);
+        }
+        
+        function animate() {
+          canvas.width = window.innerWidth;
+          canvas.height = window.innerHeight;
+          
+          const lightningCount = 8 + Math.floor(Math.random() * 7);
+          for (let i = 0; i < lightningCount; i++) {
+            setTimeout(() => {
+              drawLightning();
+              createFlash();
+              createShake();
+            }, i * 150);
+          }
+          
+          for (let i = 0; i < 5; i++) {
+            const timeoutId = setTimeout(() => {
+              createFlash();
+              createShake();
+            }, 1000 + i * 400);
+            
+            timeoutIds.push(timeoutId);
+          }
+        }
+        
+          setTimeout(animate, 150);
+        
+        const endTimeoutId = setTimeout(() => {
+          cleanup();
+        }, 3000);
+        
+        timeoutIds.push(endTimeoutId);
+        
+        return cleanup;
+      }
+      
+      function initLightningButton() {
+        const buttons = document.querySelectorAll('button.shock-btn');
+        
+        buttons.forEach(button => {
+          button.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            if (button.classList.contains('lightning-animation-active')) {
+              return;
+            }
+            
+            button.classList.add('lightning-animation-active');
+            
+            const cleanup = createLightningAnimation();
+            
+            setTimeout(() => {
+              button.classList.remove('lightning-animation-active');
+            }, 3000);
+          });
+        });
+      }
+      
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initLightningButton);
+      } else {
+        initLightningButton();
+      }
+      
+      window.createLightningAnimation = createLightningAnimation;
+    })();
+  });
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    function showScreenScanner(callback) {
+      const scannerOverlay = document.createElement('div');
+      scannerOverlay.className = 'scanner-overlay';
+
+      const scannerLine = document.createElement('div');
+      scannerLine.className = 'scanner-line';
+
+      const scannerGlow = document.createElement('div');
+      scannerGlow.className = 'scanner-glow';
+      
+      const scannerGlowSecondary = document.createElement('div');
+      scannerGlowSecondary.className = 'scanner-glow-secondary';
+
+      scannerOverlay.appendChild(scannerLine);
+      scannerOverlay.appendChild(scannerGlow);
+      scannerOverlay.appendChild(scannerGlowSecondary);
+      document.body.appendChild(scannerOverlay);
+
+      const hideTimer = setTimeout(() => {
+        if (scannerOverlay.parentNode) {
+          scannerOverlay.parentNode.removeChild(scannerOverlay);
+        }
+        if (callback && typeof callback === 'function') callback();
+      }, 1500);
+
+      window.addEventListener('beforeunload', () => {
+        clearTimeout(hideTimer);
+        if (scannerOverlay.parentNode) {
+          scannerOverlay.parentNode.removeChild(scannerOverlay);
+        }
+      });
+    }
+
+    const style = document.createElement('style');
+    style.textContent = `
+      .scanner-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 9999;
+        overflow: hidden;
+      }
+
+      .scanner-line {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: linear-gradient(90deg, 
+          rgba(0, 255, 0, 0) 0%, 
+          rgba(0, 255, 0, 1) 50%, 
+          rgba(0, 255, 0, 0) 100%);
+        box-shadow: 0 0 15px rgba(0, 255, 0, 0.6),
+		            0 0 30px rgba(0, 255, 0, 0.3);
+        animation: scan 1.5s linear forwards;
+      }
+
+      .scanner-glow {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(
+          ellipse at center,
+          rgba(0, 255, 0, 0.3) 0%,
+          rgba(0, 255, 0, 0.15) 30%,
+          rgba(0, 255, 0, 0) 70%
+        );
+        opacity: 0;
+        animation: glow 1.5s linear forwards;
+      }
+      
+      .scanner-glow-secondary {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(
+          ellipse at center,
+          rgba(0, 255, 0, 0.2) 0%,
+          rgba(0, 255, 0, 0.1) 40%,
+          rgba(0, 255, 0, 0) 80%
+        );
+        opacity: 0;
+        animation: glow-pulse 2s ease-in-out infinite;
+      }
+
+      @keyframes scan {
+        0% { top: 100%; }
+        100% { top: 0%; }
+      }
+
+      @keyframes glow {
+        0% { opacity: 0; }
+        50% { opacity: 1; }
+        100% { opacity: 0; }
+      }
+
+      @keyframes glow-pulse {
+        0%, 100% { opacity: 0.3; }
+        50% { opacity: 0.6; }
+      }
+    `;
+    document.head.appendChild(style);
+
+    const button = document.querySelector('button.ui-to-top');
+    if (button) {
+      button.addEventListener('click', function() {
+        setTimeout(() => {
+          showScreenScanner();
+        }, 200);
+      });
+    }
+  });
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    function triggerAttentionDangerAnimation() {
+      const glitchOverlay = document.createElement('div');
+      glitchOverlay.className = 'glitch-overlay';
+      glitchOverlay.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 99999;
+        background: transparent;
+        opacity: 0;
+      `;
+
+      const blackOverlay = document.createElement('div');
+      blackOverlay.className = 'black-overlay';
+      blackOverlay.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #000;
+        z-index: 99999;
+        opacity: 0;
+        pointer-events: none;
+      `;
+
+      document.body.appendChild(glitchOverlay);
+      document.body.appendChild(blackOverlay);
+
+      const glitchInterval = setInterval(() => {
+        if (Math.random() < 0.6) {
+          const style = document.createElement('style');
+          style.textContent = `
+            * { animation: glitch-anim ${0.3 + Math.random() * 0.7}s ${Math.random() * 0.5}s infinite alternate; }
+            @keyframes glitch-anim {
+              0%, 100% { transform: translate(0); filter: blur(0px); }
+              20% { transform: translate(-5px, 5px); filter: blur(1px); }
+              40% { transform: translate(5px, -5px); filter: hue-rotate(90deg) blur(1px); }
+              60% { transform: translate(-5px, -5px); filter: blur(1px); }
+              80% { transform: translate(5px, 5px); filter: hue-rotate(-90deg) blur(1px); }
+            }
+          `;
+          document.head.appendChild(style);
+          setTimeout(() => {
+            if (style.parentNode) {
+              document.head.removeChild(style);
+            }
+          }, 200);
+        }
+      }, 100);
+
+      setTimeout(() => {
+        clearInterval(glitchInterval);
+        glitchOverlay.style.opacity = '0';
+        blackOverlay.style.opacity = '1';
+        blackOverlay.style.pointerEvents = 'auto';
+
+        setTimeout(() => {
+          blackOverlay.style.transition = 'opacity 3s ease-out';
+          blackOverlay.style.opacity = '0';
+
+          setTimeout(() => {
+            if (glitchOverlay.parentNode) {
+              document.body.removeChild(glitchOverlay);
+            }
+            if (blackOverlay.parentNode) {
+              document.body.removeChild(blackOverlay);
+            }
+          }, 3000);
+        }, 8000);
+      }, 2000);
+    }
+
+    const button = document.querySelector('button.turn-off-btn');
+    if (button) {
+      button.addEventListener('click', function() {
+        setTimeout(() => {
+          triggerAttentionDangerAnimation();
+        }, 100);
+      });
+    }
+  });
   </script>
 </head>
 <body>
@@ -2547,7 +3710,7 @@
   <p style="margin-bottom: 50px;"><strong>Измеримый результат</strong>: 96% запросов обрабатываются без оператора, переводы сокращены до 1 в день, создано 200+ FAQ, база - 173 499 слов.</p>
 
   <h3 class="h3">5.6. AI-Оператор - живое UX-присутствие</h3>
-  <img class="image image-ux" src="https://github.com/kyrchenkov/kyrchenkov.github.io/blob/main/img/aisphere.webp?raw=true" alt="Живое UX-присутствие" loading="lazy">
+  <img class="image image-ux" style="user-select: none;" src="https://github.com/kyrchenkov/kyrchenkov.github.io/blob/main/img/aisphere.webp?raw=true" alt="Живое UX-присутствие" loading="lazy">
   <p class="p-ux"><strong>Проблема</strong>: Сомнения пользователей, пользователи не чувствовали «живого» взаимодействия с сайтом.</p>
   <p><strong>Решение</strong>: Реализована иллюзия присутствия - пульсирующая сфера, уведомления, игровые механики, «ритуалы» ожидания.</p>
   <p style="margin-bottom: 50px;"><strong>Измеримый результат</strong>: Конверсия выросла на 89%, время на сайте - на 104%, отказы снизились на 47%, открытие чата - на 10 900%.</p>
@@ -2562,11 +3725,11 @@
   <div class="container-btn">
  	<button type="button" class="ui-to-top"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
   
-    <button type="button" class="button-search"><i class="fa fa-search" aria-hidden="true"></i></button>
+    <button type="button" class="ux-btn"><i class="fa fa-eye" aria-hidden="true"></i></button>
 	
-	<button type="button" class="delete"><i class="fa fa-times" aria-hidden="true"></i></button>
+	<button type="button" class="turn-off-btn"><i class="fa fa-bug" aria-hidden="true"></i></button>
 	
-	<button type="button" class="stuck"><i class="fa fa-superpowers" aria-hidden="true"></i></button>
+	<button type="button" class="shock-btn"><i class="fa fa-superpowers" aria-hidden="true"></i></button>
   </div>
   
   <h2>6. Общие принципы всех проектов</h2>
