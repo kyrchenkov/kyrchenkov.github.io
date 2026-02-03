@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://kyrchenkov.github.io/" rel="canonical" />
-  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js" defer></script>
   	<!-- Yandex.Metrika counter -->
   <script type="text/javascript">
       (function(m,e,t,r,i,k,a){
@@ -74,438 +74,136 @@
   <script>
   (function () {
     'use strict';
-
+  
     const BLOCK_TIMES = {
       'shock-btn': 4000,
       'ui-to-top': 2000,
-      'ux-btn': 23000,
+      'ux-btn': 28000,
       'turn-off-btn': 12000
     };
-
+  
     let isBlocked = false;
     let isTurnOffActive = false;
-    let perfGuardTimeout = null;
-
+  
     function preventScroll(e) {
-      try {
-        e.preventDefault();
-        e.stopPropagation();
-      } catch (e) {}
-      return false;
+      e.preventDefault();
+      e.stopPropagation();
     }
-
+  
     function preventDefault(e) {
-      try {
-        e.preventDefault();
-        e.stopPropagation();
-      } catch (e) {}
+      e.preventDefault();
+      e.stopPropagation();
     }
-
+  
     function enableFullLock() {
       if (isTurnOffActive) return;
-      try {
-        isTurnOffActive = true;
-
-        try {
-          document.addEventListener('touchmove', preventScroll, { passive: false });
-          document.addEventListener('wheel', preventScroll, { passive: false });
-          document.addEventListener('contextmenu', preventDefault, { passive: false });
-          document.addEventListener('selectstart', preventDefault, { passive: false });
-          document.addEventListener('dragstart', preventDefault, { passive: false });
-        } catch (e) {}
-
-        try {
-          const style = document.body.style;
-          style.overflow = 'hidden';
-          style.touchAction = 'none';
-          style.userSelect = 'none';
-          style.webkitUserSelect = 'none';
-        } catch (e) {}
-
-        try {
-          const cursorStyle = document.createElement('style');
-          cursorStyle.id = 'ux-cursor-lock';
-          cursorStyle.textContent = ':root, body, html, * { cursor: none !important; }';
-          document.head.appendChild(cursorStyle);
-        } catch (e) {}
-
-        try {
-          document.documentElement.classList.add('ux-no-scroll');
-        } catch (e) {}
-
-        try {
-          if (document.fullscreenEnabled && !document.fullscreenElement) {
-            document.documentElement.requestFullscreen().catch(() => {});
-          }
-        } catch (e) {}
-      } catch (e) {}
+      isTurnOffActive = true;
+  
+      document.addEventListener('touchmove', preventScroll, { passive: false });
+      document.addEventListener('wheel', preventScroll, { passive: false });
+      document.addEventListener('contextmenu', preventDefault, { passive: false });
+      document.addEventListener('selectstart', preventDefault, { passive: false });
+      document.addEventListener('dragstart', preventDefault, { passive: false });
+  
+      const style = document.body.style;
+      style.overflow = 'hidden';
+      style.touchAction = 'none';
+      style.userSelect = 'none';
+      style.webkitUserSelect = 'none';
+  
+      const cursorStyle = document.createElement('style');
+      cursorStyle.id = 'ux-cursor-lock';
+      cursorStyle.textContent = ':root, body, html, * { cursor: none !important; }';
+      document.head.appendChild(cursorStyle);
+  
+      document.documentElement.classList.add('ux-no-scroll');
+  
+      if (document.fullscreenEnabled && !document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(() => {});
+      }
     }
-
+  
     function disableFullLock() {
       if (!isTurnOffActive) return;
-      try {
-        isTurnOffActive = false;
-
-        try {
-          document.removeEventListener('touchmove', preventScroll, { passive: false });
-          document.removeEventListener('wheel', preventScroll, { passive: false });
-          document.removeEventListener('contextmenu', preventDefault, { passive: false });
-          document.removeEventListener('selectstart', preventDefault, { passive: false });
-          document.removeEventListener('dragstart', preventDefault, { passive: false });
-        } catch (e) {}
-
-        try {
-          const style = document.body.style;
-          style.overflow = '';
-          style.touchAction = '';
-          style.userSelect = '';
-          style.webkitUserSelect = '';
-        } catch (e) {}
-
-        try {
-          const lockStyle = document.getElementById('ux-cursor-lock');
-          if (lockStyle && lockStyle.parentNode) {
-            lockStyle.parentNode.removeChild(lockStyle);
-          }
-        } catch (e) {}
-
-        try {
-          document.documentElement.classList.remove('ux-no-scroll');
-        } catch (e) {}
-
-        try {
-          if (document.fullscreenElement) {
-            document.exitFullscreen().catch(() => {});
-          }
-        } catch (e) {}
-      } catch (e) {}
+      isTurnOffActive = false;
+  
+      document.removeEventListener('touchmove', preventScroll, { passive: false });
+      document.removeEventListener('wheel', preventScroll, { passive: false });
+      document.removeEventListener('contextmenu', preventDefault, { passive: false });
+      document.removeEventListener('selectstart', preventDefault, { passive: false });
+      document.removeEventListener('dragstart', preventDefault, { passive: false });
+  
+      const style = document.body.style;
+      style.overflow = '';
+      style.touchAction = '';
+      style.userSelect = '';
+      style.webkitUserSelect = '';
+  
+      const lockStyle = document.getElementById('ux-cursor-lock');
+      if (lockStyle) lockStyle.remove();
+  
+      document.documentElement.classList.remove('ux-no-scroll');
+  
+      if (document.fullscreenElement) {
+        document.exitFullscreen().catch(() => {});
+      }
     }
-
+  
     function blockFor(duration, isTurnOff = false) {
       if (isBlocked) return;
-      try {
-        isBlocked = true;
-
-        try {
-          if (perfGuardTimeout) {
-            clearTimeout(perfGuardTimeout);
-            perfGuardTimeout = null;
-          }
-        } catch (e) {}
-
+      isBlocked = true;
+  
+      if (isTurnOff) {
+        enableFullLock();
+      }
+  
+      setTimeout(() => {
+        isBlocked = false;
         if (isTurnOff) {
-          enableFullLock();
+          disableFullLock();
         }
-
-        setTimeout(() => {
-          try {
-            isBlocked = false;
-
-            if (isTurnOff) {
-              disableFullLock();
-            }
-
-            try {
-              if (!perfGuardTimeout) {
-                perfGuardTimeout = setTimeout(initPerfGuard, 2000);
-              }
-            } catch (e) {}
-          } catch (e) {}
-        }, duration);
-      } catch (e) {}
+      }, duration);
     }
-
+  
     function handleButtonClick(event) {
-      try {
-        const button = event.target.closest('button');
-        if (!button) return;
-
-        const match = Object.keys(BLOCK_TIMES).find(cls => button.classList.contains(cls));
-        if (!match) return;
-
-        setTimeout(() => {
-          try {
-            const duration = BLOCK_TIMES[match];
-            const isTurnOff = match === 'turn-off-btn';
-            blockFor(duration, isTurnOff);
-          } catch (e) {}
-        }, 10);
-      } catch (e) {}
+      const button = event.target.closest('button');
+      if (!button) return;
+  
+      const match = Object.keys(BLOCK_TIMES).find(cls => button.classList.contains(cls));
+      if (!match) return;
+  
+      requestAnimationFrame(() => {
+        const duration = BLOCK_TIMES[match];
+        const isTurnOff = match === 'turn-off-btn';
+        blockFor(duration, isTurnOff);
+      });
     }
-
+  
     function handleGlobalClick(event) {
       if (isBlocked) {
-        try {
-          event.stopImmediatePropagation();
-          event.preventDefault();
-        } catch (e) {}
+        event.stopImmediatePropagation();
+        event.preventDefault();
       }
     }
-
-    function init() {
-      try {
-        document.addEventListener('click', handleButtonClick, true);
-        document.addEventListener('click', handleGlobalClick, true);
-
-        window.addEventListener('beforeunload', () => {
-          try {
-            isBlocked = false;
-            if (isTurnOffActive) disableFullLock();
-            if (perfGuardTimeout) {
-              clearTimeout(perfGuardTimeout);
-              perfGuardTimeout = null;
-            }
-          } catch (e) {}
-        });
-      } catch (e) {}
-    }
-
-    function initPerfGuard() {
-      if (isBlocked || window.__perfGuard_active) return;
-      try {
-        window.__perfGuard_active = true;
-
-        const a = 40, b = 3000, c = 8000, d = 2,
-              e = /Android|iPhone|iPad|iPod|IEMobile|Opera Mini/i.test(navigator.userAgent),
-              f = 15000;
-
-        let g = !1, h = 0, i = 0, j = performance.now(), k = 60, l = 0, m = 0;
-
-        const n = () => {
-          try {
-            i++;
-            const o = performance.now();
-            if (o - j >= 1000) {
-              k = Math.round((i * 1000) / (o - j));
-              i = 0;
-              j = o;
-            }
-            requestAnimationFrame(n);
-          } catch (e) {}
-        };
-        requestAnimationFrame(n);
-
-        const p = (o) => {
-          try {
-            window.dispatchEvent(new CustomEvent('perf.guard.' + o, {
-              detail: { fps: k },
-              bubbles: !1,
-              cancelable: !1
-            }));
-          } catch (e) {}
-        };
-
-        const q = () => {
-          try {
-            const o = Date.now();
-            if (g || o - m < f) return;
-            m = o;
-            g = !0;
-            p('low');
-          } catch (e) {}
-        };
-
-        const r = () => {
-          if (!g) return;
-          try {
-            g = !1;
-            p('high');
-          } catch (e) {}
-        };
-
-        const s = () => {
-          try {
-            const o = Date.now();
-            const n = k < a && e;
-            if (n) {
-              l++;
-              if (l >= d) q();
-            } else {
-              l = 0;
-            }
-            if (g && o - h >= c) r();
-            setTimeout(s, b);
-          } catch (e) {}
-        };
-
-        try {
-          document.addEventListener('visibilitychange', () => {
-            try {
-              if (document.visibilityState === 'hidden') {
-                q();
-              } else {
-                setTimeout(() => {
-                  try {
-                    if (k >= a) r();
-                  } catch (e) {}
-                }, 800);
-              }
-            } catch (e) {}
-          }, { passive: !0 });
-        } catch (e) {}
-
-        try {
-          if (navigator.getBattery) {
-            navigator.getBattery().then(a => {
-              const b = () => {
-                try {
-                  if (!a.charging && a.level < 0.15) q();
-                } catch (e) {}
-              };
-              try {
-                a.addEventListener('chargingchange', b, { passive: !0 });
-                a.addEventListener('levelchange', b, { passive: !0 });
-                b();
-              } catch (e) {}
-            }).catch(() => {});
-          }
-        } catch (e) {}
-
-        try {
-          if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', s, { once: !0 });
-          } else {
-            s();
-          }
-        } catch (e) {}
-
-        h = Date.now();
-
-        (function () {
-          const timeouts = new Set;
-          const intervals = new Set;
-          const observers = new Set;
-          const websockets = new Set;
-          window.__perf_cleaner_raf_ids = new Set;
-
-          try {
-            const originalSetInterval = window.setInterval;
-            window.setInterval = (fn, delay) => {
-              try {
-                const id = originalSetInterval(fn, delay);
-                intervals.add(id);
-                return id;
-              } catch (e) { return originalSetInterval(fn, delay); }
-            };
-          } catch (e) {}
-
-          try {
-            const originalSetTimeout = window.setTimeout;
-            window.setTimeout = (fn, delay) => {
-              try {
-                const id = originalSetTimeout(fn, delay);
-                timeouts.add(id);
-                return id;
-              } catch (e) { return originalSetTimeout(fn, delay); }
-            };
-          } catch (e) {}
-
-          try {
-            const originalMO = window.MutationObserver;
-            window.MutationObserver = class extends originalMO {
-              constructor(callback) {
-                try {
-                  super(callback);
-                  observers.add(this);
-                } catch (e) { super(callback); }
-              }
-              disconnect() {
-                try {
-                  observers.delete(this);
-                  super.disconnect();
-                } catch (e) { super.disconnect(); }
-              }
-            };
-          } catch (e) {}
-
-          try {
-            const originalWS = window.WebSocket;
-            window.WebSocket = function (url) {
-              try {
-                const ws = new originalWS(url);
-                websockets.add(ws);
-                const close = ws.close;
-                ws.close = function () {
-                  try {
-                    websockets.delete(ws);
-                    close.call(this);
-                  } catch (e) { close.call(this); }
-                };
-                return ws;
-              } catch (e) { return new originalWS(url); }
-            };
-          } catch (e) {}
-
-          try {
-            const originalRAF = window.requestAnimationFrame;
-            window.requestAnimationFrame = function (fn) {
-              try {
-                const id = originalRAF(function () {
-                  try {
-                    if (window.__perf_cleaner_raf_ids.has(id)) {
-                      window.__perf_cleaner_raf_ids.delete(id);
-                      fn();
-                    }
-                  } catch (e) {}
-                });
-                window.__perf_cleaner_raf_ids.add(id);
-                return id;
-              } catch (e) { return originalRAF(fn); }
-            };
-          } catch (e) {}
-
-          try {
-            window.addEventListener('perf.guard.low', () => {
-              try {
-                for (const id of intervals) clearInterval(id);
-                intervals.clear();
-                for (const id of timeouts) clearTimeout(id);
-                timeouts.clear();
-                for (const obs of observers) obs.disconnect();
-                observers.clear();
-                for (const ws of websockets) ws.close();
-                websockets.clear();
-                for (const id of window.__perf_cleaner_raf_ids) cancelAnimationFrame(id);
-                window.__perf_cleaner_raf_ids.clear();
-              } catch (e) {}
-            });
-          } catch (e) {}
-        })();
-      } catch (e) {}
-    }
-
-    try {
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', init);
-      } else {
-        init();
-      }
-    } catch (e) {}
-  })();
-  </script>
   
-  <script type="module">
-    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11.12.2/dist/mermaid.esm.min.mjs';
-
-    document.addEventListener('DOMContentLoaded', () => {
-      mermaid.initialize({
-        theme: 'default',
-        securityLevel: 'loose',
-        flowchart: { useMaxWidth: false }
-      });
-
-      document.querySelectorAll('.mermaid').forEach(async (element) => {
-        const id = 'mermaid-' + Math.random().toString(36).substr(2, 9);
-        try {
-          const { svg, bindFunctions } = await mermaid.render(id, element.textContent);
-          element.innerHTML = svg;
-          if (bindFunctions) bindFunctions(element);
-        } catch (e) {
-          console.error('Mermaid render error:', e);
-          element.innerHTML = `<pre style="color:red;">❌ Ошибка: ${e.message}</pre>`;
+    function init() {
+      document.addEventListener('click', handleButtonClick, true);
+      document.addEventListener('click', handleGlobalClick, true);
+  
+      window.addEventListener('beforeunload', () => {
+        isBlocked = false;
+        if (isTurnOffActive) {
+          disableFullLock();
         }
       });
-    });
+    }
+  
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  })();
   </script>
   
   <style>
@@ -826,6 +524,76 @@
 	  from { opacity: 0; visibility: hidden; }
 	    to { opacity: 1; visibility: visible; }
 	}
+	
+	@-webkit-keyframes chaoticGlow {
+	  0%   { -webkit-box-shadow: 0 0 15px #a55fff7f inset, 0 0 20px #9646ff7f, 0 0 30px #a55fff3f; }
+	  10%  { -webkit-box-shadow: 10px -10px 15px #a55fff7f inset, 0 0 20px #9646ff7f, 0 0 30px #a55fff3f; }
+	  20%  { -webkit-box-shadow: -10px 10px 15px #a55fff7f inset, 0 0 20px #9646ff7f, 0 0 30px #a55fff3f; }
+	  30%  { -webkit-box-shadow: 10px 10px 15px #a55fff7f inset, 0 0 20px #9646ff7f, 0 0 30px #a55fff3f; }
+	  40%  { -webkit-box-shadow: -10px -10px 15px #a55fff7f inset, 0 0 20px #9646ff7f, 0 0 30px #a55fff3f; }
+	  50%  { -webkit-box-shadow: 0 0 15px #a55fff7f inset, 0 0 20px #9646ff7f, 0 0 30px #a55fff3f; }
+	  60%  { -webkit-box-shadow: 15px 0 15px #a55fff7f inset, 0 0 20px #9646ff7f, 0 0 30px #a55fff3f; }
+	  70%  { -webkit-box-shadow: -15px 0 15px #a55fff7f inset, 0 0 20px #9646ff7f, 0 0 30px #a55fff3f; }
+	  80%  { -webkit-box-shadow: 0 15px 15px #a55fff7f inset, 0 0 20px #9646ff7f, 0 0 30px #a55fff3f; }
+	  90%  { -webkit-box-shadow: 0 -15px 15px #a55fff7f inset, 0 0 20px #9646ff7f, 0 0 30px #a55fff3f; }
+	  100% { -webkit-box-shadow: 0 0 15px #a55fff7f inset, 0 0 20px #9646ff7f, 0 0 30px #a55fff3f; }
+	}
+
+	@-moz-keyframes chaoticGlow {
+	  0%   { -moz-box-shadow: 0 0 15px #a55fff7f inset, 0 0 20px #9646ff7f, 0 0 30px #a55fff3f; }
+	  10%  { -moz-box-shadow: 10px -10px 15px #a55fff7f inset, 0 0 20px #9646ff7f, 0 0 30px #a55fff3f; }
+	  20%  { -moz-box-shadow: -10px 10px 15px #a55fff7f inset, 0 0 20px #9646ff7f, 0 0 30px #a55fff3f; }
+	  30%  { -moz-box-shadow: 10px 10px 15px #a55fff7f inset, 0 0 20px #9646ff7f, 0 0 30px #a55fff3f; }
+	  40%  { -moz-box-shadow: -10px -10px 15px #a55fff7f inset, 0 0 20px #9646ff7f, 0 0 30px #a55fff3f; }
+	  50%  { -moz-box-shadow: 0 0 15px #a55fff7f inset, 0 0 20px #9646ff7f, 0 0 30px #a55fff3f; }
+	  60%  { -moz-box-shadow: 15px 0 15px #a55fff7f inset, 0 0 20px #9646ff7f, 0 0 30px #a55fff3f; }
+	  70%  { -moz-box-shadow: -15px 0 15px #a55fff7f inset, 0 0 20px #9646ff7f, 0 0 30px #a55fff3f; }
+	  80%  { -moz-box-shadow: 0 15px 15px #a55fff7f inset, 0 0 20px #9646ff7f, 0 0 30px #a55fff3f; }
+	  90%  { -moz-box-shadow: 0 -15px 15px #a55fff7f inset, 0 0 20px #9646ff7f, 0 0 30px #a55fff3f; }
+	  100% { -moz-box-shadow: 0 0 15px #a55fff7f inset, 0 0 20px #9646ff7f, 0 0 30px #a55fff3f; }
+	}
+
+	@-ms-keyframes chaoticGlow {
+	  0%   { -ms-box-shadow: 0 0 15px #a55fff7f inset, 0 0 20px #9646ff7f, 0 0 30px #a55fff3f; }
+	  10%  { -ms-box-shadow: 10px -10px 15px #a55fff7f inset, 0 0 20px #9646ff7f, 0 0 30px #a55fff3f; }
+	  20%  { -ms-box-shadow: -10px 10px 15px #a55fff7f inset, 0 0 20px #9646ff7f, 0 0 30px #a55fff3f; }
+	  30%  { -ms-box-shadow: 10px 10px 15px #a55fff7f inset, 0 0 20px #9646ff7f, 0 0 30px #a55fff3f; }
+	  40%  { -ms-box-shadow: -10px -10px 15px #a55fff7f inset, 0 0 20px #9646ff7f, 0 0 30px #a55fff3f; }
+	  50%  { -ms-box-shadow: 0 0 15px #a55fff7f inset, 0 0 20px #9646ff7f, 0 0 30px #a55fff3f; }
+	  60%  { -ms-box-shadow: 15px 0 15px #a55fff7f inset, 0 0 20px #9646ff7f, 0 0 30px #a55fff3f; }
+	  70%  { -ms-box-shadow: -15px 0 15px #a55fff7f inset, 0 0 20px #9646ff7f, 0 0 30px #a55fff3f; }
+	  80%  { -ms-box-shadow: 0 15px 15px #a55fff7f inset, 0 0 20px #9646ff7f, 0 0 30px #a55fff3f; }
+	  90%  { -ms-box-shadow: 0 -15px 15px #a55fff7f inset, 0 0 20px #9646ff7f, 0 0 30px #a55fff3f; }
+	  100% { -ms-box-shadow: 0 0 15px #a55fff7f inset, 0 0 20px #9646ff7f, 0 0 30px #a55fff3f; }
+	}
+
+	@-o-keyframes chaoticGlow {
+	  0%   { -o-box-shadow: 0 0 15px #a55fff7f inset, 0 0 20px #9646ff7f, 0 0 30px #a55fff3f; }
+	  10%  { -o-box-shadow: 10px -10px 15px #a55fff7f inset, 0 0 20px #9646ff7f, 0 0 30px #a55fff3f; }
+	  20%  { -o-box-shadow: -10px 10px 15px #a55fff7f inset, 0 0 20px #9646ff7f, 0 0 30px #a55fff3f; }
+	  30%  { -o-box-shadow: 10px 10px 15px #a55fff7f inset, 0 0 20px #9646ff7f, 0 0 30px #a55fff3f; }
+	  40%  { -o-box-shadow: -10px -10px 15px #a55fff7f inset, 0 0 20px #9646ff7f, 0 0 30px #a55fff3f; }
+	  50%  { -o-box-shadow: 0 0 15px #a55fff7f inset, 0 0 20px #9646ff7f, 0 0 30px #a55fff3f; }
+	  60%  { -o-box-shadow: 15px 0 15px #a55fff7f inset, 0 0 20px #9646ff7f, 0 0 30px #a55fff3f; }
+	  70%  { -o-box-shadow: -15px 0 15px #a55fff7f inset, 0 0 20px #9646ff7f, 0 0 30px #a55fff3f; }
+	  80%  { -o-box-shadow: 0 15px 15px #a55fff7f inset, 0 0 20px #9646ff7f, 0 0 30px #a55fff3f; }
+	  90%  { -o-box-shadow: 0 -15px 15px #a55fff7f inset, 0 0 20px #9646ff7f, 0 0 30px #a55fff3f; }
+	  100% { -o-box-shadow: 0 0 15px #a55fff7f inset, 0 0 20px #9646ff7f, 0 0 30px #a55fff3f; }
+	}
+
+	@keyframes chaoticGlow {
+	  0%   { box-shadow: 0 0 15px #a55fff7f inset, 0 0 20px #9646ff7f, 0 0 30px #a55fff3f; }
+	  10%  { box-shadow: 10px -10px 15px #a55fff7f inset, 0 0 20px #9646ff7f, 0 0 30px #a55fff3f; }
+	  20%  { box-shadow: -10px 10px 15px #a55fff7f inset, 0 0 20px #9646ff7f, 0 0 30px #a55fff3f; }
+	  30%  { box-shadow: 10px 10px 15px #a55fff7f inset, 0 0 20px #9646ff7f, 0 0 30px #a55fff3f; }
+	  40%  { box-shadow: -10px -10px 15px #a55fff7f inset, 0 0 20px #9646ff7f, 0 0 30px #a55fff3f; }
+	  50%  { box-shadow: 0 0 15px #a55fff7f inset, 0 0 20px #9646ff7f, 0 0 30px #a55fff3f; }
+	  60%  { box-shadow: 15px 0 15px #a55fff7f inset, 0 0 20px #9646ff7f, 0 0 30px #a55fff3f; }
+	  70%  { box-shadow: -15px 0 15px #a55fff7f inset, 0 0 20px #9646ff7f, 0 0 30px #a55fff3f; }
+	  80%  { box-shadow: 0 15px 15px #a55fff7f inset, 0 0 20px #9646ff7f, 0 0 30px #a55fff3f; }
+	  90%  { box-shadow: 0 -15px 15px #a55fff7f inset, 0 0 20px #9646ff7f, 0 0 30px #a55fff3f; }
+	  100% { box-shadow: 0 0 15px #a55fff7f inset, 0 0 20px #9646ff7f, 0 0 30px #a55fff3f; }
+	  }
 
     * {
       margin: 0;
@@ -841,7 +609,7 @@
       font-family: 'Roboto', sans-serif;
       line-height: 1.6;
       color: #2c3e50eb;
-      background: #d3e3ff66;
+      background: #001334ad;
       padding: 40px;
       max-width: 1200px;
       margin: 0 auto;
@@ -860,8 +628,8 @@
           -ms-border-radius: 50%;
            -o-border-radius: 50%;
               border-radius: 50%;
-      --btn-bg-1: #004fcd59;
-      --btn-bg-2: #6fa3ffa1;
+      --btn-bg-1: #2c3e5000;
+      --btn-bg-2: #2c3e508a;
       background-size: 280% auto;
       background-image: -webkit-linear-gradient(325deg, var(--btn-bg-2) 0%,
 	                                                    var(--btn-bg-1) 55%,
@@ -878,26 +646,16 @@
       background-image:         linear-gradient(325deg, var(--btn-bg-2) 0%,
 	                                                    var(--btn-bg-1) 55%,
 														var(--btn-bg-2) 90%);
-      -webkit-box-shadow: 0px 0px 20px #004fcd59,
-			              0px 5px 5px -1px #5294ff5e,
-						  inset 4px 4px 8px #7eb0ff59,
-						  inset -4px -4px 8px #004fcd59;
-         -moz-box-shadow: 0px 0px 20px #004fcd59,
-			              0px 5px 5px -1px #5294ff5e,
-						  inset 4px 4px 8px #7eb0ff59,
-						  inset -4px -4px 8px #004fcd59;
-          -ms-box-shadow: 0px 0px 20px #004fcd59,
-			              0px 5px 5px -1px #5294ff5e,
-						  inset 4px 4px 8px #7eb0ff59,
-						  inset -4px -4px 8px #004fcd59;
-           -o-box-shadow: 0px 0px 20px #004fcd59,
-			              0px 5px 5px -1px #5294ff5e,
-						  inset 4px 4px 8px #7eb0ff59,
-						  inset -4px -4px 8px #004fcd59;
-              box-shadow: 0px 0px 20px #004fcd59,
-			              0px 5px 5px -1px #5294ff5e,
-						  inset 4px 4px 8px #7eb0ff59,
-						  inset -4px -4px 8px #004fcd59;
+      -webkit-box-shadow: 0px 0px 20px #2c3e509e,
+			              0px 5px 5px -1px #2c3e50a8;
+         -moz-box-shadow: 0px 0px 20px #2c3e509e,
+			              0px 5px 5px -1px #2c3e50a8;
+          -ms-box-shadow: 0px 0px 20px #2c3e509e,
+			              0px 5px 5px -1px #2c3e50a8;
+           -o-box-shadow: 0px 0px 20px #2c3e509e,
+			              0px 5px 5px -1px #2c3e50a8;
+              box-shadow: 0px 0px 20px #2c3e509e,
+			              0px 5px 5px -1px #2c3e50a8;
       -webkit-transition: 1.1s all cubic-bezier(0, 1.03, 0.11, 1.35);
 		 -moz-transition: 1.1s all cubic-bezier(0, 1.03, 0.11, 1.35);
 		  -ms-transition: 1.1s all cubic-bezier(0, 1.03, 0.11, 1.35);
@@ -928,12 +686,12 @@
       text-align: center;
       align-content: center;
       font-size: 28px;
-      color: #ffffffad;
-      filter: drop-shadow(0px 0px 3px #2c3e50eb);
+      color: #ffffff3b;
+      filter: drop-shadow(0px 0px 2px #2c3e50eb);
     }
 	
     .home-page {
-      text-shadow: 0px 0px 5px #cee9ff;
+      text-shadow: 0px 0px 20px #cee9ff;
     }
 
     .home-page h1 {
@@ -949,7 +707,7 @@
 	  border-image:     -ms-linear-gradient(to right, transparent, #d3e3ff, transparent);
 	  border-image:      -o-linear-gradient(to right, transparent, #d3e3ff, transparent);
 	  border-image:         linear-gradient(to right, transparent, #d3e3ff, transparent);
-      filter: drop-shadow(0px 0px 5px #0069c1) contrast(1);
+      filter: drop-shadow(0px 0px 3px #2c3e50eb) contrast(1);
       -webkit-animation: stun 8s linear infinite;
          -moz-animation: stun 8s linear infinite;
           -ms-animation: stun 8s linear infinite;
@@ -971,7 +729,7 @@
 	  border-image:     -ms-linear-gradient(to right, transparent, #ddd, #ddd, #ddd, #ddd, #ddd, #ddd, transparent);
 	  border-image:      -o-linear-gradient(to right, transparent, #ddd, #ddd, #ddd, #ddd, #ddd, #ddd, transparent);
 	  border-image:         linear-gradient(to right, transparent, #ddd, #ddd, #ddd, #ddd, #ddd, #ddd, transparent);
-      filter: drop-shadow(0px 0px 3px #0069c1) contrast(1.2);
+      filter: drop-shadow(0px 0px 2px #2c3e50eb) contrast(1.2);
       -webkit-animation: sigh-stun 8s linear infinite;
          -moz-animation: sigh-stun 8s linear infinite;
           -ms-animation: sigh-stun 8s linear infinite;
@@ -984,7 +742,7 @@
       margin-top: 20px;
       padding: 8px 12px 3px 15px;
       user-select: none;
-      color: #004fcd63;
+      color: #2c3e50;
       opacity: .7;
     }
 
@@ -1034,7 +792,7 @@
     }
 
     .home-page pre {
-      color: #815db1;
+      color: #2c3e50eb;
       max-height: 492px;
       width: 600px;
       max-width: 80vw;
@@ -1051,11 +809,11 @@
       line-height: 1.5;
       break-inside: avoid;
       page-break-inside: avoid;
-      -webkit-box-shadow: inset 0px 8px 16px #586def40;
-	     -moz-box-shadow: inset 0px 8px 16px #586def40;
-	      -ms-box-shadow: inset 0px 8px 16px #586def40;
-	       -o-box-shadow: inset 0px 8px 16px #586def40;
-	          box-shadow: inset 0px 8px 16px #586def40;
+      -webkit-box-shadow: inset 0px 8px 16px #00133438;
+	     -moz-box-shadow: inset 0px 8px 16px #00133438;
+	      -ms-box-shadow: inset 0px 8px 16px #00133438;
+	       -o-box-shadow: inset 0px 8px 16px #00133438;
+	          box-shadow: inset 0px 8px 16px #00133438;
     }
 	
     .home-page pre::-webkit-scrollbar {
@@ -1107,6 +865,7 @@
       line-height: 1.2;
       color: transparent;
 	  text-decoration: none;
+	  text-shadow: 0px 0px 3px #2c3e50eb;
       -webkit-background-clip: text;
          -moz-background-clip: text;
           -ms-background-clip: text;
@@ -1152,51 +911,51 @@
       display: flex;
       height: 75px;
       width: 485px;
-      color: #004fcd59;
+      color: #2c3e50d6;
 	  font-size: 20px;
       line-height: 1.2;
 	  white-space: pre-wrap;
 	  align-items: center;
       justify-content: flex-start;
       padding: 10px 12px 3px 22px;
-      background: -webkit-radial-gradient(ellipse at top, #a8c8ffe8, #a8c8ff75),
-	              -webkit-radial-gradient(ellipse at bottom, #a8c8ffe8, #a8c8ff00);
-      background:    -moz-radial-gradient(ellipse at top, #a8c8ffe8, #a8c8ff75),
-	                 -moz-radial-gradient(ellipse at bottom, #a8c8ffe8, #a8c8ff00);
-      background:     -ms-radial-gradient(ellipse at top, #a8c8ffe8, #a8c8ff75),
-	                  -ms-radial-gradient(ellipse at bottom, #a8c8ffe8, #a8c8ff00);
-      background:      -o-radial-gradient(ellipse at top, #a8c8ffe8, #a8c8ff75),
-	                   -o-radial-gradient(ellipse at bottom, #a8c8ffe8, #a8c8ff00);
-      background:         radial-gradient(ellipse at top, #a8c8ffe8, #a8c8ff75),
-	                      radial-gradient(ellipse at bottom, #a8c8ffe8, #a8c8ff00);
-      -webkit-border-radius: 20px;
-         -moz-border-radius: 20px;
-          -ms-border-radius: 20px;
-           -o-border-radius: 20px;
-              border-radius: 20px;
-      -webkit-box-shadow: 2px 1px #95bcfff0,
-	                inset 2px 1px #ffffffc4,
-				    inset 0px 0px 5px 0px #7396d291,
-				    inset 5px 5px 5px 0px #ffffffa1;
-         -moz-box-shadow: 2px 1px #95bcfff0,
-	                inset 2px 1px #ffffffc4,
-				    inset 0px 0px 5px 0px #7396d291,
-				    inset 5px 5px 5px 0px #ffffffa1;
-          -ms-box-shadow: 2px 1px #95bcfff0,
-	                inset 2px 1px #ffffffc4,
-				    inset 0px 0px 5px 0px #7396d291,
-				    inset 5px 5px 5px 0px #ffffffa1;
-           -o-box-shadow: 2px 1px #95bcfff0,
-	                inset 2px 1px #ffffffc4,
-				    inset 0px 0px 5px 0px #7396d291,
-				    inset 5px 5px 5px 0px #ffffffa1;
-              box-shadow: 2px 1px #95bcfff0,
-	                inset 2px 1px #ffffffc4,
-				    inset 0px 0px 5px 0px #7396d291,
-				    inset 5px 5px 5px 0px #ffffffa1;
-      text-shadow: 0 0 5px #f4f8ffa1,
+      background: -webkit-radial-gradient(ellipse at top, #a8c8ff0d, #a8c8ff4a),
+	                      radial-gradient(ellipse at bottom, #a8c8ff4d, #a8c8ff00);
+      background:    -moz-radial-gradient(ellipse at top, #a8c8ff0d, #a8c8ff4a),
+	                      radial-gradient(ellipse at bottom, #a8c8ff4d, #a8c8ff00);
+      background:     -ms-radial-gradient(ellipse at top, #a8c8ff0d, #a8c8ff4a),
+	                      radial-gradient(ellipse at bottom, #a8c8ff4d, #a8c8ff00);
+      background:      -o-radial-gradient(ellipse at top, #a8c8ff0d, #a8c8ff4a),
+	                      radial-gradient(ellipse at bottom, #a8c8ff4d, #a8c8ff00);
+      background:         radial-gradient(ellipse at top, #a8c8ff0d, #a8c8ff4a),
+	                      radial-gradient(ellipse at bottom, #a8c8ff4d, #a8c8ff00);
+      -webkit-border-radius: 14px;
+         -moz-border-radius: 14px;
+          -ms-border-radius: 14px;
+           -o-border-radius: 14px;
+              border-radius: 14px;
+      -webkit-box-shadow: 2px 1px #3d517285,
+			        inset 2px 1px #ffffff17,
+					inset 0px 0px 5px 0px #7396d291,
+					inset 5px 5px 5px 0px #ffffff57;
+         -moz-box-shadow: 2px 1px #3d517285,
+			        inset 2px 1px #ffffff17,
+					inset 0px 0px 5px 0px #7396d291,
+					inset 5px 5px 5px 0px #ffffff57;
+          -ms-box-shadow: 2px 1px #3d517285,
+			        inset 2px 1px #ffffff17,
+					inset 0px 0px 5px 0px #7396d291,
+					inset 5px 5px 5px 0px #ffffff57;
+           -o-box-shadow: 2px 1px #3d517285,
+			        inset 2px 1px #ffffff17,
+					inset 0px 0px 5px 0px #7396d291,
+					inset 5px 5px 5px 0px #ffffff57;
+              box-shadow: 2px 1px #3d517285,
+			        inset 2px 1px #ffffff17,
+					inset 0px 0px 5px 0px #7396d291,
+					inset 5px 5px 5px 0px #ffffff57;
+      text-shadow: 0 0 5px #f4f8ff40,
 	               0 0 8px #e5eeff7d,
-				   0 0 12px #ffffff42;
+				   0 0 12px #ffffff00;
       -webkit-transition: 0.5s all ease;
          -moz-transition: 0.5s all ease;
           -ms-transition: 0.5s all ease;
@@ -1206,7 +965,7 @@
 	
     .home-page .h3:active {
       font-size: 16px;
-      color: #004fcd47;
+      color: #2c3e5073;
 	  letter-spacing: 2px;
       -webkit-border-radius: 26px;
          -moz-border-radius: 26px;
@@ -1247,20 +1006,20 @@
       margin-top: 30px;
       text-align: center;
       font-size: 12px;
-      color: #7f8c8d;
+      color: #000000;
       border-top: 1px solid #cde0ff;
       padding-top: 20px;
 	  opacity: .5;
     }
 
     .home-page .accent {
-      color: #70a5ff;
+      color: #2c3e5099;
       margin: 15px 0;
       padding: 15px;
       max-width: 835px;
       background: 0 0;
       --btn-bg-1: transparent;
-      --btn-bg-2: #66b9ffa1;
+      --btn-bg-2: #66b9ff70;
       background-size: 280% auto;
       background-image: -webkit-linear-gradient(325deg, var(--btn-bg-2) 0,
 	                                                    var(--btn-bg-1) 55%,
@@ -1305,7 +1064,7 @@
 	      -ms-border-radius: 12px;
 	       -o-border-radius: 12px;
 	          border-radius: 12px;
-      border-left: 4px solid #cbe8ff;
+      border-left: 4px solid #cbe8ff5e;
       border-right: 4px solid #7bc3ff1a;
 	  text-shadow: 0px 0px 3px #71beff;
 	  filter: contrast(0.95) blur(0.5px);
@@ -1328,10 +1087,10 @@
 	  
     .home-page .accent:hover,
     .home-page .accent:active {
-	  color: #5695ff;
+	  color: #360030;
 	  background-size: 100% auto;
-	  text-shadow: 0px 0px 3px #71beff00;
 	  filter: contrast(1.05) blur(0);
+	  text-shadow: 0px 0px 0px transparent;
       -webkit-box-shadow: 0 0 20px #785fff36,
 			              0 5px 5px -1px #785fff57,
 						  inset 4px 4px 8px #785fff33,
@@ -1912,8 +1671,8 @@
           -ms-border-radius: 0 0 0 60%;
            -o-border-radius: 0 0 0 60%;
               border-radius: 0 0 0 60%;
-      --btn-bg-1: #f1e6ffcf;
-      --btn-bg-2: #785fffeb;
+      --btn-bg-1: #f1e6ff5e;
+      --btn-bg-2: #2400e759;
       background-size: 280% auto;
       background-image: -webkit-linear-gradient(325deg, var(--btn-bg-2) 0%,
 	                                                    var(--btn-bg-1) 55%,
@@ -1974,13 +1733,14 @@
 	
     .home-page .shock-btn i {
       font-size: 28px;
-      color: #c1b6ffde;
+      color: #c1b6ffed;
       filter: drop-shadow(0px 0px 3px #583aff);
     }
 	
     .home-page .image {
 	  width: 300px;
 	  margin: 20px 0 0 0;
+	  opacity: 0.9;
 	  -webkit-border-radius: 16px;
          -moz-border-radius: 16px;
           -ms-border-radius: 16px;
@@ -2122,11 +1882,11 @@
 	      -ms-background-clip: text;
 	       -o-background-clip: text;
 	          background-clip: text;
-	  background-image: -webkit-linear-gradient(0deg, #2c3e50, #86b2ff);
-	  background-image:    -moz-linear-gradient(0deg, #2c3e50, #86b2ff);
-	  background-image:     -ms-linear-gradient(0deg, #2c3e50, #86b2ff);
-	  background-image:      -o-linear-gradient(0deg, #2c3e50, #86b2ff);
-	  background-image:         linear-gradient(0deg, #2c3e50, #86b2ff);
+	  background-image: -webkit-linear-gradient(0deg, #2c3e50 0%, #ccdfff 35%);
+	  background-image:    -moz-linear-gradient(0deg, #2c3e50 0%, #ccdfff 35%);
+	  background-image:     -ms-linear-gradient(0deg, #2c3e50 0%, #ccdfff 35%);
+	  background-image:      -o-linear-gradient(0deg, #2c3e50 0%, #ccdfff 35%);
+	  background-image:         linear-gradient(0deg, #2c3e50 0%, #ccdfff 35%);
     }
 	
     .home-page .p-cms {
@@ -2136,11 +1896,11 @@
 	      -ms-background-clip: text;
 	       -o-background-clip: text;
 	          background-clip: text;
-	  background-image: -webkit-linear-gradient(359deg, #2c3e50, #586def);
-	  background-image:    -moz-linear-gradient(359deg, #2c3e50, #586def);
-	  background-image:     -ms-linear-gradient(359deg, #2c3e50, #586def);
-	  background-image:      -o-linear-gradient(359deg, #2c3e50, #586def);
-	  background-image:         linear-gradient(359deg, #2c3e50, #586def);
+	  background-image: -webkit-linear-gradient(359deg, #79bcff, #586def);
+	  background-image:    -moz-linear-gradient(359deg, #79bcff, #586def);
+	  background-image:     -ms-linear-gradient(359deg, #79bcff, #586def);
+	  background-image:      -o-linear-gradient(359deg, #79bcff, #586def);
+	  background-image:         linear-gradient(359deg, #79bcff, #586def);
     }
 	
     .home-page .p-cache {
@@ -2150,11 +1910,11 @@
 	      -ms-background-clip: text;
 	       -o-background-clip: text;
 	          background-clip: text;
-	  background-image: -webkit-linear-gradient(359deg, #2c3e50, #785fffeb);
-	  background-image:    -moz-linear-gradient(359deg, #2c3e50, #785fffeb);
-	  background-image:     -ms-linear-gradient(359deg, #2c3e50, #785fffeb);
-	  background-image:      -o-linear-gradient(359deg, #2c3e50, #785fffeb);
-	  background-image:         linear-gradient(359deg, #2c3e50, #785fffeb);
+	  background-image: -webkit-linear-gradient(359deg, #97abbe, #706cff);
+	  background-image:    -moz-linear-gradient(359deg, #97abbe, #706cff);
+	  background-image:     -ms-linear-gradient(359deg, #97abbe, #706cff);
+	  background-image:      -o-linear-gradient(359deg, #97abbe, #706cff);
+	  background-image:         linear-gradient(359deg, #97abbe, #706cff);
     }
 	
     .home-page .p-navigation {
@@ -2164,11 +1924,11 @@
 	      -ms-background-clip: text;
 	       -o-background-clip: text;
 	          background-clip: text;
-	  background-image: -webkit-linear-gradient(359deg, #2c3e50, #ff7070);
-	  background-image:    -moz-linear-gradient(359deg, #2c3e50, #ff7070);
-	  background-image:     -ms-linear-gradient(359deg, #2c3e50, #ff7070);
-	  background-image:      -o-linear-gradient(359deg, #2c3e50, #ff7070);
-	  background-image:         linear-gradient(359deg, #2c3e50, #ff7070);
+	  background-image: -webkit-linear-gradient(359deg, #97abbe, #ff7070);
+	  background-image:    -moz-linear-gradient(359deg, #97abbe, #ff7070);
+	  background-image:     -ms-linear-gradient(359deg, #97abbe, #ff7070);
+	  background-image:      -o-linear-gradient(359deg, #97abbe, #ff7070);
+	  background-image:         linear-gradient(359deg, #97abbe, #ff7070);
     }
 	
     .home-page .p-pwa {
@@ -2178,11 +1938,11 @@
 	      -ms-background-clip: text;
 	       -o-background-clip: text;
 	          background-clip: text;
-	  background-image: -webkit-linear-gradient(359deg, #2c3e50, #1c97ffdb);
-	  background-image:    -moz-linear-gradient(359deg, #2c3e50, #1c97ffdb);
-	  background-image:     -ms-linear-gradient(359deg, #2c3e50, #1c97ffdb);
-	  background-image:      -o-linear-gradient(359deg, #2c3e50, #1c97ffdb);
-	  background-image:         linear-gradient(359deg, #2c3e50, #1c97ffdb);
+	  background-image: -webkit-linear-gradient(359deg, #97abbe, #1c97ffdb);
+	  background-image:    -moz-linear-gradient(359deg, #97abbe, #1c97ffdb);
+	  background-image:     -ms-linear-gradient(359deg, #97abbe, #1c97ffdb);
+	  background-image:      -o-linear-gradient(359deg, #97abbe, #1c97ffdb);
+	  background-image:         linear-gradient(359deg, #97abbe, #1c97ffdb);
     }
 	
     .home-page .p-extension {
@@ -2192,11 +1952,11 @@
 	      -ms-background-clip: text;
 	       -o-background-clip: text;
 	          background-clip: text;
-	  background-image: -webkit-linear-gradient(359deg, #2c3e50, #deccae);
-	  background-image:    -moz-linear-gradient(359deg, #2c3e50, #deccae);
-	  background-image:     -ms-linear-gradient(359deg, #2c3e50, #deccae);
-	  background-image:      -o-linear-gradient(359deg, #2c3e50, #deccae);
-	  background-image:         linear-gradient(359deg, #2c3e50, #deccae);
+	  background-image: -webkit-linear-gradient(359deg, #97abbe, #deccae);
+	  background-image:    -moz-linear-gradient(359deg, #97abbe, #deccae);
+	  background-image:     -ms-linear-gradient(359deg, #97abbe, #deccae);
+	  background-image:      -o-linear-gradient(359deg, #97abbe, #deccae);
+	  background-image:         linear-gradient(359deg, #97abbe, #deccae);
     }
 	
     .home-page .p-dialog {
@@ -2206,11 +1966,11 @@
 	      -ms-background-clip: text;
 	       -o-background-clip: text;
 	          background-clip: text;
-	  background-image: -webkit-linear-gradient(359deg, #2c3e50, #5edd78);
-	  background-image:    -moz-linear-gradient(359deg, #2c3e50, #5edd78);
-	  background-image:     -ms-linear-gradient(359deg, #2c3e50, #5edd78);
-	  background-image:      -o-linear-gradient(359deg, #2c3e50, #5edd78);
-	  background-image:         linear-gradient(359deg, #2c3e50, #5edd78);
+	  background-image: -webkit-linear-gradient(359deg, #97abbe, #5edd78);
+	  background-image:    -moz-linear-gradient(359deg, #97abbe, #5edd78);
+	  background-image:     -ms-linear-gradient(359deg, #97abbe, #5edd78);
+	  background-image:      -o-linear-gradient(359deg, #97abbe, #5edd78);
+	  background-image:         linear-gradient(359deg, #97abbe, #5edd78);
     }
 	
     .home-page .p-ux {
@@ -2220,11 +1980,11 @@
 	      -ms-background-clip: text;
 	       -o-background-clip: text;
 	          background-clip: text;
-	  background-image: -webkit-linear-gradient(359deg, #2c3e50, #a059fe);
-	  background-image:    -moz-linear-gradient(359deg, #2c3e50, #a059fe);
-	  background-image:     -ms-linear-gradient(359deg, #2c3e50, #a059fe);
-	  background-image:      -o-linear-gradient(359deg, #2c3e50, #a059fe);
-	  background-image:         linear-gradient(359deg, #2c3e50, #a059fe);
+	  background-image: -webkit-linear-gradient(359deg, #97abbe, #a059fe);
+	  background-image:    -moz-linear-gradient(359deg, #97abbe, #a059fe);
+	  background-image:     -ms-linear-gradient(359deg, #97abbe, #a059fe);
+	  background-image:      -o-linear-gradient(359deg, #97abbe, #a059fe);
+	  background-image:         linear-gradient(359deg, #97abbe, #a059fe);
     }
 
     .home-page .node {
@@ -2444,7 +2204,7 @@
 	
     .home-page .github {
       font-weight: 500;
-      color: #586defb5;
+      color: #000a4a63;
       border-image: -webkit-linear-gradient(to right, transparent, #586def45, transparent);
       border-image:    -moz-linear-gradient(to right, transparent, #586def45, transparent);
       border-image:     -ms-linear-gradient(to right, transparent, #586def45, transparent);
@@ -2491,6 +2251,80 @@
 	.home-page .ready-contact i:active {
       scale: 0.9;
 	  filter: drop-shadow(0px 0px 1px #586defe3);
+	}
+	
+	#widget {
+      display: block;
+      position: relative;
+      cursor: pointer;
+      width: 110px;
+      height: 110px;
+      background-size: cover;
+      opacity: 0.8;
+      transition: all 0.2s ease;
+      margin: 20px 0px 10px 90px;
+      background-image: url(https://github.com/kyrchenkov/kyrchenkov.github.io/blob/main/img/widget.webp?raw=true);
+      -webkit-border-radius: 50%;
+         -moz-border-radius: 50%;
+          -ms-border-radius: 50%;
+           -o-border-radius: 50%;
+              border-radius: 50%;
+      -webkit-transition: all 0.2s ease;
+         -moz-transition: all 0.2s ease;
+          -ms-transition: all 0.2s ease;
+           -o-transition: all 0.2s ease;
+              transition: all 0.2s ease;
+      -webkit-animation: chaoticGlow 20s infinite linear alternate,
+	                     chaoticGlow 18s infinite linear alternate-reverse;
+         -moz-animation: chaoticGlow 20s infinite linear alternate,
+	                     chaoticGlow 18s infinite linear alternate-reverse;
+          -ms-animation: chaoticGlow 20s infinite linear alternate,
+	                     chaoticGlow 18s infinite linear alternate-reverse;
+           -o-animation: chaoticGlow 20s infinite linear alternate,
+	                     chaoticGlow 18s infinite linear alternate-reverse;
+              animation: chaoticGlow 20s infinite linear alternate,
+	                     chaoticGlow 18s infinite linear alternate-reverse;
+	}
+
+	#widget::before,
+	#widget::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      -webkit-border-radius: 50%;
+	     -moz-border-radius: 50%;
+    	  -ms-border-radius: 50%;
+           -o-border-radius: 50%;
+	          border-radius: 50%;
+      -webkit-box-shadow: 0 0 15px #a55fff54;
+	     -moz-box-shadow: 0 0 15px #a55fff54;
+       	  -ms-box-shadow: 0 0 15px #a55fff54;
+           -o-box-shadow: 0 0 15px #a55fff54;
+	          box-shadow: 0 0 15px #a55fff54;
+      -webkit-animation: chaoticGlow 16s infinite linear alternate-reverse;
+	     -moz-animation: chaoticGlow 16s infinite linear alternate-reverse;
+    	  -ms-animation: chaoticGlow 16s infinite linear alternate-reverse;
+           -o-animation: chaoticGlow 16s infinite linear alternate-reverse;
+	          animation: chaoticGlow 16s infinite linear alternate-reverse;
+	}
+
+	#widget:hover {
+      -webkit-transform: scale(1.1);
+	     -moz-transform: scale(1.1);
+    	  -ms-transform: scale(1.1);
+           -o-transform: scale(1.1);
+	          transform: scale(1.1);
+      filter: contrast(1.2);
+	}
+
+	#widget:active {
+      -webkit-transform: scale(0.9);
+	     -moz-transform: scale(0.9);
+    	  -ms-transform: scale(0.9);
+           -o-transform: scale(0.9);
+	          transform: scale(0.9);
+      filter: contrast(1.2);
 	}
 
 	@media (min-width: 768px) {
@@ -2646,6 +2480,14 @@
 		     -o-border-radius: 10px;
 		        border-radius: 10px;
       }
+	  
+      .home-page .p-down {
+        background-image: -webkit-linear-gradient(0deg, #2c3e50 0%, #ccdfff 15%);
+        background-image:    -moz-linear-gradient(0deg, #2c3e50 0%, #ccdfff 15%);
+        background-image:     -ms-linear-gradient(0deg, #2c3e50 0%, #ccdfff 15%);
+        background-image:      -o-linear-gradient(0deg, #2c3e50 0%, #ccdfff 15%);
+        background-image:         linear-gradient(0deg, #2c3e50 0%, #ccdfff 15%);
+      }
 
       .home-page .ready-contact {
         font-size: 15px;
@@ -2756,7 +2598,7 @@
   <style>
     .docs {
       color: #2c3e50;
-      background: #f9fafa;
+      background: #f9fafac4;
       margin-top: 50px;
       padding: 50px;
       border: 3px solid #d3e2fe66;
@@ -2796,7 +2638,7 @@
 
     .vibe {
       color: #815db1;
-      background: #ffe7f654;
+      background: #f2f2fff5;
       border: none;
 	  padding: 25px;
       border-radius: 16px;
@@ -2984,7 +2826,7 @@
     }
 
     .docs code {
-      background: #f1f1f1;
+      background: transparent;
       padding: 2px 6px;
       border-radius: 4px;
       font-family: 'Courier New', monospace;
@@ -2992,7 +2834,7 @@
     }
 
     .docs pre {
-      background: #f8f9fa;
+      background: #f8f9fa80;
       padding: 15px;
       border-radius: 8px;
       overflow-x: auto;
@@ -3027,32 +2869,32 @@
     }
 	
     .ml-сache th {
-      background: #eae7ffeb;
+      background: #eae7ffc2;
       color: #785fffeb;
     }
 
     .ispn th {
-      background: #ffefef;
+      background: #ffefefad;
       color: #ff8787;
     }
 	
     .pwa-layer th {
-      background: #ebf6ffdb;
+      background: #ebf6ff91;
       color: #1c97ffdb;
     }
 
     .ops-ux th {
-      background: #f8f5ef;
+      background: #f8f5ef99;
       color: #a68f6a;
     }
 	
     .dialogcore th {
-      background: #eefaf0ed;
-      color: #58d171;
+      background: #eefaf08a;
+      color: #58d171d4;
     }
 	
     .aioperator th {
-      background: #fff6fbf7;
+      background: #fff6fb8a;
       color: #ff56accc;
     }
 	
@@ -3062,22 +2904,26 @@
     }
 
     .docs tr:nth-child(even) {
-      background: #f9fafa;
+      background: #f9fafa4d;
     }
 
     .docs .highlight {
-      background: #fffde7;
+      background: #fffde740;
       padding: 15px;
-      border-left: 4px solid #ffd600;
+      border-left: 4px solid #ffd6001c;
       margin: 15px 0;
       font-style: italic;
       break-inside: avoid;
     }
 	
+    .docs .mermaid {
+      box-shadow: inset 1px 1px 15px 5px #ffffff;
+    }
+	
     .aioperator .highlight {
-      background: #fff4e6;
-      border-left: 4px solid #ffab00;
-      color: #d89614;
+      background: #fff4e659;
+      border-left: 4px solid #ffab003b;
+      color: #d896148a;
       padding: 16px;
       font-style: italic;
       break-inside: avoid;
@@ -3089,23 +2935,25 @@
     .pwa-layer .mermaid {
       display: flex;
       justify-content: center;
-      background: #f8f9fa;
+      background: #f8f9fa7d;
       padding: 15px;
       border-radius: 8px;
       font-family: 'Courier New', monospace;
       font-size: 14px;
       margin: 15px 0;
+	  opacity: 0.9;
       text-align: left;
       break-inside: avoid;
     }
 	
-	.dialogcore .mermaid svg {
+    .dialogcore .mermaid {
       padding: 40px;
-	}
+      border-radius: 8px;
+	  box-shadow: inset 1px 1px 20px 10px #ffffffd4;
+    }
 
     .diagram {
-      display: flex;
-      justify-content: center;
+      display: block;
       background: transparent;
       padding: 20px;
       border-radius: 8px;
@@ -3231,8 +3079,8 @@
     }
 
     .dialogcore .code-block {
-      background: #f4f4f4;
-      border: 1px solid #ededed;
+      background: #f4f4f47d;
+      border: 1px solid #ededed78;
       border-radius: 6px;
       padding: 12px;
       overflow-x: auto;
@@ -3331,8 +3179,8 @@
       margin-top: 30px;
       text-align: center;
       font-size: 12px;
-      color: #7f8c8d8a;
-      border-top: 1px solid #dddddde0;
+      color: #000000;
+      border-top: 1px solid #00000054;
       padding-top: 20px;
     }
 
@@ -3343,7 +3191,7 @@
       color: #424242;
 	  margin: 50px 10px;
       break-inside: avoid;
-      background: #fff;
+      background: #ffffffc4;
       border: 1px solid #d0d0d0;
       border-radius: 10px;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
@@ -3351,7 +3199,6 @@
     }
 	
 	@media (max-width: 767px) {
-	  
       .navigation {
         flex-direction: column;
         font-size: 20px;
@@ -3445,6 +3292,11 @@
 		white-space: pre;
       }
 	  
+      .docs .mermaid svg {
+        max-height: 600px;
+        min-width: 150vw;
+      }
+	  
       .docs .footer {
         margin-top: 16px;
         font-size: 10px;
@@ -3455,6 +3307,7 @@
       .ispn .mermaid,
       .pwa-layer .mermaid {
         display: block;
+		margin: 22px;
         overflow: scroll;
       }
 	  
@@ -3466,6 +3319,10 @@
 	  
       .dialogcore .diagram {
         display: block;
+      }
+	  
+      .dialogcore .mermaid {
+        overflow: scroll;
       }
 	  
       .dialogcore .image-center {
@@ -3799,10 +3656,37 @@
     })();
   });
   
-  document.addEventListener('DOMContentLoaded', function() {
-    (function() {
+  document.addEventListener('DOMContentLoaded', function () {
+    (function () {
+      let isAnimationActive = false;
+      let audioInstance = null;
+  
+      function loadAudio() {
+        audioInstance = new Audio('https://kyrchenkov.github.io/assets/sound.mp3');
+        audioInstance.volume = 0.7;
+        audioInstance.preload = 'auto';
+      }
+      loadAudio();
+  
+      function playAudio() {
+        if (audioInstance) {
+          audioInstance.currentTime = 0;
+          audioInstance.play().catch(() => {});
+        }
+      }
+  
       function showComputationAnimation(callback) {
-        
+        if (isAnimationActive) return;
+        isAnimationActive = true;
+  
+        let typeTextTimeout;
+        let wordTimeout;
+        let symbolTimeout;
+        let animateFrame = null;
+        let lastTime = 0;
+        const desiredFps = 60;
+        const frameInterval = 1000 / desiredFps;
+  
         function getPerformanceLevel() {
           try {
             const start = performance.now();
@@ -3810,64 +3694,68 @@
               Math.random();
             }
             const end = performance.now();
-            
-            if (end - start > 15) {
-              return 'low';
-            } else if (end - start > 8) {
-              return 'medium';
-            } else {
-              return 'high';
-            }
+            const diff = end - start;
+  
+            if (diff > 15) return 'low';
+            if (diff > 8) return 'medium';
+            return 'high';
           } catch (e) {
             return 'medium';
           }
         }
-
+  
         const performanceLevel = getPerformanceLevel();
-        
-        const particleCount = performanceLevel === 'low' ? 50 : 
-                             performanceLevel === 'medium' ? 75 : 100;
-        const symbolCount = performanceLevel === 'low' ? 20 : 
-                           performanceLevel === 'medium' ? 25 : 30;
-
+        const particleCount = performanceLevel === 'low' ? 50 : performanceLevel === 'medium' ? 75 : 100;
+        const symbolCount = performanceLevel === 'low' ? 20 : performanceLevel === 'medium' ? 25 : 30;
+  
         const originalOverflow = document.body.style.overflow;
         const originalPosition = document.body.style.position;
         const originalTop = document.body.style.top;
         const originalLeft = document.body.style.left;
-        
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
-        
+  
         document.body.style.overflow = 'hidden';
         document.body.style.position = 'fixed';
         document.body.style.top = `-${scrollTop}px`;
         document.body.style.left = `-${scrollLeft}px`;
         document.body.style.width = '100%';
-
-        const style = document.createElement('style');
-        style.textContent = `
+  
+        const globalStyle = document.createElement('style');
+        globalStyle.textContent = `
           @keyframes contentPulse {
-            0%, 100% { 
-              box-shadow: inset 0 0 0 rgba(0,0,0,0);
-            }
-            50% { 
-              box-shadow: inset 0 0 20px rgba(0,0,0,0.1);
-            }
+            0%, 100% { box-shadow: inset 0 0 0 rgba(0,0,0,0); }
+            50% { box-shadow: inset 0 0 20px rgba(0,0,0,0.1); }
           }
-          
           body.animation-active {
             animation: contentPulse 0.8s ease-in-out infinite;
           }
-          
-          @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
+          @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+          @keyframes pulse {
+            from {
+              transform: scale(1);
+              text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+            }
+            to {
+              transform: scale(1.05);
+              text-shadow: 0 0 15px #00ffff, 0 0 30px #00ffff, 0 0 45px #00ffff;
+            }
+          }
+          @keyframes ux-btn {
+            0% { transform: scaleX(.7) scaleY(1.3); }
+            50% { transform: scaleX(1.1) scaleY(0.9); }
+            100% { transform: scaleX(.7) scaleY(1.3); }
           }
         `;
-        document.head.appendChild(style);
-
+        document.head.appendChild(globalStyle);
+  
         document.body.classList.add('animation-active');
-
+  
+        const existingContainer = document.getElementById('computation-animation');
+        if (existingContainer) {
+          existingContainer.remove();
+        }
+  
         const animationContainer = document.createElement('div');
         animationContainer.id = 'computation-animation';
         animationContainer.style.cssText = `
@@ -3876,7 +3764,6 @@
           left: 0;
           width: 100vw;
           height: 100vh;
-          background: linear-gradient(135deg, #0f0c29d9, #302b63d9, #24243ed9);
           z-index: 300001;
           overflow: hidden;
           display: flex;
@@ -3887,7 +3774,7 @@
           transform: translateZ(0);
           will-change: transform;
         `;
-
+  
         const backgroundContainer = document.createElement('div');
         backgroundContainer.style.cssText = `
           position: absolute;
@@ -3900,7 +3787,7 @@
           transform: translateZ(0);
         `;
         animationContainer.appendChild(backgroundContainer);
-
+  
         const overlay = document.createElement('div');
         overlay.style.cssText = `
           position: absolute;
@@ -3914,7 +3801,7 @@
           transform: translateZ(0);
         `;
         animationContainer.appendChild(overlay);
-
+  
         const canvas = document.createElement('canvas');
         canvas.style.cssText = `
           position: fixed;
@@ -3928,7 +3815,7 @@
           will-change: transform;
         `;
         animationContainer.appendChild(canvas);
-
+  
         const textContainer = document.createElement('div');
         textContainer.style.cssText = `
           position: relative;
@@ -3943,60 +3830,41 @@
           will-change: transform;
         `;
         animationContainer.appendChild(textContainer);
-
-        const textStyle = document.createElement('style');
-        textStyle.textContent = `
-          @keyframes pulse {
-            from {
-              transform: scale(1);
-              text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
-            }
-            to {
-              transform: scale(1.05);
-              text-shadow: 0 0 15px #00ffff, 0 0 30px #00ffff, 0 0 45px #00ffff;
-            }
-          }
-        `;
-        document.head.appendChild(textStyle);
-
+  
         document.body.appendChild(animationContainer);
-
+  
         const fullText = 'АКТИВАЦИЯ ВНИМАНИЯ...';
         let currentIndex = 0;
-
+  
         function typeText() {
           if (currentIndex < fullText.length) {
             const textElement = document.createElement('span');
             textElement.textContent = fullText[currentIndex];
             textElement.style.animation = 'pulse 1.5s infinite alternate';
             textContainer.appendChild(textElement);
-            
             currentIndex++;
-            
-            const baseDelay = performanceLevel === 'low' ? 100 : 
-                             performanceLevel === 'medium' ? 75 : 50;
+            const baseDelay = performanceLevel === 'low' ? 100 : performanceLevel === 'medium' ? 75 : 50;
             const delay = baseDelay + Math.random() * 100;
-            setTimeout(typeText, delay);
+            typeTextTimeout = setTimeout(typeText, delay);
           }
         }
-
         typeText();
-
+  
         function updateCanvasSize() {
           canvas.width = window.innerWidth;
           canvas.height = window.innerHeight;
         }
-
         updateCanvasSize();
-
         window.addEventListener('resize', updateCanvasSize);
-
-        const ctx = canvas.getContext('2d');
-
+  
+        const ctx = canvas.getContext('2d', { alpha: true });
+  
+        const fontRegular = 'bold 20px Courier New';
+        const fontWord = 'bold 36px Courier New';
+  
         const particles = [];
-        const connections = [];
         const symbols = [];
-
+  
         for (let i = 0; i < particleCount; i++) {
           particles.push({
             x: Math.random() * canvas.width,
@@ -4004,10 +3872,10 @@
             vx: (Math.random() - 0.5) * 2,
             vy: (Math.random() - 0.5) * 2,
             radius: Math.random() * 3 + 1,
-            color: `hsl(${Math.random() * 60 + 180}, 100%, 70%)`
+            color: `hsl(${Math.random() * 60 + 180}, 100%, 70%)`,
           });
         }
-
+  
         const chars = 'aeoristupnlmfbcdghvwxyAIOPRSTUEмВкДНсЗжлгяИбЭпутХ';
         for (let i = 0; i < symbolCount; i++) {
           symbols.push({
@@ -4019,157 +3887,106 @@
             opacity: Math.random() * 0.5 + 0.5,
             isFlashing: false,
             flashEndTime: 0,
-            originalSize: Math.random() * 20 + 10
+            originalSize: Math.random() * 20 + 10,
           });
         }
-
+  
         const words = [
-          'ML-Cache',
-          'ISPN',
-          'PWA-Layer',
-          'OPS-UX',
-          'DialogCore',
-          'AI-Оператор',
-          'UX-Vibe',
-          'Скорость',
-          'Удобство',
-          'Эффективность',
-          'Доверие',
-          'Надежность',
-          'Доступность',
-          'Инженерия UX',
-          'TTFB',
-          'FCP',
-          'Performance',
-          'UX',
-          'SRE'
+          'ML-Cache', 'ISPN', 'PWA-Layer', 'OPS-UX', 'DialogCore',
+          'AI-Оператор', 'UX-Vibe', 'Скорость', 'Удобство', 'Эффективность',
+          'Доверие', 'Надежность', 'Доступность', 'Инженерия UX',
+          'TTFB', 'FCP', 'Performance', 'UX', 'SRE',
         ];
-
+  
         let currentWord = null;
         let wordFlashEndTime = 0;
         let wordX = 0;
         let wordY = 0;
-        
         let isFadingOut = false;
-
+  
         function showRandomWord() {
           if (isFadingOut) return;
-          
           if (!currentWord || Date.now() >= wordFlashEndTime) {
             currentWord = words[Math.floor(Math.random() * words.length)];
             wordFlashEndTime = Date.now() + 800;
             wordX = Math.random() * (canvas.width - 200) + 100;
             wordY = Math.random() * (canvas.height - 100) + 50;
           }
-          
-          const baseDelay = performanceLevel === 'low' ? 800 : 
-                           performanceLevel === 'medium' ? 500 : 300;
-          setTimeout(showRandomWord, baseDelay + Math.random() * 500);
+          const baseDelay = performanceLevel === 'low' ? 800 : performanceLevel === 'medium' ? 500 : 300;
+          wordTimeout = setTimeout(showRandomWord, baseDelay + Math.random() * 500);
         }
-
         showRandomWord();
-
-        let animationTime = 0;
-        const animationDuration = 5000;
-        let animationFrame = 0;
-
+  
         function flashRandomSymbol() {
           if (isFadingOut) return;
-          
           const nonFlashingSymbols = symbols.filter(s => !s.isFlashing);
           if (nonFlashingSymbols.length > 0) {
             const randomSymbol = nonFlashingSymbols[Math.floor(Math.random() * nonFlashingSymbols.length)];
             randomSymbol.isFlashing = true;
             randomSymbol.flashEndTime = Date.now() + 400;
-            
-            setTimeout(() => {
-              randomSymbol.isFlashing = false;
-            }, 400);
+            setTimeout(() => { randomSymbol.isFlashing = false; }, 400);
           }
-          
-          const baseDelay = performanceLevel === 'low' ? 400 : 
-                           performanceLevel === 'medium' ? 250 : 150;
-          setTimeout(flashRandomSymbol, baseDelay + Math.random() * 300);
+          const baseDelay = performanceLevel === 'low' ? 400 : performanceLevel === 'medium' ? 250 : 150;
+          symbolTimeout = setTimeout(flashRandomSymbol, baseDelay + Math.random() * 300);
         }
-
         flashRandomSymbol();
-
-        function animate() {
-          if (performanceLevel === 'low' && animationFrame % 2 !== 0) {
-            animationFrame++;
-            requestAnimationFrame(animate);
+  
+        let animationTime = 0;
+        const animationDuration = 5000;
+  
+        function animate(currentTime) {
+          if (isFadingOut) return;
+  
+          if (currentTime - lastTime < frameInterval) {
+            animateFrame = requestAnimationFrame(animate);
             return;
           }
-          animationFrame++;
-
+          lastTime = currentTime;
+  
           ctx.clearRect(0, 0, canvas.width, canvas.height);
-          
-          const timeStep = performanceLevel === 'low' ? 32 : 16;
+  
+          const timeStep = 16;
           animationTime += timeStep;
           const progress = Math.min(animationTime / animationDuration, 1);
-          
+  
           if (progress >= 1 && !isFadingOut) {
             isFadingOut = true;
             animationContainer.style.opacity = '0';
-            
+  
             setTimeout(() => {
-              document.body.classList.remove('animation-active');
-              if (style.parentNode) style.parentNode.removeChild(style);
-              if (textStyle.parentNode) textStyle.parentNode.removeChild(textStyle);
-              window.removeEventListener('resize', updateCanvasSize);
-              
-              document.body.style.overflow = originalOverflow;
-              document.body.style.position = originalPosition;
-              document.body.style.top = originalTop;
-              document.body.style.left = originalLeft;
-              document.body.style.width = '';
-              
-              window.scrollTo(scrollLeft, scrollTop);
+              cleanup();
+              if (callback && typeof callback === 'function') callback();
             }, 500);
-            
-            particles.forEach(p => {
-              p.vx *= 3;
-              p.vy *= 3;
-            });
-            symbols.forEach(s => {
-              s.speed *= 3;
-            });
           }
-          
-          for (let i = 0; i < particles.length; i++) {
-            const p = particles[i];
-            
+  
+          for (const p of particles) {
             p.x += p.vx;
             p.y += p.vy;
-            
             if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
             if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
-            
+  
             ctx.beginPath();
             ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
             ctx.fillStyle = p.color;
             ctx.fill();
-            
+  
             ctx.beginPath();
             ctx.arc(p.x, p.y, p.radius * 2, 0, Math.PI * 2);
             ctx.fillStyle = p.color.replace(')', ', 0.2)').replace('hsl', 'hsla');
             ctx.fill();
           }
-          
+  
           ctx.strokeStyle = 'rgba(0, 255, 255, 0.2)';
           ctx.lineWidth = 1;
-          const maxConnections = performanceLevel === 'low' ? 5 : 
-                                performanceLevel === 'medium' ? 8 : 15;
-          const maxDistance = performanceLevel === 'low' ? 60 : 
-                             performanceLevel === 'medium' ? 80 : 100;
-          
+          const maxConnections = performanceLevel === 'low' ? 5 : performanceLevel === 'medium' ? 8 : 15;
+          const maxDistance = performanceLevel === 'low' ? 60 : performanceLevel === 'medium' ? 80 : 100;
+  
           for (let i = 0; i < particles.length; i++) {
             let connectionsCount = 0;
             for (let j = i + 1; j < particles.length && connectionsCount < maxConnections; j++) {
               const dx = particles[i].x - particles[j].x;
               const dy = particles[i].y - particles[j].y;
               const distance = Math.sqrt(dx * dx + dy * dy);
-              
               if (distance < maxDistance) {
                 ctx.beginPath();
                 ctx.moveTo(particles[i].x, particles[i].y);
@@ -4179,172 +3996,156 @@
               }
             }
           }
-          
+  
           if (currentWord && Date.now() < wordFlashEndTime) {
             const wordFlashProgress = (wordFlashEndTime - Date.now()) / 800;
-            
-            const shadowCount = performanceLevel === 'low' ? 2 : 
-                               performanceLevel === 'medium' ? 3 : 5;
+            const shadowCount = performanceLevel === 'low' ? 0 : performanceLevel === 'medium' ? 3 : 5;
+  
             for (let j = shadowCount; j >= 1; j--) {
               const offset = j * 3 * (1 - wordFlashProgress);
               const alpha = 0.3 * (j / shadowCount) * wordFlashProgress;
-              
               ctx.fillStyle = `rgba(255, 0, 255, ${alpha})`;
               ctx.shadowColor = 'transparent';
               ctx.shadowBlur = 0;
-              
-              const shadowFont = `bold 36px Courier New`;
-              const originalFont = ctx.font;
-              ctx.font = shadowFont;
+              ctx.font = fontWord;
               ctx.fillText(currentWord, wordX + offset, wordY + offset);
-              ctx.font = originalFont;
             }
-            
+  
             ctx.fillStyle = '#ff00ff';
-            ctx.font = 'bold 36px Courier New';
-            ctx.shadowColor = '#ff00ff';
-            const maxBlur = performanceLevel === 'low' ? 15 : 
-                           performanceLevel === 'medium' ? 25 : 30;
-            ctx.shadowBlur = maxBlur * wordFlashProgress;
+            ctx.font = fontWord;
+            ctx.shadowColor = performanceLevel !== 'low' ? '#ff00ff' : 'transparent';
+            ctx.shadowBlur = performanceLevel === 'low' ? 0 : (30 * wordFlashProgress);
             ctx.fillText(currentWord, wordX, wordY);
             ctx.shadowColor = 'transparent';
             ctx.shadowBlur = 0;
           }
-          
-          ctx.font = 'bold 20px Courier New';
-          for (let i = 0; i < symbols.length; i++) {
-            const s = symbols[i];
-            
+  
+          ctx.font = fontRegular;
+          for (const s of symbols) {
             s.y += s.speed;
-            
             if (s.y > canvas.height) {
               s.y = -20;
               s.x = Math.random() * canvas.width;
               s.char = chars[Math.floor(Math.random() * chars.length)];
             }
-            
+  
             let currentSize = s.originalSize;
             if (s.isFlashing && Date.now() < s.flashEndTime) {
               const flashProgress = (s.flashEndTime - Date.now()) / 400;
-              const maxScale = performanceLevel === 'low' ? 0.3 : 
-                              performanceLevel === 'medium' ? 0.5 : 0.8;
+              const maxScale = performanceLevel === 'low' ? 0.3 : performanceLevel === 'medium' ? 0.5 : 0.8;
               currentSize = s.originalSize * (1 + maxScale * flashProgress);
-              
-              const shadowCount = performanceLevel === 'low' ? 1 : 
-                                 performanceLevel === 'medium' ? 2 : 5;
+  
+              const shadowCount = performanceLevel === 'low' ? 0 : performanceLevel === 'medium' ? 2 : 5;
               for (let j = shadowCount; j >= 1; j--) {
                 const offset = j * 2 * (1 - flashProgress);
                 const alpha = 0.2 * (j / shadowCount) * flashProgress;
-                
                 ctx.fillStyle = `rgba(255, 0, 255, ${alpha})`;
                 ctx.shadowColor = 'transparent';
                 ctx.shadowBlur = 0;
-                
-                const shadowFont = `bold ${currentSize}px Courier New`;
-                const originalFont = ctx.font;
-                ctx.font = shadowFont;
+                ctx.font = `bold ${currentSize}px Courier New`;
                 ctx.fillText(s.char, s.x + offset, s.y + offset);
-                ctx.font = originalFont;
               }
-              
+  
               ctx.fillStyle = '#ff00ff';
               ctx.shadowColor = '#ff00ff';
-              const maxBlur = performanceLevel === 'low' ? 10 : 
-                             performanceLevel === 'medium' ? 15 : 20;
-              ctx.shadowBlur = maxBlur * flashProgress;
+              ctx.shadowBlur = performanceLevel === 'low' ? 0 : (20 * flashProgress);
             } else {
               ctx.fillStyle = `rgba(0, 255, 255, ${s.opacity})`;
               ctx.shadowColor = 'transparent';
               ctx.shadowBlur = 0;
             }
-            
-            const originalFont = ctx.font;
+  
             ctx.font = `bold ${currentSize}px Courier New`;
             ctx.fillText(s.char, s.x, s.y);
-            ctx.font = originalFont;
           }
-          
-          if (isFadingOut) {
-            setTimeout(() => {
-              if (animationContainer.parentNode) {
-                animationContainer.parentNode.removeChild(animationContainer);
-              }
-              if (callback && typeof callback === 'function') callback();
-              
-              const uxButton = document.querySelector('.ux-btn');
-              if (uxButton) {
-                const audio = new Audio('https://kyrchenkov.github.io/assets/sound.mp3');
-                audio.volume = 0.7;
-                
-                audio.play().catch(e => console.log('Audio playback failed:', e));
-                
-                setTimeout(() => {
-                  uxButton.style.cssText += `
-                    top: -22px;
-                    left: 134px;
-                    height: 86px;
-                    width: 66px;
-                    border-radius: 46px 22px 36px 38px;
-                    --btn-bg-1: #ffddab;
-                    --btn-bg-2: #e50075;
-                    background-image: linear-gradient(325deg, var(--btn-bg-2) 0%,
-					                                          var(--btn-bg-1) 55%,
-															  var(--btn-bg-2) 90%);
-                    box-shadow: 0px 0px 10px #ff3a9e87,
-					            0px 5px 5px -1px #e9338f38,
-								inset 4px 4px 8px #ffbbdd80,
-								inset -4px -4px 8px #d3117359,
-								inset 0px 0px 20px 0px #ffffffab,
-								inset 0px 0px 20px 0px #ffffff75;
-					animation: ux-btn 1s cubic-bezier(0.55, 0.06, 0.68, 0.19) infinite;
-                    filter: none;
-                    transform: scaleX(.7) scaleY(1.3);
-                  `;
-                  
-                  setTimeout(() => {
-                    uxButton.style.cssText += `
-                      position: absolute;
-                      top: -15px;
-                      left: 130px;
-                      height: 76px;
-                      width: 76px;
-                      opacity: 0.8;
-                      border-radius: 22px 50px 15px 42px;
-                      --btn-bg-1: #ffddabba;
-                      --btn-bg-2: #ff2f99;
-                      background-size: 280% auto;
-                      background-image: linear-gradient(325deg, var(--btn-bg-2) 0%,
-                                                                var(--btn-bg-1) 55%,
-                                                                var(--btn-bg-2) 90%);
-                      box-shadow: 0px 0px 10px #ff3a9e87,
-                                  0px 5px 5px -1px #e9338f38,
-                                  inset 4px 4px 8px #ffbbdd80,
-                                  inset -4px -4px 8px #d3117359,
-                                  inset 0px 0px 20px 0px #fff,
-                                  inset 0px 0px 20px 0px transparent;
-                      transition: 0.18s all ease;
-                      animation: none;
-                      filter: contrast(0.95);
-                      transform: scaleX(1) scaleY(1);
-                    `;
-                  }, 15000);
-                }, 4700);
-              }
-            }, 500);
-          } else {
-            requestAnimationFrame(animate);
-          }
+  
+          animateFrame = requestAnimationFrame(animate);
         }
-        
-        animate();
+  
+        function cleanup() {
+          clearTimeout(typeTextTimeout);
+          clearTimeout(wordTimeout);
+          clearTimeout(symbolTimeout);
+  
+          if (animateFrame) {
+            cancelAnimationFrame(animateFrame);
+          }
+  
+          if (globalStyle.parentNode) {
+            globalStyle.parentNode.removeChild(globalStyle);
+          }
+  
+          if (animationContainer.parentNode) {
+            animationContainer.parentNode.removeChild(animationContainer);
+          }
+  
+          document.body.classList.remove('animation-active');
+          document.body.style.overflow = originalOverflow;
+          document.body.style.position = originalPosition;
+          document.body.style.top = originalTop;
+          document.body.style.left = originalLeft;
+          document.body.style.width = '';
+          window.removeEventListener('resize', updateCanvasSize);
+          window.scrollTo(scrollLeft, scrollTop);
+  
+          const uxButton = document.querySelector('.ux-btn');
+          if (uxButton) {
+            playAudio();
+  
+            setTimeout(() => {
+              uxButton.classList.add('ux-btn-animated');
+              uxButton.style.cssText += `
+                top: -22px;
+                left: 134px;
+                height: 86px;
+                width: 66px;
+                border-radius: 46px 22px 36px 38px;
+                --btn-bg-1: #ffddab;
+                --btn-bg-2: #e50075;
+                background-image: linear-gradient(325deg, var(--btn-bg-2) 0%, var(--btn-bg-1) 55%, var(--btn-bg-2) 90%);
+                box-shadow: 0px 0px 10px #ff3a9e87, 0px 5px 5px -1px #e9338f38, inset 4px 4px 8px #ffbbdd80, inset -4px -4px 8px #d3117359, inset 0px 0px 20px 0px #ffffffab, inset 0px 0px 20px 0px #ffffff75;
+                animation: ux-btn 1s cubic-bezier(0.55, 0.06, 0.68, 0.19) infinite;
+                filter: none;
+                transform: scaleX(.7) scaleY(1.3);
+              `;
+  
+              setTimeout(() => {
+                uxButton.style.cssText += `
+                  position: absolute;
+                  top: -15px;
+                  left: 130px;
+                  height: 76px;
+                  width: 76px;
+                  opacity: 0.8;
+                  border-radius: 22px 50px 15px 42px;
+                  --btn-bg-1: #ffddabba;
+                  --btn-bg-2: #ff2f99;
+                  background-size: 280% auto;
+                  background-image: linear-gradient(325deg, var(--btn-bg-2) 0%, var(--btn-bg-1) 55%, var(--btn-bg-2) 90%);
+                  box-shadow: 0px 0px 10px #ff3a9e87, 0px 5px 5px -1px #e9338f38, inset 4px 4px 8px #ffbbdd80, inset -4px -4px 8px #d3117359, inset 0px 0px 20px 0px #fff, inset 0px 0px 20px 0px transparent;
+                  transition: 0.18s all ease;
+                  animation: none;
+                  filter: contrast(0.95);
+                  transform: scaleX(1) scaleY(1);
+                `;
+              }, 15000);
+            }, 4700);
+          }
+  
+          isAnimationActive = false;
+        }
+  
+        animateFrame = requestAnimationFrame(animate);
       }
-
+  
       const UXButton = document.querySelector('.ux-btn');
       if (UXButton) {
-        UXButton.addEventListener('click', function() {
-          setTimeout(function() {
-            showComputationAnimation();
-          }, 300);
+        UXButton.addEventListener('click', function () {
+          if (!isAnimationActive) {
+            setTimeout(() => {
+              showComputationAnimation();
+            }, 300);
+          }
         });
       }
     })();
@@ -4943,8 +4744,18 @@
   document.addEventListener('DOMContentLoaded', function() {
     const BUTTON_SELECTOR = '.ux-btn';
     const DEBOUNCE_DELAY = 50;
-    const DANCE_ELEMENTS_SELECTORS = '.home-page h1, .home-page h2, .home-page p, .home-page a, .home-page button, .ux-btn, .home-page img, .home-page section, .home-page div';
-
+    const DANCE_ELEMENTS_SELECTORS = `
+      .home-page h1, 
+      .home-page h2, 
+      .home-page p, 
+      .home-page a, 
+      .home-page button, 
+      .ux-btn, 
+      .home-page img, 
+      .home-page section, 
+      .home-page div
+    `.trim().replace(/\s+/g, ' ');
+  
     let discoActive = false;
     let lastStyleChangeTime = 0;
     let styleChangeCount = 0;
@@ -4956,7 +4767,10 @@
     let originalBugIcon = null;
     let danceElements = [];
     let uiToTopAnimating = false;
-
+  
+    let cachedTurnOffBtn = null;
+    let cachedUiToTopBtn = null;
+  
     function ensureIsolationContainer() {
       let container = document.getElementById('disco-isolation-container');
       if (!container) {
@@ -4976,7 +4790,7 @@
       }
       return container;
     }
-
+  
     function debounce(func, delay) {
       let timeout;
       return function(...args) {
@@ -4985,7 +4799,7 @@
         timeout = setTimeout(() => func.apply(context, args), delay);
       };
     }
-
+  
     (function injectDiscoStyles() {
       if (document.getElementById('disco-enhanced-styles')) return;
       const style = document.createElement('style');
@@ -5023,22 +4837,25 @@
       `;
       document.head.appendChild(style);
     })();
-
+  
     function initDiscoEffect() {
       if (discoActive) return;
       discoActive = true;
-
+  
+      cachedTurnOffBtn = document.querySelector('.turn-off-btn');
+      cachedUiToTopBtn = document.querySelector('.ui-to-top');
+  
       cleanupBugElement();
       resetOriginalBugIcon();
-
+  
       danceElements = Array.from(document.querySelectorAll(DANCE_ELEMENTS_SELECTORS))
         .filter(el => {
           const style = getComputedStyle(el);
           return style.position !== 'fixed' && style.position !== 'absolute';
         });
-
+  
       const root = document.documentElement;
-
+  
       const container = document.createElement('div');
       container.id = 'disco-container';
       container.style.cssText = `
@@ -5053,7 +4870,7 @@
         opacity: 0;
       `;
       root.appendChild(container);
-
+  
       const canvas = document.createElement('canvas');
       canvas.id = 'disco-canvas';
       canvas.width = window.innerWidth;
@@ -5066,10 +4883,11 @@
         height: 100%;
       `;
       container.appendChild(canvas);
-
-      const ctx = canvas.getContext('2d');
+  
+      const ctx = canvas.getContext('2d', { alpha: false });
       ctx.lineCap = 'round';
-
+      ctx.imageSmoothingEnabled = false;
+  
       const colorOverlay = document.createElement('div');
       colorOverlay.id = 'disco-color-overlay';
       colorOverlay.style.cssText = `
@@ -5086,9 +4904,10 @@
           hsla(270, 100%, 60%, 0.15),
           hsla(300, 100%, 70%, 0.1)
         );
+        will-change: background;
       `;
       root.appendChild(colorOverlay);
-
+  
       const spotlight = document.createElement('div');
       spotlight.style.cssText = `
         position: fixed;
@@ -5102,9 +4921,10 @@
         opacity: 0.45;
         mix-blend-mode: screen;
         transform: translate(-20%, -20%);
+        will-change: transform;
       `;
       root.appendChild(spotlight);
-
+  
       const strobes = [];
       const positions = [
         { top: '6%', left: '6%' },
@@ -5112,7 +4932,7 @@
         { bottom: '6%', left: '6%' },
         { bottom: '6%', right: '6%' }
       ];
-
+  
       positions.forEach(pos => {
         const el = document.createElement('div');
         Object.assign(el.style, {
@@ -5134,54 +4954,51 @@
         root.appendChild(el);
         strobes.push(el);
       });
-
+  
       let globalOpacity = 0;
       let hue = 0;
       let spotlightX = 0;
       let spotlightY = 0;
       let gradientHue = Math.random() * 360;
       let turnOffRotation = 0;
-
+  
       function animateTurnOffButton() {
-        const btn = document.querySelector('.turn-off-btn');
-        if (!btn) return;
+        if (!cachedTurnOffBtn || !discoActive) return;
         turnOffRotation += 2.5;
-        btn.style.transform = `rotate(${turnOffRotation}deg)`;
-        btn.style.transition = 'none';
+        cachedTurnOffBtn.style.transform = `rotate(${turnOffRotation}deg)`;
+        cachedTurnOffBtn.style.transition = 'none';
       }
-
+  
       function simulateUiToTopClick() {
-        const btn = document.querySelector('.ui-to-top');
-        if (!btn || !discoActive || uiToTopAnimating) return;
-
+        if (!cachedUiToTopBtn || !discoActive || uiToTopAnimating) return;
+  
         uiToTopAnimating = true;
-        btn.classList.remove('disco-active-force');
-        void btn.offsetWidth;
-        btn.classList.add('disco-active-force');
-
+        cachedUiToTopBtn.classList.remove('disco-active-force');
+        void cachedUiToTopBtn.offsetWidth;
+        cachedUiToTopBtn.classList.add('disco-active-force');
+  
         const holdTime = 200 + Math.random() * 300;
         setTimeout(() => {
           if (discoActive) {
-            btn.classList.remove('disco-active-force');
+            cachedUiToTopBtn.classList.remove('disco-active-force');
           }
           uiToTopAnimating = false;
         }, holdTime);
       }
-
+  
       function releaseAndAnimateBug() {
-        const btn = document.querySelector('.turn-off-btn');
-        if (!btn || bugDancing) return;
-        const icon = btn.querySelector('i.fa.fa-bug');
+        if (!cachedTurnOffBtn || bugDancing) return;
+        const icon = cachedTurnOffBtn.querySelector('i.fa.fa-bug');
         if (!icon) return;
-
+  
         originalBugIcon = icon;
         originalBugIcon.style.visibility = 'hidden';
-
+  
         cleanupBugElement();
-
+  
         bugElement = icon.cloneNode(true);
         bugElement.id = 'disco-bug-element';
-        const rect = btn.getBoundingClientRect();
+        const rect = cachedTurnOffBtn.getBoundingClientRect();
         bugElement.style.cssText = `
           position: absolute !important;
           left: ${rect.left + -30}px !important;
@@ -5196,27 +5013,27 @@
           opacity: 0;
           transform: translate(0, 0) rotate(0) scale(1);
         `;
-
+  
         const isoContainer = ensureIsolationContainer();
         isoContainer.appendChild(bugElement);
-
+  
         setTimeout(() => {
           if (!discoActive || !bugElement) return;
           const dx = (Math.random() - 0.5) * 200;
           const dy = -100 - Math.random() * 100;
           bugElement.style.transform = `translate(${dx}px, ${dy}px) rotate(360deg) scale(1.8)`;
           bugElement.style.opacity = '0.9';
-
+  
           setTimeout(() => {
             bugDancing = true;
             animationFrameId = requestAnimationFrame(danceBug);
           }, 700);
         }, 100);
       }
-
+  
       function danceBug() {
         if (!bugElement || !bugDancing) return;
-        const time = Date.now();
+        const time = performance.now();
         const x = Math.sin(time * 0.007) * 18;
         const y = Math.sin(time * 0.005) * 12 + Math.cos(time * 0.004) * 8;
         const r = Math.sin(time * 0.009) * 30;
@@ -5224,7 +5041,7 @@
         bugElement.style.opacity = 0.85 + Math.sin(time * 0.003) * 0.15;
         animationFrameId = requestAnimationFrame(danceBug);
       }
-
+  
       function playExplosion() {
         const button = document.querySelector(BUTTON_SELECTOR);
         if (!button || !discoActive) return;
@@ -5280,7 +5097,7 @@
           if (style.parentNode) style.remove();
         }, 1100);
       }
-
+  
       function startRandomExplosions() {
         playExplosion();
         explosionInterval = setInterval(() => {
@@ -5293,7 +5110,7 @@
           }
         }, 400 + Math.random() * 600);
       }
-
+  
       function animateLasers() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.globalCompositeOperation = 'lighter';
@@ -5302,7 +5119,7 @@
         const cy = 0;
         const len = Math.hypot(canvas.width, canvas.height) * 1.3;
         for (let i = 0; i < 16; i++) {
-          const angle = (Math.PI * 2 * i) / 16 + Math.sin(Date.now() * 0.0008) * 0.7;
+          const angle = (Math.PI * 2 * i) / 16 + Math.sin(performance.now() * 0.0008) * 0.7;
           const xEnd = cx - Math.cos(angle) * len;
           const yEnd = cy + Math.sin(angle) * len;
           const gradient = ctx.createLinearGradient(cx, cy, xEnd, yEnd);
@@ -5321,14 +5138,14 @@
           ctx.stroke();
         }
       }
-
+  
       function moveSpotlight() {
         const noise = 0.0004;
-        spotlightX += Math.sin(Date.now() * noise) * 60;
-        spotlightY += Math.cos(Date.now() * noise * 1.25) * 50;
+        spotlightX += Math.sin(performance.now() * noise) * 60;
+        spotlightY += Math.cos(performance.now() * noise * 1.25) * 50;
         spotlight.style.transform = `translate(${spotlightX}px, ${spotlightY}px)`;
       }
-
+  
       function updateStrobes() {
         strobes.forEach(strobe => {
           if (Math.random() < 0.12 && discoActive) {
@@ -5340,7 +5157,7 @@
           }
         });
       }
-
+  
       function updateColorOverlay() {
         gradientHue = (gradientHue + 0.6) % 360;
         const hue2 = (gradientHue + 90) % 360;
@@ -5353,24 +5170,32 @@
           )
         `;
       }
-
+  
       function danceElementsNow() {
-        const time = Date.now();
+        const time = performance.now();
         const beat = Math.sin(time * 0.005) * 0.6;
         const wiggle = Math.sin(time * 0.007) * 0.5;
-        document.body.style.transform = `scale(${1 + 0.001 * beat}) rotate(${wiggle * 0.02}deg)`;
+  
+        const homePage = document.querySelector('.home-page');
+        if (homePage) {
+          homePage.style.transform = `scale(${1 + 0.001 * beat}) rotate(${wiggle * 0.02}deg)`;
+        }
+  
         danceElements.forEach((el, i) => {
           const delay = i % 5 * 0.1;
           const offset = Math.sin(time * 0.006 + delay) * 1.5;
           const rotate = Math.sin(time * 0.008 + delay) * 0.2;
           el.style.transform = `translateY(${offset}px) rotate(${rotate}deg)`;
-          el.style.transition = 'transform 0.1s ease-out';
+          if (!el.style.transition) {
+            el.style.transition = 'transform 0.1s ease-out';
+          }
         });
       }
-
+  
       function stopDancing() {
-        if (document.body.style.transform) {
-          document.body.style.removeProperty('transform');
+        const homePage = document.querySelector('.home-page');
+        if (homePage && homePage.style.transform) {
+          homePage.style.removeProperty('transform');
         }
         danceElements.forEach(el => {
           if (el.style.transform) {
@@ -5381,7 +5206,7 @@
           }
         });
       }
-
+  
       function fadeIn() {
         globalOpacity += 0.03;
         if (globalOpacity >= 1) {
@@ -5392,11 +5217,12 @@
           return;
         }
         container.style.opacity = globalOpacity;
-        requestAnimationFrame(fadeIn);
+        animationFrameId = requestAnimationFrame(fadeIn);
       }
-
+  
       function animate() {
         if (!discoActive) return;
+  
         animateLasers();
         moveSpotlight();
         updateStrobes();
@@ -5404,20 +5230,21 @@
         danceElementsNow();
         animateTurnOffButton();
         if (bugDancing) danceBug();
+  
         animationFrameId = requestAnimationFrame(animate);
       }
-
+  
       container.style.opacity = 0;
       setTimeout(() => {
         fadeIn();
         startRandomExplosions();
         releaseAndAnimateBug();
       }, 300);
-
+  
       return function destroyDisco() {
         if (!discoActive) return;
         discoActive = false;
-
+  
         if (animationFrameId) {
           cancelAnimationFrame(animationFrameId);
           animationFrameId = null;
@@ -5430,38 +5257,36 @@
           clearInterval(uiToTopInterval);
           uiToTopInterval = null;
         }
-
+  
         stopDancing();
-
+  
         cleanupBugElement();
         resetOriginalBugIcon();
-
-        const turnOffBtn = document.querySelector('.turn-off-btn');
-        if (turnOffBtn) {
-          turnOffBtn.style.removeProperty('transform');
-          turnOffBtn.style.removeProperty('transition');
+  
+        if (cachedTurnOffBtn) {
+          cachedTurnOffBtn.style.removeProperty('transform');
+          cachedTurnOffBtn.style.removeProperty('transition');
         }
-
-        const uiBtn = document.querySelector('.ui-to-top');
-        if (uiBtn) {
-          uiBtn.classList.remove('disco-active-force');
+  
+        if (cachedUiToTopBtn) {
+          cachedUiToTopBtn.classList.remove('disco-active-force');
         }
-
+  
         const iso = document.getElementById('disco-isolation-container');
         if (iso && iso.parentNode) {
           iso.parentNode.removeChild(iso);
         }
-
+  
         if (container.parentNode) container.remove();
         if (colorOverlay.parentNode) colorOverlay.remove();
         if (spotlight.parentNode) spotlight.remove();
         strobes.forEach(el => el.remove());
-
+  
         styleChangeCount = 0;
         startObserving();
       };
     }
-
+  
     function cleanupBugElement() {
       const oldBug = document.getElementById('disco-bug-element');
       if (oldBug && oldBug.parentNode) {
@@ -5470,19 +5295,19 @@
       bugElement = null;
       bugDancing = false;
     }
-
+  
     function resetOriginalBugIcon() {
       if (originalBugIcon) {
         originalBugIcon.style.removeProperty('visibility');
         originalBugIcon = null;
       }
     }
-
+  
     function startObserving() {
       const observer = new MutationObserver(debounce(function(mutations) {
         const button = document.querySelector(BUTTON_SELECTOR);
         if (!button) return;
-        const now = Date.now();
+        const now = performance.now();
         if (now - lastStyleChangeTime < DEBOUNCE_DELAY) return;
         lastStyleChangeTime = now;
         mutations.forEach(record => {
@@ -5499,6 +5324,7 @@
           }
         });
       }, DEBOUNCE_DELAY));
+  
       const button = document.querySelector(BUTTON_SELECTOR);
       if (button) {
         observer.observe(button, { attributes: true, attributeFilter: ['style'] });
@@ -5506,8 +5332,18 @@
         setTimeout(startObserving, 100);
       }
     }
-
+  
     startObserving();
+  
+    window.addEventListener('blur', () => {
+      if (discoActive && window.discoCleanup) {
+        window.discoCleanup();
+      }
+    });
+  
+    if (window.discoCleanup) {
+      window.discoCleanup();
+    }
   });
   </script>
 </head>
@@ -5665,9 +5501,7 @@
       переводы сокращены до 1 в день, создано 200+ FAQ, база - 173 499 слов.</p>
 
     <h3 class="h3">5.6. AI-Оператор - живое UX-присутствие</h3>
-    <img class="image image-ux" style="user-select: none; pointer-events: none;"
-      src="https://github.com/kyrchenkov/kyrchenkov.github.io/blob/main/img/aisphere.webp?raw=true"
-      alt="Живое UX-присутствие" loading="lazy">
+    <p id="widget" alt="Виджет AI-Оператора"></p>
     <p class="p-ux"><strong>Проблема</strong>: Сомнения пользователей, пользователи не чувствовали «живого»
       взаимодействия с сайтом.</p>
     <p><strong>Решение</strong>: Реализована иллюзия присутствия - пульсирующая сфера, уведомления, игровые механики,
@@ -5687,7 +5521,7 @@
       быть функциями - стали точками диалога. AI-Оператор стал не только слышимым - он стал видимым.</p>
 
     <h3
-      style="color: transparent; background-clip: text; background-image: linear-gradient(0deg, #ff95ca 25%, #004fcda3 50%);">
+      style="color: transparent; background-clip: text; background-image: linear-gradient(0deg, #ff95ca80 35%, #2c3e50eb 100%);">
       5.7.1. «Просто Button-Vibe»</h3>
     <div class="container-btn">
       <button type="button" class="ui-to-top"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
@@ -5719,7 +5553,7 @@
     </div>
 
     <p
-      style="text-align: center; font-style: italic; color: #555; margin: 20px 0; filter: drop-shadow(0px 0px 1px #2c3e5075);">
+      style="text-align: center; font-style: italic; color: #b1b1b1; margin: 20px 0; filter: drop-shadow(0px 0px 1px #2c3e5075);">
       Они не про отдельные или тоточечные улучшения. Они о <strong>построении доверия, заложенного в целостности всей
         системы</strong>.
     </p>
@@ -9060,7 +8894,7 @@ if (g && o - h >= 8000) {
 
   <div class="llm">
     <div style="
-        background: #f5f0ff;
+        background: #d0b9ff57;
         color: #785fffeb;
         font-weight: 600;
         font-size: 16px;
@@ -9085,8 +8919,8 @@ if (g && o - h >= 8000) {
       </p>
 
       <div style="
-            background: #f9f9f9;
-            border: 1px solid #eee;
+            background: #f9f9f963;
+            border: 1px solid #eeeeee94;
             border-radius: 4px;
             padding: 5px 6px;
             margin: 6px 0 0 0;
