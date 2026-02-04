@@ -2891,6 +2891,38 @@
 	  filter: drop-shadow(0px 0px 5px #ffffff);
     }
 	
+    .docs pre::-webkit-scrollbar,
+    .docs table::-webkit-scrollbar,
+    .docs .mermaid::-webkit-scrollbar {
+      height:8px;
+    }
+
+    .docs pre::-webkit-scrollbar-track,
+    .docs table::-webkit-scrollbar-track,
+    .docs .mermaid::-webkit-scrollbar-track {
+      background: #d3d3d3d9;
+      border-radius: 1px 1px 8px 8px;
+    }
+
+    .docs pre::-webkit-scrollbar-thumb,
+    .docs .mermaid::-webkit-scrollbar-thumb {
+      background: #f9fafa9e;
+      border-radius: 1px;
+      transition: background 0.3s ease;
+    }
+	
+    .docs table::-webkit-scrollbar-thumb {
+      background: #f9fafa42;
+      border-radius: 1px;
+      transition: background 0.3s ease;
+    }
+
+    .docs pre::-webkit-scrollbar-thumb:hover,
+    .docs table::-webkit-scrollbar-thumb:hover,
+    .docs .mermaid::-webkit-scrollbar-thumb:hover {
+      background: #856a3e21;
+    }
+	
     .ux-vibe pre {
       border: none;
       background: none;
@@ -3042,7 +3074,7 @@
       padding: 20px;
       border-radius: 8px;
       margin: 20px 0;
-      overflow: auto;
+      overflow-x: auto;
     }
 	
 	.dialogcore .image {
@@ -3067,13 +3099,22 @@
     }
 	
     .aioperator .image-center {
+	  z-index: 1;
       display: block;
+	  position: relative;
       margin: 30px auto;
       max-width: 35%;
       height: auto;
       opacity: 0.95;
       border-radius: 18px;
       border: 5px solid #dfdfdf54;
+	  transition: 0.3s all cubic-bezier(0, 0, 0, 0.75);
+    }
+	
+    .aioperator .image-center:hover,
+    .aioperator .image-center:active {
+      opacity: 1;
+	  transform: rotate(0deg) scale(1.25) !important;
     }
 	
     .dialogcore .image-center-a	{
@@ -3176,7 +3217,7 @@
     .dialogcore .code-block pre {
       margin: 0;
       padding: 0;
-      overflow: visible;
+      overflow-x: visible;
     }
 	
     .aioperator .arrow {
@@ -3285,8 +3326,23 @@
       overflow: hidden;
     }
 	
-	@media (max-width: 767px) {
-	  
+	@media (min-width: 768px) { 
+      .dialogcore .box:hover {
+        box-shadow: inset -15px -15px 50px 3px rgb(255 255 255 / 20%),
+		            inset 15px 15px 50px 3px rgb(45 45 45 / 35%),
+					      0 0 45px 30px rgb(0 0 0 / 20%);
+        transform: matrix3d(1.1, 0.02, 0, 0.00009,
+		                    0.05, 1, 1.2, -0.00035,
+							0, 0, 1, 0,
+							0, 0, 0, 1.1);
+        filter: drop-shadow(0px 0px 0px)
+		        contrast(1.5)
+				brightness(1.02)
+				blur(0px);
+      }
+	}
+	
+	@media (max-width: 767px) { 
       .navigation {
         flex-direction: column;
         font-size: 20px;
@@ -3399,17 +3455,17 @@
       .pwa-layer .mermaid {
         display: block;
 		margin: 22px;
-        overflow: scroll;
+        overflow-x: scroll;
       }
 	  
       .dialogcore .box {
-		height: 828px;
-		width: 545px;
-		left: -115px;
+		height: 820px;
+		width: 600px;
+		left: -165px;
 		font-size: 10px;
 		scale: 0.6;
 		margin: -15vh auto;
-		overflow: visible;
+		overflow-x: visible;
       }
 	  
       .dialogcore .box:hover,
@@ -3434,7 +3490,7 @@
       }
 	  
       .dialogcore .mermaid {
-        overflow: scroll;
+        overflow-x: scroll;
       }
 	  
       .dialogcore .image-center {
@@ -8192,7 +8248,7 @@ document.getElementById('sphere_widget').addEventListener('click', openChat);</p
 
     <h3>1. Auto Swiper: "Покажу, что важно"</h3>
     <img class="image-center" src="https://github.com/kyrchenkov/kyrchenkov.github.io/blob/main/img/swiper.png?raw=true"
-      alt="Авто свайпер" style="border: solid 8px #565656; border-radius: 35px; box-shadow: 0px 5px 10px 0px #414141; transform: rotate(358deg);"
+      alt="Авто свайпер" style="border: solid 8px #565656; border-radius: 35px; box-shadow: 0px 5px 10px 0px #414141;"
       loading="lazy">
     <pre>
 function startImageSlider(images) {
