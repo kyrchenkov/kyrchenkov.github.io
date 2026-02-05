@@ -594,6 +594,12 @@
 	  90%  { box-shadow: 0 -15px 15px #a55fff7f inset, 0 0 20px #9646ff7f, 0 0 30px #a55fff3f; }
 	  100% { box-shadow: 0 0 15px #a55fff7f inset, 0 0 20px #9646ff7f, 0 0 30px #a55fff3f; }
 	  }
+	  
+	@keyframes fadeIn {
+	  to {
+	    opacity: 1;
+	  }
+	}
 
     * {
       margin: 0;
@@ -908,6 +914,56 @@
              box-shadow: 0 5px 10px 0 #586def;
     }
 	
+    .main-poster-container {
+      position: relative;
+      width: 100%;
+      height: 0;
+      padding-bottom: 57.56%;
+      overflow: hidden;
+	  filter: drop-shadow(0px 8px 12px #ffffff) contrast(1.5);
+    }
+	
+    .home-page .poster-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border: 6px solid #9f9f9f99;
+    }
+	
+    .home-page .poster {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+	  opacity: 0;
+      max-width: 100%;
+      -webkit-border-radius: 0;
+	     -moz-border-radius: 0;
+	      -ms-border-radius: 0;
+	       -o-border-radius: 0;
+              border-radius: 0;
+      -webkit-box-shadow: none;
+	     -moz-box-shadow: none;
+	      -ms-box-shadow: none;
+	       -o-box-shadow: none;
+              box-shadow: none;
+      animation-delay: 0.2s;
+      animation: fadeIn 0.6s ease-in-out forwards;
+      filter: drop-shadow(0px 8px 40px #ffffff);
+    }
+	
+    .home-page .poster-txt {
+      color: #d3e3ffba;
+      opacity: 1;
+      margin-top: 0;
+      text-shadow: 0px 0px 15px #ffffff8c;
+      filter: drop-shadow(0px 20px 35px #ffffff)
+	          contrast(1.3);
+    }
+	
     .home-page .h3 {
       display: flex;
       height: 75px;
@@ -917,90 +973,10 @@
       line-height: 1.2;
 	  white-space: pre-wrap;
 	  align-items: center;
+	  text-align: start;
       justify-content: flex-start;
-      padding: 10px 12px 3px 22px;
-      background: -webkit-radial-gradient(ellipse at top, #a8c8ff0d, #a8c8ff4a),
-	                      radial-gradient(ellipse at bottom, #a8c8ff4d, #a8c8ff00);
-      background:    -moz-radial-gradient(ellipse at top, #a8c8ff0d, #a8c8ff4a),
-	                      radial-gradient(ellipse at bottom, #a8c8ff4d, #a8c8ff00);
-      background:     -ms-radial-gradient(ellipse at top, #a8c8ff0d, #a8c8ff4a),
-	                      radial-gradient(ellipse at bottom, #a8c8ff4d, #a8c8ff00);
-      background:      -o-radial-gradient(ellipse at top, #a8c8ff0d, #a8c8ff4a),
-	                      radial-gradient(ellipse at bottom, #a8c8ff4d, #a8c8ff00);
-      background:         radial-gradient(ellipse at top, #a8c8ff0d, #a8c8ff4a),
-	                      radial-gradient(ellipse at bottom, #a8c8ff4d, #a8c8ff00);
-      -webkit-border-radius: 14px;
-         -moz-border-radius: 14px;
-          -ms-border-radius: 14px;
-           -o-border-radius: 14px;
-              border-radius: 14px;
-      -webkit-box-shadow: 2px 1px #3d517285,
-			        inset 2px 1px #ffffff17,
-					inset 0px 0px 5px 0px #7396d291,
-					inset 5px 5px 5px 0px #ffffff57;
-         -moz-box-shadow: 2px 1px #3d517285,
-			        inset 2px 1px #ffffff17,
-					inset 0px 0px 5px 0px #7396d291,
-					inset 5px 5px 5px 0px #ffffff57;
-          -ms-box-shadow: 2px 1px #3d517285,
-			        inset 2px 1px #ffffff17,
-					inset 0px 0px 5px 0px #7396d291,
-					inset 5px 5px 5px 0px #ffffff57;
-           -o-box-shadow: 2px 1px #3d517285,
-			        inset 2px 1px #ffffff17,
-					inset 0px 0px 5px 0px #7396d291,
-					inset 5px 5px 5px 0px #ffffff57;
-              box-shadow: 2px 1px #3d517285,
-			        inset 2px 1px #ffffff17,
-					inset 0px 0px 5px 0px #7396d291,
-					inset 5px 5px 5px 0px #ffffff57;
-      text-shadow: 0 0 5px #f4f8ff40,
-	               0 0 8px #e5eeff7d,
-				   0 0 12px #ffffff00;
-      -webkit-transition: 0.5s all ease;
-         -moz-transition: 0.5s all ease;
-          -ms-transition: 0.5s all ease;
-           -o-transition: 0.5s all ease;
-              transition: 0.5s all ease;
-    }
-	
-    .home-page .h3:active {
-      font-size: 16px;
-      color: #2c3e5073;
-	  letter-spacing: 2px;
-      -webkit-border-radius: 26px;
-         -moz-border-radius: 26px;
-          -ms-border-radius: 26px;
-           -o-border-radius: 26px;
-              border-radius: 26px;
-      -webkit-box-shadow: 2px 1px #d0e2ff69,
-			        inset 2px 1px #f8faff66,
-					inset 0px 0px 15px 10px #d2e2ff14,
-					inset 5px 5px 8px 5px #dbe9ffc2;
-         -moz-box-shadow: 2px 1px #d0e2ff69,
-			        inset 2px 1px #f8faff66,
-					inset 0px 0px 15px 10px #d2e2ff14,
-					inset 5px 5px 8px 5px #dbe9ffc2;
-          -ms-box-shadow: 2px 1px #d0e2ff69,
-			        inset 2px 1px #f8faff66,
-					inset 0px 0px 15px 10px #d2e2ff14,
-					inset 5px 5px 8px 5px #dbe9ffc2;
-           -o-box-shadow: 2px 1px #d0e2ff69,
-			        inset 2px 1px #f8faff66,
-					inset 0px 0px 15px 10px #d2e2ff14,
-					inset 5px 5px 8px 5px #dbe9ffc2;
-              box-shadow: 2px 1px #d0e2ff69,
-			        inset 2px 1px #f8faff66,
-					inset 0px 0px 15px 10px #d2e2ff14,
-					inset 5px 5px 8px 5px #dbe9ffc2;
-      text-shadow: 0 0 5px #f3f7ff91,
-	               0 0 8px #ecf2ffde,
-				   0 0 12px #d2e2ffde;
-      -webkit-transform: scaleX(1.2) scaleY(0.9);
-         -moz-transform: scaleX(1.2) scaleY(0.9);
-          -ms-transform: scaleX(1.2) scaleY(0.9);
-           -o-transform: scaleX(1.2) scaleY(0.9);
-              transform: scaleX(1.1) scaleY(0.8);
+      text-shadow: 0 0 8px #e5eeff7d;
+	  border-top: 2px solid #2c3e504a;
     }
 
     .footer {
@@ -1119,7 +1095,7 @@
 						  inset -4px -4px 8px #785fff26;
     }
 	  
-    .home-page .ready-contact i {
+    .ready-contact i {
       margin: 26px;
       font-size: 32px;
       color: transparent;
@@ -2165,7 +2141,7 @@
               transform: rotateZ(0.5deg);
     }
 	
-	.home-page .github, .home-page .hubr {
+	.github, .hubr {
       display: flex;
       flex-direction: column;
       text-decoration: none;
@@ -2181,7 +2157,7 @@
               transition: 0.2s all ease-in-out;
 	}
 	
-	.home-page .github:active {
+	.github:active {
       scale: 0.9;
 	  color: #001dd878;
       border-image: -webkit-linear-gradient(to right, transparent, transparent, #586def96, transparent, transparent);
@@ -2192,7 +2168,7 @@
       filter: contrast(1.2) drop-shadow(0px 0px 1px #586def7d);
 	}
 	
-	.home-page .hubr:active {
+	.hubr:active {
       scale: 0.9;
 	  background-image: -webkit-linear-gradient(0deg, #ff56acab 25%, #a059fe8f 90%);
       background-image:    -moz-linear-gradient(0deg, #ff56acab 25%, #a059fe8f 90%);
@@ -2207,11 +2183,11 @@
       filter: contrast(1.2) drop-shadow(0px 0px 1px #ff7070);
 	}
 	
-	.home-page .github i, .home-page .hubr i {
+	.github i, .hubr i {
       font-size: 32px;
 	}
 	
-    .home-page .github {
+    .github {
       font-weight: 500;
       color: #000a4a63;
       border-image: -webkit-linear-gradient(to right, transparent, #586def45, transparent);
@@ -2222,7 +2198,7 @@
       filter: drop-shadow(5px 5px 5px #586def7d);
     }
 	
-    .home-page .hubr {
+    .hubr {
       font-weight: 600;
       color: transparent;
       -webkit-background-clip: text;
@@ -2249,7 +2225,7 @@
               transform: rotateX(359deg);
     }
 
-	.home-page .ready-contact i {
+	.ready-contact i {
       -webkit-transition: 0.2s scale, filter ease-in-out;
          -moz-transition: 0.2s scale, filter ease-in-out;
           -ms-transition: 0.2s scale, filter ease-in-out;
@@ -2257,7 +2233,7 @@
               transition: 0.2s scale, filter ease-in-out;
 	}
 	
-	.home-page .ready-contact i:active {
+	.ready-contact i:active {
       scale: 0.9;
 	  filter: drop-shadow(0px 0px 1px #586defe3);
 	}
@@ -2341,7 +2317,7 @@
 	}
 
 	@media (min-width: 768px) {
-      .home-page .github:hover {
+      .github:hover {
         scale: 1.2;
 		color: #001dd878;
         border-image: -webkit-linear-gradient(to right, transparent, #586def78, #586def96, #586def78, transparent);
@@ -2358,7 +2334,7 @@
                 transform: rotateX(15deg);
       }
 	  
-      .home-page .github:active {
+      .github:active {
         scale: 0.9;
 		color: #001dd8bf;
         border-image: -webkit-linear-gradient(to right, transparent, transparent, #586def96, transparent, transparent);
@@ -2369,7 +2345,7 @@
         filter: contrast(1.2) drop-shadow(0px 0px 1px #586def7d);
       }
 	
-      .home-page .hubr:hover {
+      .hubr:hover {
         scale: 1.25;
         background-image: -webkit-linear-gradient(190deg, #ff56acab 25%, #a059fe8f 90%);
         background-image:    -moz-linear-gradient(190deg, #ff56acab 25%, #a059fe8f 90%);
@@ -2389,7 +2365,7 @@
                 transform: rotateX(345deg);
       }
 	
-      .home-page .hubr:active {
+      .hubr:active {
         scale: 0.9;
         background-image: -webkit-linear-gradient(0deg, #ff56acab 25%, #a059fe8f 90%);
         background-image:    -moz-linear-gradient(0deg, #ff56acab 25%, #a059fe8f 90%);
@@ -2404,7 +2380,7 @@
         filter: contrast(1.2) drop-shadow(0px 0px 1px #ff7070);
       }
 	  
-      .home-page .ready-contact i:hover {
+      .ready-contact i:hover {
         scale: 1.5;
         filter: drop-shadow(0px 0px 5px #586def7d);
         -webkit-transform: matrix3d(1, 0.03, 0, 0, 0.02, 1.01, 0,
@@ -2419,7 +2395,7 @@
 			                   -0.001, 0, 0, 1, 1, 0.5, 0, 2, 1);
       }
 
-      .home-page .ready-contact i:active {
+      .ready-contact i:active {
         scale: 0.9;
         filter: drop-shadow(0px 0px 1px #586defe3);
       }
@@ -2447,6 +2423,7 @@
       .home-page h3 {
         font-size: 16px;
         margin-top: 16px;
+		text-align: center;
       }
 
       .home-page p {
@@ -2505,7 +2482,7 @@
         background-image:         linear-gradient(0deg, #2c3e50 0%, #ccdfff 15%);
       }
 
-      .home-page .ready-contact {
+      .ready-contact {
         font-size: 15px;
         display: block;
         text-align: center;
@@ -2540,34 +2517,8 @@
 	  }
 	  
       .home-page .h3 {
-        height: 85px;
-        width: 240px;
-        font-size: 14px;
-      }
-	
-      .home-page .h3:active {
-        font-size: 12px;
-        letter-spacing: 1px;
-		-webkit-box-shadow: 2px 1px #99c0ff69,
-		              inset 2px 1px #d2dfff,
-			          inset 0px 0px 15px 0px #c8dbff,
-			          inset 5px 5px 10px 5px #d3e5ffc2;
-		   -moz-box-shadow: 2px 1px #99c0ff69,
-		              inset 2px 1px #d2dfff,
-			          inset 0px 0px 15px 0px #c8dbff,
-			          inset 5px 5px 10px 5px #d3e5ffc2;
-		    -ms-box-shadow: 2px 1px #99c0ff69,
-		              inset 2px 1px #d2dfff,
-			          inset 0px 0px 15px 0px #c8dbff,
-			          inset 5px 5px 10px 5px #d3e5ffc2;
-		     -o-box-shadow: 2px 1px #99c0ff69,
-		              inset 2px 1px #d2dfff,
-			          inset 0px 0px 15px 0px #c8dbff,
-			          inset 5px 5px 10px 5px #d3e5ffc2;
-                box-shadow: 2px 1px #99c0ff69,
-		              inset 2px 1px #d2dfff,
-			          inset 0px 0px 15px 0px #c8dbff,
-			          inset 5px 5px 10px 5px #d3e5ffc2;
+        width: 340px;
+        font-size: 18px;
       }
 	  
       .home-page .container:hover,
@@ -2598,6 +2549,10 @@
 	  
       .home-page .image {
         margin: 20px auto 20px auto;
+      }
+	  
+      .main-poster-container {
+        padding-bottom: 58.5%;
       }
 	  
       .home-page .image-ux {
@@ -2647,6 +2602,23 @@
       font-size: 22px;
       text-align: center;
       padding: 30px;
+    }
+	
+    .navigation h2 {
+      color: #d3e3ff;
+      font-size: 22px;
+      margin-left: -25px;
+      padding-right: 25px;
+	  cursor: default;
+	  user-select: none;
+	  text-shadow: 0 0 2px #e5eeff7d;
+      border-image-slice: 1 !important;
+      border-bottom: 3px solid transparent;
+      border-image: -webkit-linear-gradient(to right, transparent 0%, #e5eeff7d 20%);
+      border-image:    -moz-linear-gradient(to right, transparent 0%, #e5eeff7d 20%);
+      border-image:     -ms-linear-gradient(to right, transparent 0%, #e5eeff7d 20%);
+      border-image:      -o-linear-gradient(to right, transparent 0%, #e5eeff7d 20%);
+      border-image:         linear-gradient(to right, transparent 0%, #e5eeff7d 20%);
     }
 	
     .navigation a {
@@ -5518,16 +5490,41 @@
 <body>
 
   <div class="home-page">
-    <h1>Инженерия UX и производительности</h1>
-    <p class="p-down">
-      Внимание пользователя как архитектура надёжности, автоматизации и доверия
-    </p>
-    <p style="text-align: center;">
-      <strong>Автор:</strong> Максим Кырченков |
-      <strong>Связь:</strong> <span style="user-select: all;">kyrchenkov@gmail.com</span> | <span
-        style="user-select: all;">t.me/kyrchenkov</span> |
-      <strong>Год:</strong> 2025
-    </p>
+		<h1>Инженерия UX и производительности</h1>
+		<p class="p-down">
+		  Внимание пользователя как архитектура надёжности, автоматизации и доверия
+		</p>
+		<p style="text-align: center;">
+		  Кто такой <strong>UX Engineer</strong>, 
+		  что такое <strong>SRE подход</strong>, 
+		  и почему <strong>Performance Engineering</strong> начинается с<strong> целостной архитектуры</strong>
+		</p>
+
+    <h2 style="border: none;">Процесс языком инженерии</h2>
+	
+	<div class="main-poster-container">
+     <div class="poster-container">
+     <img class="poster"
+       src="https://github.com/kyrchenkov/kyrchenkov.github.io/blob/main/img/poster.png?raw=true"
+       alt="Инженерия UX и производительности">
+     </div>
+	</div>
+
+    <h3 class="poster-txt">«Мы не будем давать определение, кто такой Performance и UX Engineer со SRE подходом. Вместе посмотрим — как он работает, какие задачи решает и как это становится архитектурой. Вы увидите и поймёте — не словами, а системой.»</h3>
+
+    <p>Вы почувствуете, как интерфейс перестаёт быть обёрткой и становится диалогом — через предзагрузку, память, реакцию, визуальные ритуалы. Как «живое присутствие» достигается не дизайном или текстом, а архитектурой внимания.</p>
+
+    <p>Вы увидите, как система сама кэширует, адаптируется, восстанавливается — без команд или ручного вмешательства. Автоматизация устраняет рутину не добавлением инструментов, а устранением точек отказа. Что PWA может быть отдельным, изолированным слоем общей архитектуры. И как поддержка перестаёт быть «печатальщиками по шаблону» — и превращается в управление диалогом.</p>
+
+    <p>Вы прочитаете внедрение Performance Engineering — не как теорию, а как систему. Где TTFB падает до 26 мс не после оптимизации, а как следствие многоуровневого кэширования и навигации с предзагрузкой на основе поведения. Как Lighthouse 100 становится побочным эффектом, а не целью. А производительность перестаёт быть задачей — и становится состоянием по умолчанию.</p>
+
+    <p>Здесь не будет про React или Vue — потому что задача стояла решать на уровне платформы, а не через фреймворки. Не будет и про Prometheus с Grafana — потому что метрики необходимо было брать напрямую из <code>htop</code>, <code>curl</code>, <code>ab</code> и логов. Нет Kubernetes — потому что оркестрация в данном проекте была избыточна, а надёжность достигалась кодом. Не воспользуемся Loki — потому что есть среда, где достаточно <code>bash</code>, <code>grep</code>, <code>awk</code>. Не будем использовать и Ansible — потому что автоматизация эффективнее реализована встроенными средствами. Пропустим Figma — потому что визуал калибруется в DevTools: задача была — быстро, наглядно, "здесь и сейчас".</p>
+
+    <p>Это ни в коем случае не отказ от нужных и эффективных технологий. Это выбор — исходя из масштаба, условий, рентабельности и реальной потребности конкретного проекта. Инструменты не определяют подход. Подход определяет инструменты.</p>
+
+    <p>Суть инженера — не в том, какие технологии он использует. Суть — в том, чтобы система работала. Чтобы она была быстрой, надежной, живой — даже если её строят без популярных фреймворков, масштабных инфраструктур, внушительных бюджетов или идеальных условий.</p>
+
+    <p>Дальше — условия рабочей среды, цели бизнеса и потребности пользователя — языком инженерии. Процесс реализации и внедрения семи проектов, каждый из которых — элемент фундамента в понимании того, что такое инженерия UX и производительности, когда она строится как единый, измеримый, самодостаточный механизм. А вместо определений — проблемы, решения и измеримый результат.</p>
 
     <h2>1. Цель</h2>
     <p>Построить систему вокруг одной платформы, чтобы решить реальные операционные и пользовательские проблемы.</p>
@@ -5614,7 +5611,7 @@
 
     <h2>5. Краткое описание каждого проекта</h2>
 
-    <h3 class="h3">5.1. ML-Cache - Многоуровневая система кэширования</h3>
+    <h3 class="h3" style="border: none;">5.1. ML-Cache - Многоуровневая система кэширования</h3>
     <img class="image image-cache"
       src="https://github.com/kyrchenkov/kyrchenkov.github.io/blob/main/img/opcache.gif?raw=true"
       alt="Многоуровневая система кэширования" loading="lazy">
@@ -5848,29 +5845,11 @@
       <p style="margin-left: 90px;">А внимание — в архитектуре.</p>
     </blockquote>
 
-    <p style="text-align: center; margin-top: 30px; font-size: 18px;">
-      <a class="github" href="https://github.com/kyrchenkov/performance-engineering-and-ux"
-        onclick="ym(106460448, 'reachGoal', 'click_github');" target="_blank"><i class="fa fa-github" aria-hidden="true"
-          style="font-weight: 600;"></i><span>Обзорный код и архитектура на GitHub</span></a>
-    </p>
-
-    <p style="text-align: center; margin-top: 30px; font-size: 18px;">
-      <a class="hubr" href="https://habr.com/ru/articles/980970" onclick="ym(106460448, 'reachGoal', 'click_hubr');"
-        target="_blank"><i class="fa fa-ravelry" aria-hidden="true" style="font-weight: 600;"></i><span>«Инженерия UX и
-          производительности: от ядра к периферии»</span></a>
-    </p>
-
-    <p style="text-align: center; margin-top: 12px; font-size: 18px;">
-      <span class="ready-contact"><a href="mailto:kyrchenkov@gmail.com"
-          onclick="ym(106460448, 'reachGoal', 'click_email');"><i class="fa fa-envelope"></i></a> <a
-          href="https://t.me/kyrchenkov" onclick="ym(106460448, 'reachGoal', 'click_telegram');"><i
-            class="fa fa-telegram"></i></a></span>
-    </p>
-
     <button type="button" class="shock-btn"><i class="fa fa-superpowers" aria-hidden="true"></i></button>
   </div>
 
   <div class="navigation">
+  <h2>Навигация:</h2>
     <a class="nav-ml-сache" href="#href-ml-сache">ML-Cache</a>
     <a class="nav-ispn" href="#href-ispn">ISPN</a>
     <a class="nav-pwa-layer" href="#href-pwa-layer">PWA-Layer</a>
@@ -9101,9 +9080,28 @@ if (g && o - h >= 8000) {
       </div>
     </div>
   </div>
+  
+    <p style="text-align: center; margin-top: 30px; font-size: 18px;">
+      <a class="github" href="https://github.com/kyrchenkov/performance-engineering-and-ux"
+        onclick="ym(106460448, 'reachGoal', 'click_github');" target="_blank"><i class="fa fa-github" aria-hidden="true"
+          style="font-weight: 600;"></i><span>Обзорный код и архитектура на GitHub</span></a>
+    </p>
+
+    <p style="text-align: center; margin-top: 30px; font-size: 18px;">
+      <a class="hubr" href="https://habr.com/ru/articles/980970" onclick="ym(106460448, 'reachGoal', 'click_hubr');"
+        target="_blank"><i class="fa fa-ravelry" aria-hidden="true" style="font-weight: 600;"></i><span>«Инженерия UX и
+          производительности: от ядра к периферии»</span></a>
+    </p>
+
+    <div style="text-align: center; margin-top: 12px; font-size: 18px;">
+      <p class="ready-contact"><a href="mailto:kyrchenkov@gmail.com"
+          onclick="ym(106460448, 'reachGoal', 'click_email');"><i class="fa fa-envelope"></i></a> <a
+          href="https://t.me/kyrchenkov" onclick="ym(106460448, 'reachGoal', 'click_telegram');"><i
+            class="fa fa-telegram"></i></a></p>
+    </div>
 
   <div class="footer">
-    © 2025 - Инженерия UX и производительности | SRE подход | Максим Кырченков
+    © 2026 - Инженерия UX и производительности | Максим Кырченков
   </div>
 
   <a href="#" class="btn-to-top"><i class="fa fa-anchor" aria-hidden="true"></i></a>
