@@ -71,6 +71,7 @@
       });
     })();
   </script>
+
   <script>
   (function () {
     'use strict';
@@ -597,8 +598,103 @@
 	  
 	@keyframes fadeIn {
 	  to {
-	    opacity: 1;
+	    opacity: 0.9;
 	  }
+	}
+	
+	@keyframes glowPulse {
+	  0% {
+	    top: 50%;
+	    left: 50%;
+	    box-shadow: 0 0 20px rgba(255, 255, 255, 0.4),
+                    0 0 40px rgba(255, 255, 255, 0.3);
+	  }
+
+	  8% {
+	    top: 47%;
+	    left: 46%;
+	  }
+
+	  16% {
+	    top: 45%;
+	    left: 52%;
+	  }
+
+	  24% {
+	    top: 51%;
+	    left: 45%;
+	  }
+
+	  32% {
+	    top: 49%;
+	    left: 54%;
+	  }
+
+	  40% {
+	    top: 46%;
+	    left: 48%;
+	  }
+
+	  48% {
+	    top: 53%;
+	    left: 50%;
+	  }
+
+	  50% {
+	    top: 53%;
+	    left: 50%;
+	    box-shadow: 0 0 30px rgba(255, 255, 255, 0.6),
+                    0 0 60px rgba(255, 255, 255, 0.5),
+                    0 0 90px rgba(255, 255, 255, 0.3);
+	  }
+
+	  58% {
+	    top: 48%;
+	    left: 55%;
+	  }
+
+	  66% {
+	    top: 54%;
+	    left: 47%;
+	  }
+
+	  74% {
+	    top: 46%;
+	    left: 46%;
+	  }
+
+	  82% {
+	    top: 52%;
+	    left: 53%;
+	  }
+
+	  90% {
+	    top: 45%;
+	    left: 49%;
+	  }
+
+	  100% {
+	    top: 50%;
+	    left: 50%;
+	    box-shadow: 0 0 20px rgba(255, 255, 255, 0.4),
+                    0 0 40px rgba(255, 255, 255, 0.3);
+	  }
+	}
+
+	@keyframes breatheRing {
+	  0%, 100% { opacity: 0; transform: translate(-50%, -50%) scale(0.9); }
+	       50% { opacity: 0.4; transform: translate(-50%, -50%) scale(1.1); }
+	}
+	
+	@keyframes flash {
+	  0% { transform: scale(1); opacity: 0; }
+	  50% { opacity: 1; transform: scale(1.5); }
+	  100% { opacity: 0; transform: scale(3); }
+	}
+
+	@keyframes revive {
+	  35% { transform: scale(1.01, 1); }
+	  75% { transform: scale(1, 1.01); }
 	}
 
     * {
@@ -620,6 +716,19 @@
       padding: 40px;
       max-width: 1200px;
       margin: 0 auto;
+    }
+	
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+      word-wrap: normal;
     }
 	
     .btn-to-top {
@@ -772,8 +881,8 @@
     }
 
     .home-page code {
-      color: #deedfffc;
-      background: #0069c112;
+      color: #002653b3;
+      background: #ffffff24;
       padding: 2px 6px;
       -webkit-border-radius: 6px;
          -moz-border-radius: 6px;
@@ -782,8 +891,8 @@
               border-radius: 6px;
       font-family: 'Courier New', monospace;
       font-size: 14px;
-      filter: drop-shadow(2px 4px 5px #0069c1d1);
-      text-shadow: 0px 0px 2px #0069c1;
+      filter: drop-shadow(2px 4px 5px #ffffff24);
+      text-shadow: 0px 0px 2px #ffffff24;
       -webkit-transition: 0.8s all ease;
          -moz-transition: 0.8s all ease;
           -ms-transition: 0.8s all ease;
@@ -792,9 +901,9 @@
     }
 	
     .home-page code:hover {
-      color: #0059c6d6;
-      text-shadow: 0px 0px 3px #ffffff,
-	               0px 0px 5px #ffffff,
+      color: #1f4778c9;
+      text-shadow: 0px 0px 20px #ffffff,
+	               0px 0px 20px #ffffff,
 	               0px 0px 5px #cfe5fffc;
     }
 
@@ -931,13 +1040,12 @@
       height: 100%;
       object-fit: cover;
       display: block;
-      border: 6px solid #9f9f9f99;
-    }
+	  }
 	
-    .home-page .poster {
+    .home-page .poster-space {
       width: 100%;
       margin: 0;
-      padding: 0;
+      padding: 0 5px;
 	  opacity: 0;
       max-width: 100%;
       -webkit-border-radius: 0;
@@ -951,10 +1059,67 @@
 	       -o-box-shadow: none;
               box-shadow: none;
       animation-delay: 0.2s;
-      animation: fadeIn 0.6s ease-in-out forwards;
-      filter: drop-shadow(0px 8px 40px #ffffff);
+      animation: fadeIn 1.2s ease-in-out forwards,
+	             revive .05s ease-in-out infinite;
+      filter: drop-shadow(0px 0px 10px #ffffff);
+	  transform: scale(1,1);
+	  transition: filter 0.4s ease, transform 0.6s ease;
     }
 	
+    .poster-container:hover .poster-space {
+      filter: drop-shadow(0 0 16px rgba(255, 255, 255, 0.9));
+    }
+
+    .glow-core {
+      opacity:0;
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 60px; height: 60px;
+      background: radial-gradient(circle, rgba(255,255,255,0.4) 0%,
+	                                      rgba(255,255,255,0.1) 70%,
+										  transparent 100%);
+      border-radius: 50%;
+      filter: blur(1px);
+	  animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
+      animation: fadeIn 1.2s ease-in-out forwards,
+	             glowPulse 1s ease-in-out infinite;
+    }
+
+    .pulse-ring {
+      opacity:0;
+      position: absolute;
+      top: 43%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 200px; height: 200px;
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 50%;
+      animation: fadeIn 1.2s ease-in-out forwards,
+	             breatheRing 6s ease-in-out infinite;
+    }
+	
+    .spark-layer {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .spark {
+      --size: 2px;
+      --duration: 0.8s;
+      position: absolute;
+      width: var(--size);
+      height: var(--size);
+      background: #fff;
+      border-radius: 50%;
+      opacity: 0;
+      filter: blur(1px);
+      box-shadow: 0 0 8px rgba(255,255,255,0.8);
+      animation: flash var(--duration) ease-out forwards;
+    }
+
     .home-page .poster-txt {
       color: #d3e3ffba;
       opacity: 1;
@@ -2562,6 +2727,16 @@
 	  .home-page .turn-off-btn {
         top: -65px;
         left: 230px;
+	  }
+
+	  .glow-core {
+        width: 30px;
+        height: 30px;
+	  }
+
+	  .pulse-ring {
+        width: 80px; 
+        height: 80px;
 	  }
 	}
   </style>
@@ -5433,21 +5608,24 @@
     <h2 style="border: none;">Процесс языком инженерии</h2>
 	
 	<div class="main-poster-container">
-     <div class="poster-container">
-     <img class="poster"
-       src="https://github.com/kyrchenkov/kyrchenkov.github.io/blob/main/img/poster.png?raw=true"
-       alt="Инженерия UX и производительности">
-     </div>
+	  <div class="poster-container">
+	    <img class="poster-space"
+	      src="https://github.com/kyrchenkov/kyrchenkov.github.io/blob/main/img/poster-space.png?raw=true"
+	      alt="Инженерия UX и производительности">
+	    <div class="glow-core"></div>
+	    <div class="pulse-ring"></div>
+	    <div class="spark-layer"></div>
+	  </div>
 	</div>
 
     <h3 class="poster-txt">«Мы не будем давать определение, кто такой Performance и UX Engineer со SRE подходом. Вместе посмотрим — как он работает, какие задачи решает и как это становится архитектурой. Вы увидите и поймёте — не словами, а системой.»</h3>
 
     <p>Вы почувствуете, как интерфейс перестаёт быть обёрткой и становится диалогом — через предзагрузку, память, реакцию, визуальные ритуалы. Как «живое присутствие» достигается не дизайном или текстом, а архитектурой внимания.</p>
 
-    <p>Вы увидите, как система сама кэширует, адаптируется, восстанавливается — без команд или ручного вмешательства. Автоматизация устраняет рутину не добавлением инструментов, а устранением точек отказа. Что PWA может быть отдельным, изолированным слоем общей архитектуры. И как поддержка перестаёт быть «печатальщиками по шаблону» — и превращается в управление диалогом.</p>
+    <p>Вы увидите, как система сама кэширует, адаптируется, восстанавливается — без дежурных смен и ручного вмешательства. Автоматизация устраняет рутину не добавлением инструментов, а устранением точек отказа. Что PWA может быть отдельным, изолированным слоем общей архитектуры. И как поддержка перестаёт быть «печатальщиками по шаблону» — и превращается в управление диалогом.</p>
 
     <p>Вы прочитаете внедрение Performance Engineering — не как теорию, а как систему. Где TTFB падает до 26 мс не после оптимизации, а как следствие многоуровневого кэширования и навигации с предзагрузкой на основе поведения. Как Lighthouse 100 становится побочным эффектом, а не целью. А производительность перестаёт быть задачей — и становится состоянием по умолчанию.</p>
-
+	
     <p>Сейчас вы в деталях рассмотрите, как работает Performance и UX Engineer со SRE подходом, на примере реальной рабочей среды, запущенной в продакшн в 2019 году, при том что её движок, БД и инфраструктура были выпущены до 2017 года, а поддержка уже несколько лет как прекращена. Даже к 2026 году это остаётся распространённым видом унаследованных платформ. Согласно открытым источникам, взрывной рост электронной коммерции начался в период пандемии и активно продолжался вплоть до 2023 года. Текущая инфраструктура сформировалась именно в этот период — время массового роста e-commerce.</p>
 
     <p>Здесь не будет про React или Vue — потому что задача стояла решать на уровне платформы, а не через фреймворки. Не будет и про Prometheus с Grafana — потому что метрики необходимо было брать напрямую из <code>htop</code>, <code>curl</code>, <code>ab</code> и логов. Нет Kubernetes — потому что оркестрация в данном проекте была избыточна, а надёжность достигалась кодом. Не воспользуемся Loki — потому что есть среда, где достаточно <code>bash</code>, <code>grep</code>, <code>awk</code>. Не будем использовать и Ansible — потому что автоматизация эффективнее реализована встроенными средствами. Пропустим Figma — потому что визуал калибруется в DevTools: задача была — быстро, наглядно, "здесь и сейчас".</p>
@@ -8978,17 +9156,77 @@ if (g && o - h >= 8000) {
   </div>
 
   <a href="#" class="btn-to-top"><i class="fa fa-anchor" aria-hidden="true"></i></a>
-
-  <div
-    style="display: block; height: 1px; width: 1px; overflow: hidden; position: absolute; white-space: nowrap; font-size: 1px; color: transparent; user-select: none;">
-    Performance, performance engineer, web-performance, web-optimization, predictive-navigation, UX, web-ux,
-    ux-architecture, ux-performance, ux-engineer, ux-systems-engineer, ux-innovation, e-commerce, legacy-modernization,
-    legacy, CMS, OpenCart, PWA, SRE, fullstack, SRE это, UX-engineer это, UX-systems-engineer это, performance-engineer
-    это, SRE кто, UX-engineer кто, UX-systems-engineer кто, performance-engineer кто, UX-инженер, UX-инженерия,
-    UX-инженерия в продакшене, UX-инженерия на легаси, Инженер по UX, инженер производительности, ускорение legacy,
-    оптимизация OpenCart, Service Worker, TTFB, Lighthouse 100, снижение нагрузки на операторов, автоматизация
-    поддержки, диалоговая система с ИИ, доверие через UX, живой интерфейс, современный UI на legacy
-  </div>
+  
+  <script defer>
+  document.addEventListener('DOMContentLoaded', () => {
+    const sparkLayer = document.querySelector('.spark-layer');
+    if (!sparkLayer) return;
+  
+    let isRunning = true;
+    let sparkLoop;
+  
+    function createSpark() {
+      const spark = document.createElement('div');
+      spark.classList.add('spark');
+  
+      const margin = 10;
+      const x = margin + Math.random() * (100 - 2 * margin);
+      const y = margin + Math.random() * (100 - 2 * margin);
+      const size = 2 + Math.random() * 2;
+      const duration = 0.6 + Math.random() * 0.6;
+  
+      spark.style.setProperty('--size', `${size}px`);
+      spark.style.setProperty('--duration', `${duration}s`);
+      spark.style.left = `${x}%`;
+      spark.style.top = `${y}%`;
+  
+      sparkLayer.appendChild(spark);
+  
+      setTimeout(() => {
+        if (spark.isConnected) spark.remove();
+      }, duration * 1000);
+    }
+  
+    function startSparkLoop() {
+      if (sparkLoop) return;
+      isRunning = true;
+  
+      const loop = () => {
+        if (!isRunning) return;
+        createSpark();
+        const delay = 600 + Math.random() * 1000;
+        sparkLoop = setTimeout(loop, delay);
+      };
+  
+      loop();
+    }
+  
+    function stopSparkLoop() {
+      isRunning = false;
+      if (sparkLoop) {
+        clearTimeout(sparkLoop);
+        sparkLoop = null;
+      }
+    }
+  
+    startSparkLoop();
+  
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            startSparkLoop();
+          } else {
+            stopSparkLoop();
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+  
+    observer.observe(sparkLayer);
+  });
+  </script>
   
   <canvas id="lantern-light" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 9999;"></canvas>
   
@@ -9405,6 +9643,29 @@ if (g && o - h >= 8000) {
     });
   })();
   </script>
+  
+  <div class="sr-only" aria-hidden="true">
+	Архитектура живого интерфейса: единая система визуальных состояний, построенная на принципах Performance Engineering, UX Engineering и Site Reliability Engineering. Включает динамические эффекты на чистом JavaScript и Canvas 2D — фоновый свет «фонаря», микро-искры, электрические разряды, режимы активации, сканирования, тревоги и «диско» при перегрузке. Дополнительно — CSS-анимации для статусов: дыхание элементов, пульсация контраста, свечение готовности, хаотичное мерцание и плавные переходы. Все эффекты адаптивны, оптимизированы под производительность, корректно очищаются. Реализованы без внешних библиотек. Система реагирует на клики, видимость и изменения UI, формируя ощущение живой, дышащей архитектуры внимания.
+  </div>
+
+  <div class="sr-only" aria-hidden="true">
+	Performance, performance engineer, web-performance, web-optimization, predictive-navigation, UX, web-ux,
+	ux-architecture, ux-performance, ux-engineer, ux-systems-engineer, ux-innovation, e-commerce, legacy-modernization,
+	legacy, CMS, OpenCart, PWA, SRE, fullstack, SRE это, UX-engineer это, UX-systems-engineer это, performance-engineer это,
+	SRE кто, UX-engineer кто, UX-systems-engineer кто, performance-engineer кто, UX-инженер, UX-инженерия,
+	UX-инженерия в продакшене, UX-инженерия на легаси, Инженер по UX, инженер производительности, ускорение legacy,
+	оптимизация OpenCart, Service Worker, TTFB, Lighthouse 100, снижение нагрузки на операторов, автоматизация поддержки,
+	диалоговая система с ИИ, доверие через UX, живой интерфейс, современный UI на legacy, динамические анимации,
+	Canvas 2D, чистый JavaScript, без библиотек, реактивный интерфейс, визуальные состояния, система внимания
+  </div>
+
+  <div class="sr-only" aria-hidden="true">
+	Кейс полной трансформации унаследованной платформы OpenCart 3: от медленного морально устаревшего сайта до высокопроизводительного PWA с диалоговым ядром DialogCore и системой предзагрузки ML-Cache. Четырёхуровневое кэширование (OPcache, Redis, Brotli, Service Worker), DYNAMIC_PAGE_CACHE, анализ поведения пользователей, семантический бот с 500+ узлами, интеграция с SaluteBot, Jivo, Telegram. Результат: TTFB ~25 мс, 96% запросов на боте, обучение операторов за 1 день. Визуальное обновление через UX-Vibe: динамические canvas-эффекты, живые анимации, современный UI. Архитектура построена на принципах Performance Engineering, UX Engineering и Site Reliability Engineering. Доверие достигается не скоростью, а вниманием к пользователю.
+  </div>
+
+  <div class="sr-only" aria-hidden="true">
+	OpenCart, PWA, Service Worker, OPcache, Redis, Brotli, GZIP, InnoDB, MyISAM, DYNAMIC_PAGE_CACHE, ML-Cache, ISPN, DialogCore, UX-Vibe, SaluteBot, Jivo, Telegram, ВКонтакте, Lighthouse 100, TTFB, fullstack, self-contained app, legacy modernization, e-commerce optimization, клиентская оптимизация, серверная оптимизация, UX-инженерия, performance engineering, SRE, инженер производительности, UX-инженер, диалоговый бот, семантическая память, автоматизация поддержки, снижение нагрузки на операторов, современный UI на legacy, ускорение OpenCart, доверие через UX
+  </div>
 
 </body>
 </html>
