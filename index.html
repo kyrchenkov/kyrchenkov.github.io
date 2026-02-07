@@ -891,6 +891,7 @@
               border-radius: 6px;
       font-family: 'Courier New', monospace;
       font-size: 14px;
+	  user-select: none;
 	  border: 1px solid #ffffff0f;
       filter: drop-shadow(2px 4px 5px #ffffff24);
       text-shadow: 0px 0px 2px #ffffff24;
@@ -906,6 +907,13 @@
       text-shadow: 0px 0px 20px #ffffff,
 	               0px 0px 20px #ffffff,
 	               0px 0px 5px #cfe5fffc;
+    }
+	
+    .home-page code:active {
+      text-shadow: 0px 0px 20px #ffffff,
+	               0px 0px 20px #ffffff,
+				   0px 0px 5px #ffffff;
+      filter: drop-shadow(2px 4px 6px #ffffff);
     }
 
     .home-page pre {
@@ -1142,7 +1150,7 @@
 	  text-align: start;
       justify-content: flex-start;
       text-shadow: 0 0 8px #e5eeff7d;
-	  border-top: 2px solid #2c3e504a;
+	  border-top: 2px solid #ffffff1c;
     }
 
     .footer {
@@ -1266,12 +1274,12 @@
       font-size: 32px;
       color: transparent;
 	  text-decoration: none;
+      text-shadow: 0 0 #3a3a3ac4;
       -webkit-background-clip: text;
          -moz-background-clip: text;
           -ms-background-clip: text;
            -o-background-clip: text;
               background-clip: text;
-	  filter: drop-shadow(5px 5px 5px #586def7d);
       background-image: -webkit-linear-gradient(90deg, #5695ff 25%, #785fff 90%);
       background-image:    -moz-linear-gradient(90deg, #5695ff 25%, #785fff 90%);
       background-image:     -ms-linear-gradient(90deg, #5695ff 25%, #785fff 90%);
@@ -1282,6 +1290,16 @@
           -ms-animation: ready 16s linear infinite;
            -o-animation: ready 16s linear infinite;
               animation: ready 16s linear infinite;
+      -webkit-transition: 0.2s scale, filter ease-in-out;
+         -moz-transition: 0.2s scale, filter ease-in-out;
+          -ms-transition: 0.2s scale, filter ease-in-out;
+           -o-transition: 0.2s scale, filter ease-in-out;
+              transition: 0.2s scale, filter ease-in-out;
+    }
+	
+    .ready-contact i:active {
+      scale: 0.9;
+	  filter: drop-shadow(0px 0px 1px #586defe3);
     }
 	
     .home-page .container {
@@ -1300,6 +1318,7 @@
           -ms-transition: 0.2s all ease;
            -o-transition: 0.2s all ease;
               transition: 0.2s all ease;
+      filter: contrast(3) grayscale(100%) opacity(20%);
     }
 	
     .home-page .container:hover,
@@ -1317,7 +1336,7 @@
 	                              0.00001, 0, 0, 1, 0, 0, 0, 0, 1);
 	          transform: matrix3d(1.05, 0, 0, 0.0001, 0, 1.1, 0,
 	                              0.00001, 0, 0, 1, 0, 0, 0, 0, 1);
-	  filter: drop-shadow(2px 4px 6px #ff000024) contrast(1.2);
+      filter: drop-shadow(2px 4px 6px #ff000024) contrast(1.2 );
 	}
 	
     .home-page .container-js {
@@ -1821,8 +1840,8 @@
           -ms-border-radius: 0 0 0 60%;
            -o-border-radius: 0 0 0 60%;
               border-radius: 0 0 0 60%;
-      --btn-bg-1: #f1e6ff5e;
-      --btn-bg-2: #2400e759;
+      --btn-bg-1: #ffffff3b;
+      --btn-bg-2: transparent;
       background-size: 280% auto;
       background-image: -webkit-linear-gradient(325deg, var(--btn-bg-2) 0%,
 	                                                    var(--btn-bg-1) 55%,
@@ -1839,26 +1858,26 @@
       background-image:         linear-gradient(325deg, var(--btn-bg-2) 0%,
 	                                                    var(--btn-bg-1) 55%,
 														var(--btn-bg-2) 90%);
-      -webkit-box-shadow: 0px 0px 20px #785fff75,
-                          0px 5px 5px -1px #5137dd4a,
-                          inset 4px 4px 8px #b8abff,
-                          inset -4px -4px 8px #785fff66;
-         -moz-box-shadow: 0px 0px 20px #785fff75,
-                          0px 5px 5px -1px #5137dd4a,
-                          inset 4px 4px 8px #b8abff,
-                          inset -4px -4px 8px #785fff66;
-          -ms-box-shadow: 0px 0px 20px #785fff75,
-                          0px 5px 5px -1px #5137dd4a,
-                          inset 4px 4px 8px #b8abff,
-                          inset -4px -4px 8px #785fff66;
-           -o-box-shadow: 0px 0px 20px #785fff75,
-                          0px 5px 5px -1px #5137dd4a,
-                          inset 4px 4px 8px #b8abff,
-                          inset -4px -4px 8px #785fff66;
-              box-shadow: 0px 0px 20px #785fff75,
-                          0px 5px 5px -1px #5137dd4a,
-                          inset 4px 4px 8px #b8abff,
-                          inset -4px -4px 8px #785fff66;
+      -webkit-box-shadow: 0px 0px 20px #ffffff8c,
+                          0px 5px 5px -1px #ffffff4d,
+                          inset 4px 4px 8px #ffffff99,
+                          inset -4px -4px 8px #ffffff69;
+         -moz-box-shadow: 0px 0px 20px #ffffff8c,
+                          0px 5px 5px -1px #ffffff4d,
+                          inset 4px 4px 8px #ffffff99,
+                          inset -4px -4px 8px #ffffff69;
+          -ms-box-shadow: 0px 0px 20px #ffffff8c,
+                          0px 5px 5px -1px #ffffff4d,
+                          inset 4px 4px 8px #ffffff99,
+                          inset -4px -4px 8px #ffffff69;
+           -o-box-shadow: 0px 0px 20px #ffffff8c,
+                          0px 5px 5px -1px #ffffff4d,
+                          inset 4px 4px 8px #ffffff99,
+                          inset -4px -4px 8px #ffffff69;
+              box-shadow: 0px 0px 20px #ffffff8c,
+                          0px 5px 5px -1px #ffffff4d,
+                          inset 4px 4px 8px #ffffff99,
+                          inset -4px -4px 8px #ffffff69;
       -webkit-transition: 0.1s all ease-in-out;
 		 -moz-transition: 0.1s all ease-in-out;
 		  -ms-transition: 0.1s all ease-in-out;
@@ -1879,12 +1898,16 @@
           -ms-transform: scaleX(0.8) scaleY(3);
            -o-transform: scaleX(0.8) scaleY(3);
 		      transform: scaleX(0.8) scaleY(3);
+      box-shadow: 0px 0px 5px #ffffff8c,
+	              0px 5px 5px -1px #ffffff4d,
+                  inset 4px 4px 8px #ffffff99,
+                  inset -4px -4px 8px #ffffff69;
     }
 	
     .home-page .shock-btn i {
       font-size: 28px;
-      color: #c1b6ffed;
-      filter: drop-shadow(0px 0px 3px #583aff);
+      color: #ffffffe6;
+      filter: drop-shadow(0px 0px 5px #ffffffe6);
     }
 	
     .home-page .image {
@@ -1899,11 +1922,12 @@
     }
 	
     .home-page .image-cache {
-	  -webkit-box-shadow: 0 5px 10px 0 #785fffeb;
-         -moz-box-shadow: 0 5px 10px 0 #785fffeb;
-          -ms-box-shadow: 0 5px 10px 0 #785fffeb;
-           -o-box-shadow: 0 5px 10px 0 #785fffeb;
-	          box-shadow: 0 5px 10px 0 #785fffeb;
+	  filter: contrast(1.5) invert(85%) !important;
+	  -webkit-box-shadow: 0 5px 10px 0 #60773ceb;
+         -moz-box-shadow: 0 5px 10px 0 #60773ceb;
+          -ms-box-shadow: 0 5px 10px 0 #60773ceb;
+           -o-box-shadow: 0 5px 10px 0 #60773ceb;
+	          box-shadow: 0 5px 10px 0 #60773ceb;
     }
 	
     .home-page .image-navigation {
@@ -1923,11 +1947,12 @@
     }
 	
     .home-page .image-extension {
-	  -webkit-box-shadow: 0 5px 10px 0 #deccae;
-         -moz-box-shadow: 0 5px 10px 0 #deccae;
-          -ms-box-shadow: 0 5px 10px 0 #deccae;
-           -o-box-shadow: 0 5px 10px 0 #deccae;
-	          box-shadow: 0 5px 10px 0 #deccae;
+	  filter: invert(85%) hue-rotate(230deg) !important;
+	  -webkit-box-shadow: 0 5px 10px 0 #3b1515;
+         -moz-box-shadow: 0 5px 10px 0 #3b1515;
+          -ms-box-shadow: 0 5px 10px 0 #3b1515;
+           -o-box-shadow: 0 5px 10px 0 #3b1515;
+	          box-shadow: 0 5px 10px 0 #3b1515;
     }
 	
     .home-page .image-dialog {
@@ -1952,7 +1977,9 @@
     }
 	
     .home-page .image-ui {
-	  border: 3px solid #bbcff226;
+	  width: 480px;
+	  margin: -20px 0 0 0;
+	  filter: contrast(0.95);
 	  -webkit-box-shadow: none;
          -moz-box-shadow: none;
           -ms-box-shadow: none;
@@ -1983,11 +2010,11 @@
 	}
 	
     .home-page .image-cache:hover {
-	  -webkit-box-shadow: 0 6px 15px 0 #785fffeb;
-         -moz-box-shadow: 0 6px 15px 0 #785fffeb;
-          -ms-box-shadow: 0 6px 15px 0 #785fffeb;
-           -o-box-shadow: 0 6px 15px 0 #785fffeb;
-	          box-shadow: 0 6px 15px 0 #785fffeb;
+	  -webkit-box-shadow: 0 6px 15px 0 #60773ceb;
+         -moz-box-shadow: 0 6px 15px 0 #60773ceb;
+          -ms-box-shadow: 0 6px 15px 0 #60773ceb;
+           -o-box-shadow: 0 6px 15px 0 #60773ceb;
+	          box-shadow: 0 6px 15px 0 #60773ceb;
     }
 	
     .home-page .image-navigation:hover {
@@ -2007,11 +2034,11 @@
     }
 	
     .home-page .image-extension:hover {
-	  -webkit-box-shadow: 0 6px 15px 0 #deccae;
-         -moz-box-shadow: 0 6px 15px 0 #deccae;
-          -ms-box-shadow: 0 6px 15px 0 #deccae;
-           -o-box-shadow: 0 6px 15px 0 #deccae;
-	          box-shadow: 0 6px 15px 0 #deccae;
+	  -webkit-box-shadow: 0 6px 15px 0 #3b1515;
+         -moz-box-shadow: 0 6px 15px 0 #3b1515;
+          -ms-box-shadow: 0 6px 15px 0 #3b1515;
+           -o-box-shadow: 0 6px 15px 0 #3b1515;
+	          box-shadow: 0 6px 15px 0 #3b1515;
     }
 	
     .home-page .image-dialog:hover {
@@ -2060,11 +2087,11 @@
 	      -ms-background-clip: text;
 	       -o-background-clip: text;
 	          background-clip: text;
-	  background-image: -webkit-linear-gradient(359deg, #97abbe, #706cff);
-	  background-image:    -moz-linear-gradient(359deg, #97abbe, #706cff);
-	  background-image:     -ms-linear-gradient(359deg, #97abbe, #706cff);
-	  background-image:      -o-linear-gradient(359deg, #97abbe, #706cff);
-	  background-image:         linear-gradient(359deg, #97abbe, #706cff);
+	  background-image: -webkit-linear-gradient(359deg, #97abbe, #8979ff);
+	  background-image:    -moz-linear-gradient(359deg, #97abbe, #8979ff);
+	  background-image:     -ms-linear-gradient(359deg, #97abbe, #8979ff);
+	  background-image:      -o-linear-gradient(359deg, #97abbe, #8979ff);
+	  background-image:         linear-gradient(359deg, #97abbe, #8979ff);
     }
 	
     .home-page .p-navigation {
@@ -2130,11 +2157,11 @@
 	      -ms-background-clip: text;
 	       -o-background-clip: text;
 	          background-clip: text;
-	  background-image: -webkit-linear-gradient(359deg, #97abbe, #a059fe);
-	  background-image:    -moz-linear-gradient(359deg, #97abbe, #a059fe);
-	  background-image:     -ms-linear-gradient(359deg, #97abbe, #a059fe);
-	  background-image:      -o-linear-gradient(359deg, #97abbe, #a059fe);
-	  background-image:         linear-gradient(359deg, #97abbe, #a059fe);
+	  background-image: -webkit-linear-gradient(359deg, #97abbe, #ff3b7d);
+	  background-image:    -moz-linear-gradient(359deg, #97abbe, #ff3b7d);
+	  background-image:     -ms-linear-gradient(359deg, #97abbe, #ff3b7d);
+	  background-image:      -o-linear-gradient(359deg, #97abbe, #ff3b7d);
+	  background-image:         linear-gradient(359deg, #97abbe, #ff3b7d);
     }
 
     .home-page .node {
@@ -2356,11 +2383,11 @@
     .github {
       font-weight: 500;
       color: #000a4a63;
-      border-image: -webkit-linear-gradient(to right, transparent, #586def45, transparent);
-      border-image:    -moz-linear-gradient(to right, transparent, #586def45, transparent);
-      border-image:     -ms-linear-gradient(to right, transparent, #586def45, transparent);
-      border-image:      -o-linear-gradient(to right, transparent, #586def45, transparent);
-      border-image:         linear-gradient(to right, transparent, #586def45, transparent);
+      border-image: -webkit-linear-gradient(to right, transparent, #000a4a63, transparent);
+      border-image:    -moz-linear-gradient(to right, transparent, #000a4a63, transparent);
+      border-image:     -ms-linear-gradient(to right, transparent, #000a4a63, transparent);
+      border-image:      -o-linear-gradient(to right, transparent, #000a4a63, transparent);
+      border-image:         linear-gradient(to right, transparent, #000a4a63, transparent);
       filter: drop-shadow(5px 5px 5px #586def7d);
     }
 	
@@ -2390,19 +2417,6 @@
            -o-transform: rotateX(359deg);
               transform: rotateX(359deg);
     }
-
-	.ready-contact i {
-      -webkit-transition: 0.2s scale, filter ease-in-out;
-         -moz-transition: 0.2s scale, filter ease-in-out;
-          -ms-transition: 0.2s scale, filter ease-in-out;
-           -o-transition: 0.2s scale, filter ease-in-out;
-              transition: 0.2s scale, filter ease-in-out;
-	}
-	
-	.ready-contact i:active {
-      scale: 0.9;
-	  filter: drop-shadow(0px 0px 1px #586defe3);
-	}
 	
 	#widget {
       display: block;
@@ -2414,6 +2428,7 @@
       opacity: 0.8;
       transition: all 0.2s ease;
       margin: 20px 0px 10px 90px;
+      background-color: #ffcfcfcf;
       background-image: url(https://github.com/kyrchenkov/kyrchenkov.github.io/blob/main/img/widget.webp?raw=true);
       -webkit-border-radius: 50%;
          -moz-border-radius: 50%;
@@ -2435,6 +2450,7 @@
 	                     chaoticGlow 18s infinite linear alternate-reverse;
               animation: chaoticGlow 20s infinite linear alternate,
 	                     chaoticGlow 18s infinite linear alternate-reverse;
+      filter: hue-rotate(20deg);
 	}
 	
 	#widget::selection {
@@ -2462,6 +2478,7 @@
     	  -ms-animation: chaoticGlow 16s infinite linear alternate-reverse;
            -o-animation: chaoticGlow 16s infinite linear alternate-reverse;
 	          animation: chaoticGlow 16s infinite linear alternate-reverse;
+      filter: invert(85%) hue-rotate(230deg);
 	}
 
 	#widget:hover {
@@ -2715,6 +2732,10 @@
 	  
       .home-page .image {
         margin: 20px auto 20px auto;
+      }
+	  
+      .home-page .image-ui {
+        margin: -10px auto 10px auto;
       }
 	  
       .main-poster-container {
@@ -3017,11 +3038,14 @@
     }
 
     .docs code {
+      font-size: 14px;
+      font-weight: bold;
+      color: #2c3e508f;
       background: transparent;
       padding: 2px 6px;
       border-radius: 4px;
       font-family: 'Courier New', monospace;
-      font-size: 14px;
+      filter: drop-shadow(0px 0px 1px #ffffff);
     }
 
     .docs pre {
@@ -3346,7 +3370,7 @@
       font-family: 'Courier New', monospace;
       font-size: 14px;
       filter: drop-shadow(2px 4px 5px #ff56ac);
-      text-shadow: 0px 0px 2px #ff0080a8;
+      text-shadow: 0px 0px 0px #ff0080a8;
     }
 	
     .ux-vibe .accent {
@@ -3504,7 +3528,7 @@
       }
 
       .docs code {
-        font-size: 11px;
+        font-size: 13.5px;
         padding: 2px 5px;
       }
 
@@ -4397,21 +4421,21 @@
     })();
   });
   
-  document.addEventListener('DOMContentLoaded', function() {
-    (function() {
+  document.addEventListener('DOMContentLoaded', function () {
+    (function () {
       if (window.lightningAnimationInitialized) return;
       window.lightningAnimationInitialized = true;
-  
+
       function createLightningAnimation() {
-        const container = document.createElement('div');
-        container.style.position = 'fixed';
-        container.style.top = '0';
-        container.style.left = '0';
-        container.style.width = '100vw';
-        container.style.height = '100vh';
-        container.style.pointerEvents = 'none';
-        container.style.zIndex = '999999';
-        container.style.overflow = 'hidden';
+        const overlay = document.createElement('div');
+        overlay.style.position = 'fixed';
+        overlay.style.top = '0';
+        overlay.style.left = '0';
+        overlay.style.width = '100vw';
+        overlay.style.height = '100vh';
+        overlay.style.pointerEvents = 'none';
+        overlay.style.zIndex = '999999';
+        overlay.style.overflow = 'hidden';
 
         const canvas = document.createElement('canvas');
         canvas.style.position = 'absolute';
@@ -4426,354 +4450,261 @@
         flash.style.left = '0';
         flash.style.width = '100%';
         flash.style.height = '100%';
-        flash.style.background = 'white';
+        flash.style.backgroundColor = 'white';
         flash.style.opacity = '0';
-        
-        container.appendChild(canvas);
-        container.appendChild(flash);
-        document.body.appendChild(container);
-        
+        flash.style.transition = 'none';
+        flash.style.zIndex = '10';
+        flash.style.pointerEvents = 'none';
+
+        overlay.appendChild(canvas);
+        overlay.appendChild(flash);
+        document.body.appendChild(overlay);
+
         const ctx = canvas.getContext('2d');
-        let animationFrameId = null;
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        const w = window.innerWidth;
+        const h = window.innerHeight;
+
+        canvas.width = w * dpr;
+        canvas.height = h * dpr;
+        ctx.scale(dpr, dpr);
+        ctx.lineCap = 'round';
+        ctx.lineJoin = 'round';
+
         let timeoutIds = [];
+        let intervalId = null;
 
         function cleanup() {
-          if (animationFrameId) {
-            cancelAnimationFrame(animationFrameId);
-            animationFrameId = null;
-          }
-          
           timeoutIds.forEach(id => clearTimeout(id));
           timeoutIds = [];
-          
-          if (container.parentNode) {
-            container.parentNode.removeChild(container);
+          if (intervalId) {
+            clearInterval(intervalId);
+            intervalId = null;
           }
-        }
-        
-        class LightningPoint {
-          constructor(x, y) {
-            this.x = x;
-            this.y = y;
-            this.children = [];
-            this.parent = null;
+          if (overlay.parentNode) {
+            overlay.parentNode.removeChild(overlay);
           }
+          document.body.style.overflow = '';
+          document.documentElement.style.scrollBehavior = '';
+          window.lightningAnimationInitialized = false;
         }
 
-        function createLightningTree() {
-          const startX = Math.random() * canvas.width;
-          const startY = 0;
-          const endX = startX + (Math.random() - 0.5) * canvas.width * 0.5;
-          const endY = canvas.height;
+        function clearCanvas() {
+          ctx.shadowBlur = 0;
+          ctx.shadowColor = 'transparent';
+          ctx.clearRect(0, 0, w, h);
+        }
 
-          const root = new LightningPoint(startX, startY);
-
-          const mainSegments = 15 + Math.floor(Math.random() * 10);
-          const branchProbability = 0.3;
-          const maxBranches = 3;
-          
-          let currentPoint = root;
-
-          for (let i = 0; i < mainSegments; i++) {
-            const progress = (i + 1) / mainSegments;
-            const targetX = startX + (endX - startX) * progress;
-            const targetY = startY + (endY - startY) * progress;
-
-            const newX = targetX + (Math.random() - 0.5) * 150 * (1 - progress * 0.8);
-            const newY = targetY;
-            
-            const newPoint = new LightningPoint(newX, newY);
-            newPoint.parent = currentPoint;
-            currentPoint.children.push(newPoint);
-
-            if (Math.random() < branchProbability && currentPoint.children.length < maxBranches) {
-
-              const branchLength = 5 + Math.floor(Math.random() * 8);
-              let branchPoint = newPoint;
-              
-              for (let j = 0; j < branchLength; j++) {
-                const branchProgress = (j + 1) / branchLength;
-
-                const angle = (Math.random() - 0.5) * Math.PI / 2;
-                const length = 20 + Math.random() * 30;
-                const dx = Math.cos(angle) * length;
-                const dy = Math.sin(angle) * length;
-                
-                const branchX = branchPoint.x + dx * (1 - branchProgress * 0.5);
-                const branchY = branchPoint.y + dy * (1 - branchProgress * 0.5);
-                
-                const branchChild = new LightningPoint(branchX, branchY);
-                branchChild.parent = branchPoint;
-                branchPoint.children.push(branchChild);
-                branchPoint = branchChild;
-
-                if (Math.random() < 0.2 && branchPoint.children.length === 0) {
-                  const subBranchLength = 3 + Math.floor(Math.random() * 5);
-                  let subBranchPoint = branchPoint;
-                  
-                  for (let k = 0; k < subBranchLength; k++) {
-                    const subAngle = (Math.random() - 0.5) * Math.PI;
-                    const subLength = 10 + Math.random() * 20;
-                    const sdx = Math.cos(subAngle) * subLength;
-                    const sdy = Math.sin(subAngle) * subLength;
-                    
-                    const subX = subBranchPoint.x + sdx * (1 - k / subBranchLength);
-                    const subY = subBranchPoint.y + sdy * (1 - k / subBranchLength);
-                    
-                    const subChild = new LightningPoint(subX, subY);
-                    subChild.parent = subBranchPoint;
-                    subBranchPoint.children.push(subChild);
-                    subBranchPoint = subChild;
-                  }
-                }
-              }
+        function shakeScreen(intensity = 1) {
+          const style = document.createElement('style');
+          const offset = 15 * intensity;
+          style.textContent = `
+            @keyframes stormShake {
+              0%, 100% { transform: translate(0); }
+              10% { transform: translate(-${offset}px, -${offset}px); }
+              20% { transform: translate(${offset}px, ${offset}px); }
+              30% { transform: translate(-${offset}px, ${offset}px); }
+              40% { transform: translate(${offset}px, -${offset}px); }
+              50% { transform: translate(0, 0); }
             }
-            
-            currentPoint = newPoint;
+          `;
+          document.head.appendChild(style);
+          overlay.style.animation = `stormShake 0.4s ease-out`;
+
+          if (navigator.vibrate) {
+            navigator.vibrate([80 * intensity]);
           }
-          
-          return root;
+
+          const id = setTimeout(() => {
+            overlay.style.animation = '';
+            if (style.parentNode) style.parentNode.removeChild(style);
+          }, 400);
+          timeoutIds.push(id);
         }
-        
-        function animateLightningDrawing(root) {
-          const drawnPoints = new Set();
-          const animationSpeed = 20;
-          
-          function drawBranch(point, callback) {
-            if (!point || drawnPoints.has(point)) return;
-            
-            drawnPoints.add(point);
-            
-            if (point.parent) {
-              ctx.beginPath();
-              ctx.moveTo(point.parent.x, point.parent.y);
-              ctx.lineTo(point.x, point.y);
-              
-              ctx.lineWidth = 2 + Math.random() * 2;
-              ctx.strokeStyle = 'rgba(255, 255, 255, 0.9)';
-              ctx.shadowColor = '#00ffff';
-              ctx.shadowBlur = 15;
-              ctx.lineCap = 'round';
-              ctx.lineJoin = 'round';
-              ctx.stroke();
-              
-              ctx.lineWidth = 1;
-              ctx.strokeStyle = '#00ffff';
-              ctx.shadowBlur = 25;
-              ctx.stroke();
-              
-              ctx.lineWidth = 0.5;
-              ctx.strokeStyle = '#ffffff';
-              ctx.shadowBlur = 10;
-              ctx.stroke();
+
+        function fullFlash(duration = 30, fadeOut = 200) {
+          flash.style.transition = 'none';
+          flash.style.opacity = '1';
+          void flash.offsetWidth;
+
+          const id = setTimeout(() => {
+            flash.style.transition = `opacity ${fadeOut}ms ease-out`;
+            flash.style.opacity = '0';
+          }, duration);
+          timeoutIds.push(id);
+        }
+
+        function drawLightning(isFinal = false, callback) {
+          clearCanvas();
+
+          const count = isFinal ? 3 : 1 + Math.floor(Math.random() * 2);
+
+          for (let i = 0; i < count; i++) {
+            const startX = w * 0.2 + Math.random() * w * 0.6;
+            const endX = startX + (Math.random() - 0.5) * w * 0.4;
+
+            let x = startX;
+            let y = 0;
+
+            const lineWidth = isFinal ? 6 + Math.random() * 3 : 3 + Math.random() * 2;
+            const blur = isFinal ? 50 : 30 + Math.random() * 10;
+
+            ctx.lineWidth = lineWidth;
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.9)';
+            ctx.shadowColor = '#ffffee';
+            ctx.shadowBlur = blur;
+            ctx.beginPath();
+            ctx.moveTo(x, y);
+
+            while (y < h) {
+              const dx = (Math.random() - 0.5) * 50;
+              const dy = 20 + Math.random() * 20;
+              x += dx;
+              y += dy;
+              ctx.lineTo(x, y);
             }
-            
-            if (point.children.length > 0) {
-              const delay = 10 + Math.random() * 40;
-              setTimeout(() => {
-                const shuffledChildren = [...point.children].sort(() => Math.random() - 0.5);
-                let completed = 0;
-                
-                if (shuffledChildren.length === 0 && callback) {
-                  callback();
-                  return;
-                }
-                
-                shuffledChildren.forEach(child => {
-                  drawBranch(child, () => {
-                    completed++;
-                    if (completed === shuffledChildren.length && callback) {
-                      callback();
+            ctx.stroke();
+
+            ctx.lineWidth = 2;
+            ctx.strokeStyle = '#aaffff';
+            ctx.shadowBlur = blur * 0.6;
+            ctx.stroke();
+
+            ctx.lineWidth = 1;
+            ctx.strokeStyle = '#ffffff';
+            ctx.shadowBlur = blur * 0.3;
+            ctx.stroke();
+          }
+
+          if (callback) callback();
+        }
+
+        function animate() {
+          document.body.style.overflow = 'hidden';
+          document.documentElement.style.scrollBehavior = 'auto';
+
+          const id1 = setTimeout(() => {
+            drawLightning(false, () => {
+              const id = setTimeout(() => clearCanvas(), 50);
+              timeoutIds.push(id);
+            });
+            fullFlash(20, 150);
+            shakeScreen(0.7);
+          }, 50);
+          timeoutIds.push(id1);
+
+          const id2 = setTimeout(() => {
+            drawLightning(false, () => {
+              const id = setTimeout(() => clearCanvas(), 50);
+              timeoutIds.push(id);
+            });
+            fullFlash(20, 150);
+            shakeScreen(1);
+          }, 200);
+          timeoutIds.push(id2);
+
+          const id3 = setTimeout(() => {
+            drawLightning(false, () => {
+              const id = setTimeout(() => clearCanvas(), 50);
+              timeoutIds.push(id);
+            });
+            fullFlash(20, 150);
+            shakeScreen(1.1);
+          }, 350);
+          timeoutIds.push(id3);
+
+          const finalId = setTimeout(() => {
+            clearCanvas();
+            flash.style.transition = 'none';
+            flash.style.opacity = '0';
+
+            const revealId = setTimeout(() => {
+              drawLightning(true, () => {
+                const fadeId = setTimeout(() => {
+                  let opacity = 1;
+                  intervalId = setInterval(() => {
+                    opacity -= 0.15;
+                    ctx.globalAlpha = opacity;
+                    if (opacity <= 0) {
+                      clearCanvas();
+                      clearInterval(intervalId);
+                      intervalId = null;
+                      ctx.globalAlpha = 1;
+                    } else {
+                      drawLightning(true);
                     }
-                  });
-                });
-              }, delay);
-            } else if (callback) {
-              callback();
-            }
-          }
-          
-          drawBranch(root, () => {
-            setTimeout(() => {
+                  }, 20);
+                }, 50);
+                timeoutIds.push(fadeId);
+              });
+
               flash.style.transition = 'none';
               flash.style.opacity = '1';
-              
-              document.body.style.transition = 'transform 0.1s';
-              document.body.style.transform = 'scale(1.1)';
-              document.body.style.animation = 'none';
-              
+              void flash.offsetWidth;
+
+              shakeScreen(2);
+
               if (navigator.vibrate) {
-                navigator.vibrate([500]);
+                navigator.vibrate([400, 100, 300, 100, 200]);
               }
-              
-              ctx.shadowBlur = 50;
-              ctx.lineWidth = 5;
-              ctx.strokeStyle = 'rgba(255, 255, 255, 1)';
-              
-              ctx.beginPath();
-              const centerX = window.innerWidth / 2;
-              const startY = 0;
-              const endY = window.innerHeight;
-              
-              flash.style.position = 'fixed';
-              flash.style.transform = 'translateZ(0)';
-              
-              ctx.moveTo(centerX, startY);
-              
-              for (let i = 0; i < 10; i++) {
-                const x = centerX + (Math.random() - 0.5) * 200;
-                const y = startY + (i / 9) * (endY - startY);
-                ctx.lineTo(x, y);
-              }
-              
-              ctx.lineWidth = 8;
-              ctx.strokeStyle = 'rgba(255, 255, 255, 1)';
-              ctx.shadowBlur = 50;
-              ctx.shadowColor = '#ffffff';
-              ctx.stroke();
-              
-              ctx.lineWidth = 4;
-              ctx.beginPath();
-              for (let j = 0; j < 3; j++) {
-                const branchX = centerX + (Math.random() - 0.5) * 100;
-                const branchY = endY * (0.3 + Math.random() * 0.4);
-                ctx.moveTo(centerX + (Math.random() - 0.5) * 50, branchY);
-                ctx.lineTo(branchX, branchY + 50 + Math.random() * 100);
-              }
-              ctx.stroke();
-              
-              setTimeout(() => {
-                document.body.style.transform = '';
-                document.body.style.transition = '';
-                
-                flash.style.transition = 'opacity 0.5s';
+
+              const fadeId1 = setTimeout(() => {
+                flash.style.transition = 'opacity 0.4s ease-out';
                 flash.style.opacity = '0';
+              }, 50);
+              timeoutIds.push(fadeId1);
+
+              const flashId = setTimeout(() => {
+                flash.style.transition = 'opacity 0.05s ease-out';
+                flash.style.opacity = '1';
                 
-                setTimeout(() => {
-                  ctx.clearRect(0, 0, canvas.width, canvas.height);
-                }, 500);
-              }, 200);
-            }, 500);
-          });
+                const releaseId = setTimeout(() => {
+                  flash.style.transition = 'opacity 3s ease-out';
+                  flash.style.opacity = '0';
+                }, 100);
+                timeoutIds.push(releaseId);
+              }, 400);
+              timeoutIds.push(flashId);
+
+              const cleanupId = setTimeout(() => {
+                clearCanvas();
+                cleanup();
+              }, 4000);
+              timeoutIds.push(cleanupId);
+            }, 40);
+            timeoutIds.push(revealId);
+          }, 1000);
+          timeoutIds.push(finalId);
         }
-        
-        function drawLightning() {
-          ctx.clearRect(0, 0, canvas.width, canvas.height);
-          
-          const lightningTree = createLightningTree();
-          
-          animateLightningDrawing(lightningTree);
-        }
-        
-        function createFlash() {
-          flash.style.transition = 'opacity 0.1s ease-out';
-          flash.style.opacity = '0.8';
-          
-          const timeoutId = setTimeout(() => {
-            flash.style.transition = 'opacity 0.3s ease-out';
-            flash.style.opacity = '0';
-          }, 50);
-          
-          timeoutIds.push(timeoutId);
-        }
-        
-        function createShake() {
-          const originalStyle = document.body.style.cssText;
-          
-          document.body.style.animation = 'none';
-          document.body.offsetHeight;
-          
-          const style = document.createElement('style');
-          style.textContent = `@keyframes lightningShake { 0%, 100% { transform: translate(0, 0); }
-		                                                        10% { transform: translate(-5px, -5px); }
-																20% { transform: translate(5px, 5px); }
-																30% { transform: translate(-5px, 5px); }
-																40% { transform: translate(5px, -5px); }
-																50% { transform: translate(-3px, 3px); }
-																60% { transform: translate(3px, -3px); }
-																70% { transform: translate(-2px, 2px); }
-																80% { transform: translate(2px, -2px); }
-																90% { transform: translate(-1px, 1px); } }`;
-          document.head.appendChild(style);
-          
-          document.body.style.animation = 'lightningShake 0.3s ease-in-out';
-          
-          if (navigator.vibrate) {
-            navigator.vibrate([100, 50, 100, 50, 100]);
-          }
-          
-          const timeoutId = setTimeout(() => {
-            document.body.style.animation = 'none';
-            if (style.parentNode) {
-              style.parentNode.removeChild(style);
-            }
-          }, 300);
-          
-          timeoutIds.push(timeoutId);
-        }
-        
-        function animate() {
-          canvas.width = window.innerWidth;
-          canvas.height = window.innerHeight;
-          
-          const lightningCount = 8 + Math.floor(Math.random() * 7);
-          for (let i = 0; i < lightningCount; i++) {
-            setTimeout(() => {
-              drawLightning();
-              createFlash();
-              createShake();
-            }, i * 150);
-          }
-          
-          for (let i = 0; i < 5; i++) {
-            const timeoutId = setTimeout(() => {
-              createFlash();
-              createShake();
-            }, 1000 + i * 400);
-            
-            timeoutIds.push(timeoutId);
-          }
-        }
-        
-          setTimeout(animate, 150);
-        
-        const endTimeoutId = setTimeout(() => {
-          cleanup();
-        }, 3000);
-        
-        timeoutIds.push(endTimeoutId);
-        
+
+        animate();
         return cleanup;
       }
-      
-      function initLightningButton() {
-        const buttons = document.querySelectorAll('button.shock-btn');
-        
-        buttons.forEach(button => {
-          button.addEventListener('click', function(e) {
+
+      function initButton() {
+        document.querySelectorAll('button.shock-btn').forEach(btn => {
+          btn.addEventListener('click', e => {
             e.preventDefault();
-            
-            if (button.classList.contains('lightning-animation-active')) {
-              return;
-            }
-            
-            button.classList.add('lightning-animation-active');
-            
+            if (btn.classList.contains('lightning-animation-active')) return;
+            btn.classList.add('lightning-animation-active');
             const cleanup = createLightningAnimation();
-            
             setTimeout(() => {
-              button.classList.remove('lightning-animation-active');
-            }, 3000);
+              try {
+                cleanup();
+              } catch (e) {
+              }
+              btn.classList.remove('lightning-animation-active');
+            }, 5000);
           });
         });
       }
-      
+
       if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initLightningButton);
+        document.addEventListener('DOMContentLoaded', initButton);
       } else {
-        initLightningButton();
+        initButton();
       }
-      
+
       window.createLightningAnimation = createLightningAnimation;
     })();
   });
@@ -5654,9 +5585,7 @@
     </div>
 
     <h2>2. Вид рабочей среды</h2>
-    <img class="image" src="https://github.com/kyrchenkov/kyrchenkov.github.io/blob/main/img/operate.webp?raw=true"
-      alt="Вид рабочей среды" loading="lazy">
-    <p class="p-cms">CMS OpenCart 3:</p>
+    <p>CMS OpenCart 3:</p>
     <ul>
       <li>VPS SpaceWeb (CentOS 7, 6 CPU, 12 ГБ RAM, NVMe)</li>
       <li>Apache: OpenCart 3.0.2, PHP 7.1.33 + OPcache</li>
@@ -8163,7 +8092,7 @@ state: newNode_***
       Но если театр вызывает доверие — он правдив.</p>
 
     <h2><i class="fa fa-superpowers"></i> Герой интерфейса: пульсирующая сфера <code
-        style="background: #f1f1f147; border-radius: 10px;">#sphere_widget</code></h2>
+        style="color: #df64a2ab; background: #f1f1f147; border-radius: 10px;">#sphere_widget</code></h2>
     <img class="image-center" src="https://github.com/kyrchenkov/kyrchenkov.github.io/blob/main/img/sphere.png?raw=true"
       alt="Пульсирующая сфера AI-оператора" loading="lazy">
     <pre>
@@ -9119,7 +9048,7 @@ if (g && o - h >= 8000) {
             background: #f9f9f945;
             border: 1px solid #eeeeee14;
             border-radius: 4px;
-            padding: 5px 6px;
+            padding: 8px;
             margin: 6px 0 0 0;
             font-size: 13px;
             color: #555;
@@ -9128,7 +9057,13 @@ if (g && o - h >= 8000) {
         VPS SpaceWeb (CentOS 7, 6 CPU, 12 ГБ RAM, NVMe),<br>
         <strong>Apache:</strong> OpenCart 3.0.2, PHP 7.1.33 + OPcache,<br>
         <strong>Nginx:</strong> phpMyAdmin, BrainyCP,<br>
-        СУБД MySQL 5.6.40 (InnoDB)
+        СУБД MySQL 5.6.40 (InnoDB)<br>
+        <p style="margin-top: 6px;">
+		<strong>Общая информация:</strong><br>
+        Начало реализации: февраль 2024<br>
+        Текущее состояние: ноябрь 2025<br>
+        Общие трудозатраты: более 4500 часов (проектирование, разработка, тестирование, внедрение, калибровка)
+		</p>
       </div>
     </div>
   </div>
