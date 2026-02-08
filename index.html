@@ -848,17 +848,16 @@
     .home-page h2 {
       color: #d3e3ff;
       font-size: 20px;
-      border-bottom: 1px solid #ddd;
       padding-bottom: 8px;
       margin-top: 30px;
       opacity: 0.99;
-      border-bottom: 1px solid transparent;
+      border-bottom: 2px solid transparent;
       border-image-slice: 1 !important;
-      border-image: -webkit-linear-gradient(to right, transparent, #ddd, #ddd, #ddd, #ddd, #ddd, #ddd, transparent);
-	  border-image:    -moz-linear-gradient(to right, transparent, #ddd, #ddd, #ddd, #ddd, #ddd, #ddd, transparent);
-	  border-image:     -ms-linear-gradient(to right, transparent, #ddd, #ddd, #ddd, #ddd, #ddd, #ddd, transparent);
-	  border-image:      -o-linear-gradient(to right, transparent, #ddd, #ddd, #ddd, #ddd, #ddd, #ddd, transparent);
-	  border-image:         linear-gradient(to right, transparent, #ddd, #ddd, #ddd, #ddd, #ddd, #ddd, transparent);
+      border-image: -webkit-linear-gradient(to right, transparent 0%, #d3e3ff 5%, transparent 100%);
+	  border-image:    -moz-linear-gradient(to right, transparent 0%, #d3e3ff 5%, transparent 100%);
+	  border-image:     -ms-linear-gradient(to right, transparent 0%, #d3e3ff 5%, transparent 100%);
+	  border-image:      -o-linear-gradient(to right, transparent 0%, #d3e3ff 5%, transparent 100%);
+	  border-image:         linear-gradient(to right, transparent 0%, #d3e3ff 5%, transparent 100%);
       filter: drop-shadow(0px 0px 2px #2c3e50eb) contrast(1.2);
       -webkit-animation: sigh-stun 8s linear infinite;
          -moz-animation: sigh-stun 8s linear infinite;
@@ -1167,11 +1166,17 @@
 	  text-align: start;
       justify-content: flex-start;
       text-shadow: 0 0 8px #e5eeff7d;
-	  border-top: 2px solid #ffffff1c;
+      border-top: 2px solid transparent;
+      border-image-slice: 1 !important;
+      border-image: -webkit-linear-gradient(to right, transparent 0%, #ffffff1c 35%, transparent 100%);
+      border-image:    -moz-linear-gradient(to right, transparent 0%, #ffffff1c 35%, transparent 100%);
+      border-image:     -ms-linear-gradient(to right, transparent 0%, #ffffff1c 35%, transparent 100%);
+	  border-image:      -o-linear-gradient(to right, transparent 0%, #ffffff1c 35%, transparent 100%);
+      border-image:         linear-gradient(to right, transparent 0%, #ffffff1c 35%, transparent 100%);
     }
 
     .footer {
-      margin-top: 30px;
+      margin-top: 10px;
       text-align: center;
       font-size: 12px;
       color: #000000de;
@@ -1216,36 +1221,16 @@
     }
 	  
     .ready-contact i {
+      color: #f9fafa5c;
       margin: 26px;
       font-size: 32px;
-      color: transparent;
 	  text-decoration: none;
-      text-shadow: 0 0 #3a3a3ac4;
-      -webkit-background-clip: text;
-         -moz-background-clip: text;
-          -ms-background-clip: text;
-           -o-background-clip: text;
-              background-clip: text;
-      background-image: -webkit-linear-gradient(90deg, #5695ff 25%, #785fff 90%);
-      background-image:    -moz-linear-gradient(90deg, #5695ff 25%, #785fff 90%);
-      background-image:     -ms-linear-gradient(90deg, #5695ff 25%, #785fff 90%);
-      background-image:      -o-linear-gradient(90deg, #5695ff 25%, #785fff 90%);
-      background-image:         linear-gradient(90deg, #5695ff 25%, #785fff 90%);
-      -webkit-animation: ready 16s linear infinite;
-         -moz-animation: ready 16s linear infinite;
-          -ms-animation: ready 16s linear infinite;
-           -o-animation: ready 16s linear infinite;
-              animation: ready 16s linear infinite;
-      -webkit-transition: 0.2s scale, filter ease-in-out;
-         -moz-transition: 0.2s scale, filter ease-in-out;
-          -ms-transition: 0.2s scale, filter ease-in-out;
-           -o-transition: 0.2s scale, filter ease-in-out;
-              transition: 0.2s scale, filter ease-in-out;
+      filter: drop-shadow(0px 0px 10px #2c3e50eb);
     }
 	
     .ready-contact i:active {
-      scale: 0.9;
-	  filter: drop-shadow(0px 0px 1px #586defe3);
+      scale: 0.98;
+	  filter: drop-shadow(0px 0px 1px #f9fafa5c);
     }
 	
     .home-page .container {
@@ -2286,90 +2271,34 @@
            -o-transform: rotateZ(0.5deg);
               transform: rotateZ(0.5deg);
     }
+
+    .page-part {
+      height: 20px;
+      margin: 30px auto !important;
+      border-radius: 6px;
+      box-shadow: inset 0px 0px 12px #00133426;
+      filter: drop-shadow(0px 0px 3px #ffffff);
+    }
 	
 	.github, .hubr {
       display: flex;
       flex-direction: column;
       text-decoration: none;
       max-width: 350px;
+	  color: #f9fafa5c;
       margin: auto;
-	  padding-bottom: 10px;
-      border-bottom: 2px solid transparent;
-      border-image-slice: 1 !important;
-      -webkit-transition: 0.2s all ease-in-out;
-         -moz-transition: 0.2s all ease-in-out;
-          -ms-transition: 0.2s all ease-in-out;
-           -o-transition: 0.2s all ease-in-out;
-              transition: 0.2s all ease-in-out;
+	  font-weight: bold;
+	  filter: drop-shadow(0px 0px 10px #2c3e50eb);
 	}
 	
-	.github:active {
-      scale: 0.9;
-	  color: #001dd878;
-      border-image: -webkit-linear-gradient(to right, transparent, transparent, #586def96, transparent, transparent);
-      border-image:    -moz-linear-gradient(to right, transparent, transparent, #586def96, transparent, transparent);
-      border-image:     -ms-linear-gradient(to right, transparent, transparent, #586def96, transparent, transparent);
-      border-image:      -o-linear-gradient(to right, transparent, transparent, #586def96, transparent, transparent);
-      border-image:         linear-gradient(to right, transparent, transparent, #586def96, transparent, transparent);
-      filter: contrast(1.2) drop-shadow(0px 0px 1px #586def7d);
-	}
-	
-	.hubr:active {
-      scale: 0.9;
-	  background-image: -webkit-linear-gradient(0deg, #ff56acab 25%, #a059fe8f 90%);
-      background-image:    -moz-linear-gradient(0deg, #ff56acab 25%, #a059fe8f 90%);
-      background-image:     -ms-linear-gradient(0deg, #ff56acab 25%, #a059fe8f 90%);
-      background-image:      -o-linear-gradient(0deg, #ff56acab 25%, #a059fe8f 90%);
-      background-image:         linear-gradient(0deg, #ff56acab 25%, #a059fe8f 90%);
-      border-image: -webkit-linear-gradient(to right, transparent, transparent, #ff56ac4a, transparent, transparent);
-      border-image:    -moz-linear-gradient(to right, transparent, transparent, #ff56ac4a, transparent, transparent);
-      border-image:     -ms-linear-gradient(to right, transparent, transparent, #ff56ac4a, transparent, transparent);
-      border-image:      -o-linear-gradient(to right, transparent, transparent, #ff56ac4a, transparent, transparent);
-      border-image:         linear-gradient(to right, transparent, transparent, #ff56ac4a, transparent, transparent);
-      filter: contrast(1.2) drop-shadow(0px 0px 1px #ff7070);
+	.github:active, .hubr:active {
+      scale: 0.98;
+      filter: drop-shadow(0px 0px 0px #f9fafa36);
 	}
 	
 	.github i, .hubr i {
       font-size: 32px;
 	}
-	
-    .github {
-      font-weight: 500;
-      color: #000a4a63;
-      border-image: -webkit-linear-gradient(to right, transparent, #000a4a63, transparent);
-      border-image:    -moz-linear-gradient(to right, transparent, #000a4a63, transparent);
-      border-image:     -ms-linear-gradient(to right, transparent, #000a4a63, transparent);
-      border-image:      -o-linear-gradient(to right, transparent, #000a4a63, transparent);
-      border-image:         linear-gradient(to right, transparent, #000a4a63, transparent);
-      filter: drop-shadow(5px 5px 5px #586def7d);
-    }
-	
-    .hubr {
-      font-weight: 600;
-      color: transparent;
-      -webkit-background-clip: text;
-         -moz-background-clip: text;
-          -ms-background-clip: text;
-           -o-background-clip: text;
-              background-clip: text;
-      background-image: -webkit-linear-gradient(90deg, #ff56acab 25%, #a059fe8f 90%);
-      background-image:    -moz-linear-gradient(90deg, #ff56acab 25%, #a059fe8f 90%);
-      background-image:     -ms-linear-gradient(90deg, #ff56acab 25%, #a059fe8f 90%);
-      background-image:      -o-linear-gradient(90deg, #ff56acab 25%, #a059fe8f 90%);
-      background-image:         linear-gradient(90deg, #ff56acab 25%, #a059fe8f 90%);
-      border-image: -webkit-linear-gradient(to right, transparent, #ff56ac4a, transparent);
-      border-image:    -moz-linear-gradient(to right, transparent, #ff56ac4a, transparent);
-      border-image:     -ms-linear-gradient(to right, transparent, #ff56ac4a, transparent);
-      border-image:      -o-linear-gradient(to right, transparent, #ff56ac4a, transparent);
-      border-image:         linear-gradient(to right, transparent, #ff56ac4a, transparent);
-	  text-shadow: 0px 0px 5px transparent;
-      filter: drop-shadow(2px 4px 5px #ff7070);
-      -webkit-transform: rotateX(359deg);
-         -moz-transform: rotateX(359deg);
-          -ms-transform: rotateX(359deg);
-           -o-transform: rotateX(359deg);
-              transform: rotateX(359deg);
-    }
 	
     #widget {
       display: block;
@@ -2448,91 +2377,6 @@
     	  -ms-transform: scale(0.9);
            -o-transform: scale(0.9);
 	          transform: scale(0.9);
-	}
-
-	@media (min-width: 768px) {
-      .github:hover {
-        scale: 1.2;
-		color: #001dd878;
-        border-image: -webkit-linear-gradient(to right, transparent, #586def78, #586def96, #586def78, transparent);
-        border-image:    -moz-linear-gradient(to right, transparent, #586def78, #586def96, #586def78, transparent);
-        border-image:     -ms-linear-gradient(to right, transparent, #586def78, #586def96, #586def78, transparent);
-        border-image:      -o-linear-gradient(to right, transparent, #586def78, #586def96, #586def78, transparent);
-        border-image:         linear-gradient(to right, transparent, #586def78, #586def96, #586def78, transparent);
-		text-shadow: 0px 0px 10px #cee9ff5c;
-        filter: drop-shadow(0px 0px 12px #586def7d);
-        -webkit-transform: rotateX(15deg);
-           -moz-transform: rotateX(15deg);
-            -ms-transform: rotateX(15deg);
-             -o-transform: rotateX(15deg);
-                transform: rotateX(15deg);
-      }
-	  
-      .github:active {
-        scale: 0.9;
-		color: #001dd8bf;
-        border-image: -webkit-linear-gradient(to right, transparent, transparent, #586def96, transparent, transparent);
-        border-image:    -moz-linear-gradient(to right, transparent, transparent, #586def96, transparent, transparent);
-        border-image:     -ms-linear-gradient(to right, transparent, transparent, #586def96, transparent, transparent);
-        border-image:      -o-linear-gradient(to right, transparent, transparent, #586def96, transparent, transparent);
-        border-image:         linear-gradient(to right, transparent, transparent, #586def96, transparent, transparent);
-        filter: contrast(1.2) drop-shadow(0px 0px 1px #586def7d);
-      }
-	
-      .hubr:hover {
-        scale: 1.25;
-        background-image: -webkit-linear-gradient(190deg, #ff56acab 25%, #a059fe8f 90%);
-        background-image:    -moz-linear-gradient(190deg, #ff56acab 25%, #a059fe8f 90%);
-        background-image:     -ms-linear-gradient(190deg, #ff56acab 25%, #a059fe8f 90%);
-        background-image:      -o-linear-gradient(190deg, #ff56acab 25%, #a059fe8f 90%);
-        background-image:         linear-gradient(190deg, #ff56acab 25%, #a059fe8f 90%);
-        border-image: -webkit-linear-gradient(to right, transparent, #ff56ac3d, #ff56ac4a, #ff56ac3d, transparent);
-        border-image:    -moz-linear-gradient(to right, transparent, #ff56ac3d, #ff56ac4a, #ff56ac3d, transparent);
-        border-image:     -ms-linear-gradient(to right, transparent, #ff56ac3d, #ff56ac4a, #ff56ac3d, transparent);
-        border-image:      -o-linear-gradient(to right, transparent, #ff56ac3d, #ff56ac4a, #ff56ac3d, transparent);
-        border-image:         linear-gradient(to right, transparent, #ff56ac3d, #ff56ac4a, #ff56ac3d, transparent);
-        filter: drop-shadow(0px 0px 8px #ff7070);
-        -webkit-transform: rotateX(345deg);
-           -moz-transform: rotateX(345deg);
-            -ms-transform: rotateX(345deg);
-             -o-transform: rotateX(345deg);
-                transform: rotateX(345deg);
-      }
-	
-      .hubr:active {
-        scale: 0.9;
-        background-image: -webkit-linear-gradient(0deg, #ff56acab 25%, #a059fe8f 90%);
-        background-image:    -moz-linear-gradient(0deg, #ff56acab 25%, #a059fe8f 90%);
-        background-image:     -ms-linear-gradient(0deg, #ff56acab 25%, #a059fe8f 90%);
-        background-image:      -o-linear-gradient(0deg, #ff56acab 25%, #a059fe8f 90%);
-        background-image:         linear-gradient(0deg, #ff56acab 25%, #a059fe8f 90%);
-        border-image: -webkit-linear-gradient(to right, transparent, transparent, #ff56ac4a, transparent, transparent);
-        border-image:    -moz-linear-gradient(to right, transparent, transparent, #ff56ac4a, transparent, transparent);
-        border-image:     -ms-linear-gradient(to right, transparent, transparent, #ff56ac4a, transparent, transparent);
-        border-image:      -o-linear-gradient(to right, transparent, transparent, #ff56ac4a, transparent, transparent);
-        border-image:         linear-gradient(to right, transparent, transparent, #ff56ac4a, transparent, transparent);
-        filter: contrast(1.2) drop-shadow(0px 0px 1px #ff7070);
-      }
-	  
-      .ready-contact i:hover {
-        scale: 1.5;
-        filter: drop-shadow(0px 0px 5px #586def7d);
-        -webkit-transform: matrix3d(1, 0.03, 0, 0, 0.02, 1.01, 0,
-			                   -0.001, 0, 0, 1, 1, 0.5, 0, 2, 1);
-           -moz-transform: matrix3d(1, 0.03, 0, 0, 0.02, 1.01, 0,
-			                   -0.001, 0, 0, 1, 1, 0.5, 0, 2, 1);
-            -ms-transform: matrix3d(1, 0.03, 0, 0, 0.02, 1.01, 0,
-			                   -0.001, 0, 0, 1, 1, 0.5, 0, 2, 1);
-             -o-transform: matrix3d(1, 0.03, 0, 0, 0.02, 1.01, 0,
-			                   -0.001, 0, 0, 1, 1, 0.5, 0, 2, 1);
-                transform: matrix3d(1, 0.03, 0, 0, 0.02, 1.01, 0,
-			                   -0.001, 0, 0, 1, 1, 0.5, 0, 2, 1);
-      }
-
-      .ready-contact i:active {
-        scale: 0.9;
-        filter: drop-shadow(0px 0px 1px #586defe3);
-      }
 	}
 	
 	@media (max-width: 767px) {
@@ -2628,13 +2472,21 @@
         padding-top: 15px;
       }
 
-      .home-page h1, .home-page h2 {
+      .home-page h1 {
         text-align: center;
         border-image: -webkit-linear-gradient(to right, transparent, #d3e3ff, transparent);
         border-image:    -moz-linear-gradient(to right, transparent, #d3e3ff, transparent);
         border-image:     -ms-linear-gradient(to right, transparent, #d3e3ff, transparent);
         border-image:      -o-linear-gradient(to right, transparent, #d3e3ff, transparent);
         border-image:         linear-gradient(to right, transparent, #d3e3ff, transparent);
+      }
+	  
+      .home-page h2 {
+        border-image: -webkit-linear-gradient(to right, transparent 0%, #d3e3ff 10%, transparent 100%);
+        border-image:    -moz-linear-gradient(to right, transparent 0%, #d3e3ff 10%, transparent 100%);
+        border-image:     -ms-linear-gradient(to right, transparent 0%, #d3e3ff 10%, transparent 100%);
+        border-image:      -o-linear-gradient(to right, transparent 0%, #d3e3ff 10%, transparent 100%);
+        border-image:         linear-gradient(to right, transparent 0%, #d3e3ff 10%, transparent 100%);
       }
 
       .home-page p[style*="text-align: center"] {
@@ -2706,6 +2558,15 @@
         animation: fadeIn 1.2s ease-in-out 0.2s forwards,
 	                revive .1s ease-in-out 0.2s infinite;
 	  }
+	  
+	  .github, .hubr {
+        font-size: 14px;
+	  }
+	
+	  .github i, .hubr i,
+	  .ready-contact i {
+        font-size: 30px;
+	  }
 
 	  .glow-core {
         width: 30px;
@@ -2750,6 +2611,52 @@
       pointer-events: none;
     }
 	
+    .stamp {
+      margin: 50px;
+    }
+	
+    .project h1,
+    .stamp h1 {
+      color: #f9fafa5c;
+      font-size: 28px;
+      text-align: center;
+      padding-bottom: 15px;
+	  margin-top: 35px;
+      margin-bottom: 10px;
+      border-bottom: 3px solid #f9fafa5c;
+      filter: drop-shadow(0px 0px 10px #2c3e50eb);
+    }
+	
+    .project h2,
+    .stamp h2 {
+      color: #f9fafa5c;
+      font-size: 20px;
+      padding-bottom: 8px;
+      margin-top: 30px;
+      opacity: 0.99;
+      border-bottom: 2px solid transparent;
+      border-image-slice: 1 !important;
+      border-image: linear-gradient(to right, #f9fafa4a 0%, #f9fafa4a 75%, transparent 82%);
+      filter: drop-shadow(0px 0px 8px #2c3e50eb);
+    }
+	
+    .stamp h2 {
+      border-image: none;
+      border-bottom: 2px solid #f9fafa5c;
+    }
+	
+    .project p,
+    .stamp p {
+      color: #f9fafa5c;
+      margin: 8px 0;
+      text-align: justify;
+      filter: drop-shadow(0px 0px 6px #2c3e50eb);
+    }
+	
+    .stamp p {
+      font-size: 20px;
+    }
+	
     .navigation {
       display: flex;
       flex-direction: row;
@@ -2760,20 +2667,20 @@
     }
 	
     .navigation h2 {
-      color: #d3e3ff;
+      color: #f9fafa5c;
       font-size: 22px;
       margin-left: -25px;
       padding-right: 25px;
 	  cursor: default;
 	  user-select: none;
-	  text-shadow: 0 0 2px #e5eeff7d;
+	  text-shadow: 10px 12px 25px #f9fafa5c;
       border-image-slice: 1 !important;
       border-bottom: 3px solid transparent;
-      border-image: -webkit-linear-gradient(to right, transparent 0%, #e5eeff7d 20%);
-      border-image:    -moz-linear-gradient(to right, transparent 0%, #e5eeff7d 20%);
-      border-image:     -ms-linear-gradient(to right, transparent 0%, #e5eeff7d 20%);
-      border-image:      -o-linear-gradient(to right, transparent 0%, #e5eeff7d 20%);
-      border-image:         linear-gradient(to right, transparent 0%, #e5eeff7d 20%);
+      border-image: -webkit-linear-gradient(to right, transparent 0%, #f9fafa5c 20%);
+      border-image:    -moz-linear-gradient(to right, transparent 0%, #f9fafa5c 20%);
+      border-image:     -ms-linear-gradient(to right, transparent 0%, #f9fafa5c 20%);
+      border-image:      -o-linear-gradient(to right, transparent 0%, #f9fafa5c 20%);
+      border-image:         linear-gradient(to right, transparent 0%, #f9fafa5c 20%);
     }
 	
     .navigation a {
@@ -3425,12 +3332,40 @@
         user-select: none;
         padding: 18px;
       }
+	  
+      .stamp {
+        margin: 35px;
+      }
 
       .docs h1 {
         font-size: 20px;
         padding-bottom: 12px;
         margin-top: 10px;
         margin-bottom: 20px;
+      }
+	  
+      .project h1,
+      .stamp h1 {
+        font-size: 24px;
+        padding-bottom: 12px;
+        margin-top: 10px;
+        margin-bottom: 20px;
+      }
+
+      .project h2,
+      .stamp h2 {
+        font-size: 18px;
+        padding-bottom: 6px;
+      }
+
+      .project p,
+      .stamp p {
+        font-size: 14px;
+        text-align: start;
+      }
+	  
+      .stamp p {
+        font-size: 16px;
       }
 	  
       .nav-ml-сache {
@@ -5495,7 +5430,7 @@
 		  и почему <strong>Performance Engineering</strong> начинается с<strong> целостной архитектуры</strong>
 		</p>
 
-    <h2 style="border: none;">Процесс языком инженерии</h2>
+    <h2 style="text-align: center; border: none;">Процесс языком инженерии</h2>
 	
 	<div class="main-poster-container">
 	  <div class="poster-container">
@@ -5525,6 +5460,10 @@
     <p>Суть инженера — не в том, какие технологии он использует. Суть — в том, чтобы система работала. Чтобы она была быстрой, надежной, живой — даже если её строят без популярных фреймворков, масштабных инфраструктур, внушительных бюджетов или идеальных условий.</p>
 
     <p>Дальше — условия рабочей среды, цели бизнеса и потребности пользователя — языком инженерии. Процесс реализации и внедрения семи проектов, каждый из которых — элемент фундамента в понимании того, что такое инженерия UX и производительности, когда она строится как единый, измеримый, самодостаточный механизм. А вместо определений — проблемы, решения и измеримый результат.</p>
+
+    <p class="page-part"></p>
+
+    <h2 style="text-align: center; border: none;">Продакшн: проблемы, решения и измеримый результат</h2>
 
     <h2>1. Цель</h2>
     <p>Построить систему вокруг одной платформы, чтобы решить реальные операционные и пользовательские проблемы.</p>
@@ -5836,14 +5775,27 @@
       <li>Думать на <strong>перспективу устойчивой и современной платформы</strong></li>
       <li>Работать <strong>комплексно, внутри системы</strong></li>
     </ul>
-    <p><strong style="padding-left: 42px;">— это и есть Инженерия UX со SRE подходом, где</strong></p>
+    <p><strong style="padding-left: 42px;">— это и есть Инженерия производительности и UX со SRE подходом, где</strong></p>
     <blockquote>
       <p style="margin-right: 32px;">Пользователь не доверяет скорости.</p>
       <p>Он доверяет вниманию.</p>
       <p style="margin-left: 90px;">А внимание — в архитектуре.</p>
     </blockquote>
 
+    <p class="page-part"></p>
+
     <button type="button" class="shock-btn"><i class="fa fa-superpowers" aria-hidden="true"></i></button>
+  </div>
+
+  <div class="project">
+		<h1>От унаследованной модели до производительной веб-системы</h1>
+
+    <h2>Семь взаимосвязанных проектов, где пользовательский опыт берёт начало в архитектуре</h2>
+
+    <p>Теперь, когда вы познакомились с тем, как производительность, надёжность и UX становятся вниманием, 
+        а внимание лежит в основе архитектуры, — пришло время погрузиться в детали.</p>
+
+    <p>Далее — семь проектов, каждый из которых создаёт уровень внимания пользователя.</p>
   </div>
 
   <div class="navigation">
@@ -8973,7 +8925,7 @@ if (g && o - h >= 8000) {
     </div>
 
   </div>
-
+  
   <div class="llm">
     <div style="
         background: #d0b9ff57;
@@ -9025,6 +8977,23 @@ if (g && o - h >= 8000) {
     </div>
   </div>
   
+    <p class="page-part"></p>
+  
+  <div class="stamp">
+		<h1>Так работает Инженер.</h1>
+
+    <h2>Это — Performance и UX Engineering со SRE подходом.</h2>
+
+    <p>Только проблемы, решения и измеримый результат.<br>
+       Всегда подход определяет инструменты.<br>
+       Опуская условия — система работает.</p>
+
+    <p>Пользователь доверяет вниманию.<br>
+       Внимание — в архитектуре.</p>
+  </div>
+  
+    <p class="page-part"></p>
+
     <p style="text-align: center; margin-top: 30px; font-size: 18px;">
       <a class="github" href="https://github.com/kyrchenkov/performance-engineering-and-ux"
         onclick="ym(106460448, 'reachGoal', 'click_github');" target="_blank"><i class="fa fa-github" aria-hidden="true"
