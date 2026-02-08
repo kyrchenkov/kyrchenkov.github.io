@@ -2369,18 +2369,18 @@
               transform: rotateX(359deg);
     }
 	
-	#widget {
+    #widget {
       display: block;
       position: relative;
       cursor: pointer;
       width: 110px;
       height: 110px;
       background-size: cover;
-      opacity: 0.8;
       transition: all 0.2s ease;
       margin: 20px 0px 10px 90px;
-      background-color: #ffcfcfcf;
-      background-image: url(https://github.com/kyrchenkov/kyrchenkov.github.io/blob/main/img/widget.webp?raw=true);
+      background-color: #ff7171cf;
+      background-image: linear-gradient(#ff7171, #bcfaff38, #ff717173),
+	                    url(https://github.com/kyrchenkov/kyrchenkov.github.io/blob/main/img/widget.webp?raw=true);
       -webkit-border-radius: 50%;
          -moz-border-radius: 50%;
           -ms-border-radius: 50%;
@@ -2401,8 +2401,8 @@
 	                     chaoticGlow 18s infinite linear alternate-reverse;
               animation: chaoticGlow 20s infinite linear alternate,
 	                     chaoticGlow 18s infinite linear alternate-reverse;
-      filter: hue-rotate(20deg);
-	}
+      filter: drop-shadow(0px 0px 1px #ffffff) hue-rotate(20deg);
+    }
 	
 	#widget::selection {
       background: transparent;
