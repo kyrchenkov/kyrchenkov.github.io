@@ -709,6 +709,10 @@
 					   rotateZ(180deg); }
 	  75% { transform: rotateZ(270deg); }
 	}
+	
+	@keyframes enlarge {
+	  50% { transform: scale(1.2); }
+	}
 
     * {
       margin: 0;
@@ -1045,16 +1049,27 @@
               box-shadow: 0 5px 10px 0 #586def;
     }
 	
-    .main-poster-container {
+    .home-page .main-poster-container,
+    .home-page .main-system-container {
       position: relative;
       width: 100%;
       height: 0;
       padding-bottom: 57.56%;
       overflow: hidden;
-	  filter: drop-shadow(0px 8px 12px #ffffff) contrast(1.5);
     }
 	
-    .home-page .poster-container {
+    .home-page .main-poster-container {
+      filter: drop-shadow(0px 8px 12px #ffffff) contrast(1.5);
+    }
+
+    .home-page .main-system-container {
+      margin-top: 13px;
+      margin-bottom: -50px;
+      box-shadow: inset 0px 0px 60px 60px #525f75;
+    }
+	
+    .home-page .poster-container,
+    .home-page .system-container {
       position: absolute;
       top: 0;
       left: 0;
@@ -1062,9 +1077,14 @@
       height: 100%;
       object-fit: cover;
       display: block;
-	  }
+    }
 	
-    .home-page .poster-space {
+    .home-page .system-container {
+      box-shadow: inset 0px 0px 30px 30px #525f75;
+    }
+	
+    .home-page .poster-space,
+    .home-page .system-space {
       width: 100%;
       margin: 0;
       padding: 0 5px;
@@ -1080,11 +1100,24 @@
 	      -ms-box-shadow: none;
 	       -o-box-shadow: none;
               box-shadow: none;
+    }
+	
+    .home-page .poster-space {
       animation: fadeIn 1.2s ease-in-out 0.2s forwards,
 	             revive .05s ease-in-out 0.2s infinite;
       filter: drop-shadow(0px 0px 10px #ffffff);
 	  transform: scale(1,1);
 	  transition: filter 0.4s ease, transform 0.6s ease;
+    }
+	
+    .home-page .system-space {
+	  z-index: -1;
+	  position: relative;
+	  pointer-events: none;
+	  transform: scale(1);
+	  filter: drop-shadow(0px 0px 10px #465164);
+	  animation: fadeIn 1.2s ease-in-out 0.2s forwards,
+	             enlarge 180s linear 0.2s infinite;
     }
 	
     .poster-container:hover .poster-space {
@@ -1152,6 +1185,20 @@
       text-shadow: 0px 0px 15px #ffffff8c;
       filter: drop-shadow(0px 20px 35px #ffffff)
 	          contrast(1.3);
+    }
+	
+    .home-page .h2 {
+      font-size: 22px;
+      text-align: center;
+      margin-top: 40px;
+      margin-bottom: 10px;
+      border-bottom: 3px solid transparent;
+      border-image-slice: 1 !important;
+      border-image: -webkit-linear-gradient(to right, transparent 12%, #d3e3ff 50%, transparent 88%);
+      border-image:    -moz-linear-gradient(to right, transparent 12%, #d3e3ff 50%, transparent 88%);
+      border-image:     -ms-linear-gradient(to right, transparent 12%, #d3e3ff 50%, transparent 88%);
+      border-image:      -o-linear-gradient(to right, transparent 12%, #d3e3ff 50%, transparent 88%);
+      border-image:         linear-gradient(to right, transparent 12%, #d3e3ff 50%, transparent 88%);
     }
 	
     .home-page .h3 {
@@ -1821,7 +1868,7 @@
 	
     .home-page .shock-btn:active {
       top: 25px;
-      right: 6px;
+      right: 2px;
 	  animation: none;
       -webkit-border-radius: 25px;
          -moz-border-radius: 25px;
@@ -2444,6 +2491,11 @@
       .home-page th, .home-page td {
         padding: 6px 8px;
       }
+	  
+      .home-page .mb {
+        font-size: 16px;
+        margin: auto 45px;
+      }
 
       .home-page .accent {
         padding: 12px;
@@ -2504,6 +2556,10 @@
         padding: 60px 30px;
         max-width: 800px;
         margin: 0 auto;
+	  }
+	  
+	  .home-page .h2 {
+        font-size: 20px;
 	  }
 	  
       .home-page .h3 {
@@ -2657,6 +2713,28 @@
     .stamp p {
       font-size: 20px;
     }
+
+    .project .container {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      align-items: center;
+      margin: 60px;
+    }
+	
+    .project .container p {
+      width: 400px;
+      text-align: center;
+      margin: -5px;
+      padding: 12px;
+      border: 2px solid #f9fafa5c;
+    }
+	
+    .project .container span {
+      text-align: center;
+      color: #f9fafa5c;
+      margin-top: -2px;
+    }
 	
     .navigation {
       display: flex;
@@ -2704,6 +2782,20 @@
            -o-transform: scale(1, 0.9);
               transform: scale(1, 0.9);
       filter: drop-shadow(0 0 transparent) contrast(1.05);
+    }
+	
+    .navigation p {
+      width: 60px;
+      color: #f9fafa5c;
+      cursor: default;
+      user-select: none;
+      border-image-slice: 1 !important;
+      border-bottom: 3px solid transparent;
+      border-image: -webkit-linear-gradient(to right, #f9fafa5c 14%, transparent 60%);
+      border-image:    -moz-linear-gradient(to right, #f9fafa5c 14%, transparent 60%);
+      border-image:     -ms-linear-gradient(to right, #f9fafa5c 14%, transparent 60%);
+      border-image:      -o-linear-gradient(to right, #f9fafa5c 14%, transparent 60%);
+      border-image:         linear-gradient(to right, #f9fafa5c 14%, transparent 60%);
     }
 
     .vibe {
@@ -3327,6 +3419,17 @@
         font-size: 20px;
 		max-width: 260px;
         gap: 12px;
+		margin-bottom: -20px;
+      }
+	  
+      .navigation p {
+        margin-top: 15px;
+        width: 260px;
+        border-image: -webkit-linear-gradient(to right, #f9fafa5c 60%, transparent 90%);
+        border-image:    -moz-linear-gradient(to right, #f9fafa5c 60%, transparent 90%);
+        border-image:     -ms-linear-gradient(to right, #f9fafa5c 60%, transparent 90%);
+        border-image:      -o-linear-gradient(to right, #f9fafa5c 60%, transparent 90%);
+        border-image:         linear-gradient(to right, #f9fafa5c 60%, transparent 90%);
       }
 	  
       .docs {
@@ -3371,6 +3474,11 @@
 	  
       .stamp p {
         font-size: 16px;
+      }
+	  
+      .project .container p {
+        width: 310px;
+        font-size: 12px;
       }
 	  
       .nav-ml-сache {
@@ -5434,8 +5542,6 @@
 		  что такое <strong>SRE подход</strong>, 
 		  и почему <strong>Performance Engineering</strong> начинается с<strong> целостной архитектуры</strong>
 		</p>
-
-    <h2 style="text-align: center; border: none;">Процесс языком инженерии</h2>
 	
 	<div class="main-poster-container">
 	  <div class="poster-container">
@@ -5468,7 +5574,21 @@
 
     <p class="page-part"></p>
 
-    <h2 style="text-align: center; border: none;">Продакшн: проблемы, решения и измеримый результат</h2>
+    <h2 class="h2">Продакшн: проблемы, решения и измеримый результат</h2>
+		<p class="p-down mb">
+		  Знакомимся с работой инженера - как взгляд на подход
+		</p>
+		<p style="text-align: center;">
+		  Документ системы
+		</p>
+		
+	<div class="main-system-container">
+	  <div class="system-container">
+	    <img class="system-space"
+	      src="https://github.com/kyrchenkov/kyrchenkov.github.io/blob/main/img/system.png?raw=true"
+	      alt="Документ системы">
+	  </div>
+	</div>
 
     <h2>1. Цель</h2>
     <p>Построить систему вокруг одной платформы, чтобы решить реальные операционные и пользовательские проблемы.</p>
@@ -5797,6 +5917,16 @@
 
     <h2>Семь взаимосвязанных проектов, где пользовательский опыт берёт начало в архитектуре</h2>
 
+    <div class="container">
+      <p><strong>Четырёхуровневое кэширование</strong><br>ML-Cache</p><span>|</span>
+      <p><strong>Поведенческая навигация с предзагрузкой</strong><br>ISPN</p><span>|</span>
+      <p><strong>Мобильное веб-приложение + SW для браузеров</strong><br>PWA-Layer</p><span>|</span>
+      <p><strong>Браузерное расширение для операторов</strong><br>OPS-UX</p><span>|</span>
+      <p><strong>Диалоговое ядро с памятью и LLM</strong><br>DialogCore</p><span>|</span>
+      <p><strong>«Живой диалог» UX с платформой</strong><br>AI-Оператор</p><span>|</span>
+      <p><strong>Современный UI как отклик</strong><br>UX-Vibe</p>
+    </div>
+
     <p>Теперь, когда вы познакомились с тем, как производительность, надёжность и UX становятся вниманием, 
         а внимание лежит в основе архитектуры, — пришло время погрузиться в детали.</p>
 
@@ -5812,7 +5942,10 @@
     <a class="nav-dialogcore" href="#href-dialogcore">DialogCore</a>
     <a class="nav-ioperator" href="#href-ioperator">AI-Оператор</a>
     <a class="nav-ux-vibe" href="#href-ux-vibe">UX-Vibe</a>
+	<p></p>
   </div>
+
+    <p class="page-part"></p>
 
   <div class="docs ml-сache">
     <h1 id="href-ml-сache">ML-Cache — Многоуровневая система кэширования</h1>
@@ -6233,7 +6366,8 @@ curl -I https://example.com/</pre>
     </div>
 
   </div>
-
+  
+    <p class="page-part"></p>
 
   <div class="docs ispn">
     <h1 id="href-ispn">ISPN — Интеллектуальная система предиктивной навигации</h1>
@@ -6583,6 +6717,8 @@ if (
     </div>
 
   </div>
+  
+    <p class="page-part"></p>
 
   <div class="docs pwa-layer">
     <h1 id="href-pwa-layer">PWA-Layer — Архитектура изолированного прикладного слоя</h1>
@@ -7051,6 +7187,8 @@ async function installApp() {
     </div>
 
   </div>
+  
+    <p class="page-part"></p>
 
   <div class="docs ops-ux">
     <h1 id="href-ops-ux">OPS-UX: Операционная система поддержки для e-commerce</h1>
@@ -7388,6 +7526,8 @@ observer.observe(document.body, { childList: true, subtree: true });
     </div>
 
   </div>
+  
+    <p class="page-part"></p>
 
   <div class="docs dialogcore">
     <h1 id="href-dialogcore">DialogCore: диалоговая инфраструктура с ИИ и 500+ узлами</h1>
@@ -7930,6 +8070,8 @@ state: newNode_***
     </div>
 
   </div>
+  
+    <p class="page-part"></p>
 
   <div class="docs aioperator">
     <h1 id="href-ioperator">«AI-Оператор как сердце интерфейса: как техническая архитектура превращается в живое
@@ -8544,6 +8686,8 @@ if (g && o - h >= 8000) {
     </div>
 
   </div>
+  
+    <p class="page-part"></p>
 
   <div class="docs vibe">
     <div class="vibe-layer">
