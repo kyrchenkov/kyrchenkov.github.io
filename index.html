@@ -13,64 +13,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://sre.uxengineer.ru/" rel="canonical" />
   <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js" defer></script>
-  	<!-- Yandex.Metrika counter -->
-  <script type="text/javascript">
-      (function(m,e,t,r,i,k,a){
-          m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-          m[i].l=1*new Date();
-          for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-          k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-      })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=106460448', 'ym');
-
-      ym(106460448, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
-  </script>
-  <noscript><div><img src="https://mc.yandex.ru/watch/106460448" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-    <!-- /Yandex.Metrika counter -->
-  <script>
-    (function () {
-      const referrer = document.referrer;
-      if (!referrer) return;
-
-      const ymId = 106460448;
-      const goals = [
-        { check: 'career.habr.com', event: 'would_be', flag: 'hasSentWouldBe' },
-      
-        { 
-          check: 'habr.com', 
-          event: 'hbr', 
-          flag: 'hasSentHbrEvent',
-          exclude: 'career.habr.com' 
-        },
-      
-        { check: 'hh.ru', event: 'would_be', flag: 'hasSentWouldBe' },
-        { check: 'github.com', event: 'github', flag: 'hasSentGithubEvent' },
-        { check: 'linkedin.com', event: 'lnkdn', flag: 'hasSentLnkdnEvent' }
-      ];
-
-      goals.forEach(goal => {
-        const includesCheck = referrer.includes(goal.check);
-      
-        const isExcluded = goal.exclude ? referrer.includes(goal.exclude) : false;
-
-        if (
-          includesCheck && 
-          !isExcluded && 
-          !window[goal.flag]
-        ) {
-          window[goal.flag] = true;
-
-          const checkYm = setInterval(() => {
-            if (typeof ym !== 'undefined') {
-              ym(ymId, 'reachGoal', goal.event);
-              clearInterval(checkYm);
-            }
-          }, 100);
-
-          setTimeout(() => clearInterval(checkYm), 3000);
-        }
-      });
-    })();
-  </script>
 
   <script>
   (function () {
@@ -9145,20 +9087,20 @@ if (g && o - h >= 8000) {
 
     <p style="text-align: center; margin-top: 30px; font-size: 18px;">
       <a class="github" href="https://github.com/kyrchenkov/performance-engineering-and-ux"
-        onclick="ym(106460448, 'reachGoal', 'click_github');" target="_blank"><i class="fa fa-github" aria-hidden="true"
+         target="_blank"><i class="fa fa-github" aria-hidden="true"
           style="font-weight: 600;"></i><span>Обзорный код и архитектура на GitHub</span></a>
     </p>
 
     <p style="text-align: center; margin-top: 30px; font-size: 18px;">
-      <a class="hubr" href="https://habr.com/ru/articles/980970" onclick="ym(106460448, 'reachGoal', 'click_hubr');"
+      <a class="hubr" href="https://habr.com/ru/articles/980970"
         target="_blank"><i class="fa fa-ravelry" aria-hidden="true" style="font-weight: 600;"></i><span>«Инженерия UX и
           производительности: от ядра к периферии»</span></a>
     </p>
 
     <div style="text-align: center; margin-top: 12px; font-size: 18px;">
-      <p class="ready-contact"><a href="mailto:kyrchenkov@gmail.com"
-          onclick="ym(106460448, 'reachGoal', 'click_email');"><i class="fa fa-envelope"></i></a> <a
-          href="https://t.me/kyrchenkov" onclick="ym(106460448, 'reachGoal', 'click_telegram');"><i
+      <p class="ready-contact"><a href="mailto:kyrchenkov@gmail.com">
+          <i class="fa fa-envelope"></i></a> <a
+          href="https://t.me/kyrchenkov"><i
             class="fa fa-telegram"></i></a></p>
     </div>
 
@@ -9454,69 +9396,6 @@ if (g && o - h >= 8000) {
   
       })();
     }
-  </script>
-
-  <script>
-    window.addEventListener('scroll', function () {
-      const footer = document.querySelector('.footer');
-      if (!footer) return;
-
-      const rect = footer.getBoundingClientRect();
-      if (rect.top <= window.innerHeight && !window.hasReachedFooter) {
-        window.hasReachedFooter = true;
-        if (typeof ym !== 'undefined') {
-          ym(106460448, 'reachGoal', 'scroll_to_footer');
-        }
-      }
-    }, { passive: true });
-  </script>
-
-  <script>
-    (function () {
-      let scrollCount = 0;
-      let lastScrollY = window.scrollY;
-      let hasReachedFooter = false;
-      let hasSentEvent = false;
-
-      const handleScroll = () => {
-        const currentScrollY = window.scrollY;
-        if (Math.abs(currentScrollY - lastScrollY) > 10) {
-          scrollCount++;
-          lastScrollY = currentScrollY;
-        }
-
-        const footer = document.querySelector('.footer');
-        if (footer && !hasReachedFooter) {
-          const rect = footer.getBoundingClientRect();
-          if (rect.top <= window.innerHeight) {
-            hasReachedFooter = true;
-          }
-        }
-      };
-
-      window.addEventListener('scroll', handleScroll, { passive: true });
-
-      setTimeout(() => {
-        const checkInterval = setInterval(() => {
-          if (scrollCount >= 6 && hasReachedFooter && !hasSentEvent) {
-            hasSentEvent = true;
-            if (typeof ym !== 'undefined') {
-              ym(106460448, 'reachGoal', 'reader_complete');
-            }
-            clearInterval(checkInterval);
-            window.removeEventListener('scroll', handleScroll);
-          }
-        }, 2000);
-
-        setTimeout(() => {
-          clearInterval(checkInterval);
-        }, 600000);
-      }, 120000);
-
-      window.addEventListener('beforeunload', () => {
-        window.removeEventListener('scroll', handleScroll);
-      });
-    })();
   </script>
   
   <script>
